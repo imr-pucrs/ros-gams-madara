@@ -1,0 +1,36 @@
+
+project (custom_controller) : using_gams, using_madara, using_ace, using_vrep {
+  exeout = bin
+  exename = custom_controller
+  
+  macros +=  _USE_MATH_DEFINES
+
+  Documentation_Files {
+    README.txt
+  }
+  
+  Build_Files {
+    project.mpc
+    workspace.mpc
+  }
+
+  Header_Files {
+    src/
+    src/algorithms
+    src/filters
+    src/platforms
+    src/platforms/threads
+    src/threads
+    src/transports
+  }
+
+  Source_Files {
+    src
+    src/algorithms
+    src/filters
+    src/platforms
+    src/platforms/threads
+    src/threads
+    src/transports
+  }
+}

@@ -1,0 +1,1134 @@
+gams::controllers::BaseController::init_vars: agent.0 self,  group
+GroupFactoryRepository::create reading group at prefix 
+gams::controllers::BaseController::init_vars: agent.0 self, no group
+gams::platforms::PlatformFactoryRepository:add Adding debug factory.
+gams::platforms::PlatformFactoryRepository:add Adding print factory.
+gams::platforms::PlatformFactoryRepository:add Adding printer factory.
+gams::platforms::PlatformFactoryRepository:add Adding null factory.
+gams::platforms::PlatformFactoryRepository:add Adding rosp3dx factory.
+gams::platforms::PlatformFactoryRepository:add Adding ros-p3dx factory.
+gams::algorithms::AlgorithmFactoryRepository:initialize_default_mappings Creating map of all default algorithm factories.
+gams::algorithms::AlgorithmFactoryRepository:initialize_default_mappings Flag has not been set. Initializing.
+gams::algorithms::AlgorithmFactoryRepository:add Adding barrier factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding debug factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding print factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding printer factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding exec factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding executor factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding follow factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation sync factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding hold factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding home factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding return factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding karl factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding message profiling factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding move factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding null factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding performance profiling factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding perimeter patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding pp factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding takeoff factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding land factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding wait factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zone coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zone defense factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding text factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding spell factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding perimeter patrol area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding ppac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding priority weighted random area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding pwrac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding priority weighted random area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding pwrac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding uniform random area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding urac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding uniform random edge coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding urec factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints_coverage factory.
+gams::controllers::BaseController::constructor: default constructor called.
+gams::controllers::Bautility::bind_to_ephemeral_port: getting hostname from ACE_INET_Addr
+KnowledgeBaseImpl::setup_unique_hostport: unique bind to paravisi-pc:50000
+KnowledgeBaseImpl::attach_transport: activating transport type 5
+transport::Base::setup no permanent rules were set
+transport::Base::setup no read domains set. Adding write domain (gams_sims)
+transport::Base::setup Write domain: gams_sims. Read domains: gams_sims
+MulticastTransport::setup: default socket buff size is send=212992, rcv=212992
+MulticastTransport::setup: setting send buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=212992
+MulticastTransport::setup: setting rcv buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=425984
+MulticastTransport::setup: settings address[0] to 239.255.0.1:4150
+MulticastTransport::setup: Success subscribing to multicast address 239.255.0.1:4150
+MulticastTransport::setup: default socket buff size is send=0, rcv=212992
+MulticastTransport::setup: setting send buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=212992
+MulticastTransport::setup: setting rcv buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=425984
+MulticastTransport::setup: starting 1 threads at 0.000000 hertz
+WorkerThread::WorkerThread(read0): thread started (result = 0)
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to agent.0.location
+NativeDoubleVector::set_name: setting name to agent.0.orientation
+WorkerThread(read0)::svc: checking thread existence
+MulticastTransportReadThread::init: no permanent rules were set
+NativeDoubleVector::set_name: setting name to agent.0.home
+WorkerThread(read0)::svc: thread blasting at infinite hz
+NativeDoubleVector::set_name: setting name to agent.0.source
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+NativeDoubleVector::set_name: setting name to agent.0.source_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to agent.0.location
+NativeDoubleVector::set_name: setting name to agent.0.orientation
+NativeDoubleVector::set_name: setting name to agent.0.home
+NativeDoubleVector::set_name: setting name to agent.0.source
+NativeDoubleVector::set_name: setting name to agent.0.source_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest
+KnowledgeBaseImpl::compile: compiling 
+/**
+ * Set VREP view area GPS mapping
+ **/
+.vrep_sw_position = [40.443077,-79.940570];
+.vrep_ne_position = [40.443387,-79.940098];
+
+/**
+ * Surface can be concrete or water 
+ **/
+.surface = 'water';
+
+/**
+ * Define an example search area. Search areas can contain multiple regions.
+**/
+search_area.1.object_type = 4;
+search_area.1.size = 1;
+search_area.1.0 = 'region.0';
+
+/**
+ * Define region.0
+**/
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 0;
+region.0.size = 4;
+region.0.0 = [40.443237, -79.940570];
+region.0.1 = [40.443387, -79.940270];
+region.0.2 = [40.443187, -79.940098];
+region.0.3 = [40.443077, -79.940398];;
+
+/**
+ * Common algorithm that may be used to initialize agent algorithms
+ **/
+.algorithm = 'null';
+
+/**
+ * Type of platform to use. Options include:
+ * vrep-quad       : A VREP quadcopter
+ * vrep-quad-laser : A VREP quadcopter
+ * vrep-boat       : A VREP boat
+ * vrep-ant        : A VREP ant-like ground robot
+ * vrep-summit     : A VREP Summit robot
+ * 
+ * Specialty options (must be compiled with more than just vrep feature)
+ * ros-p3dx        : A ROS Pioneer 3DX robot
+ **/
+.platform = 'turtlebot';
+
+sensor.coverage.origin=[40.443077,-79.940570, 0.0];
+
+/**
+ * The host information where VREP is running
+ **/
+.vrep_host = '127.0.0.1';
+
+/**
+ * Max distance (meters) to move target when VREPBase::move is invoked,
+ * if no move thread is being used (vrep_move_thread_rate = 0)
+ **/
+.vrep_max_delta = 1;
+
+/**
+ * Hertz rate to run VREPBase move thread. Set to zero to disable thread
+ **/
+.vrep_move_thread_rate = 10;
+
+/**
+ * Each thread tick, target will move at most vrep_thread_move_speed divided
+ * by vrep_move_thread_rate meters.
+ **/
+.vrep_thread_move_speed = 2;;
+
+// Setup VREP port for agent
+.vrep_port = 19906;
+
+/**
+ * Change the following to unique coordinates
+ * for each agent file
+ **/
+.initial_lat = 40.443136;
+.initial_lon = -79.940274;
+.initial_alt = 4;
+
+/**
+ * Set the algorithm for the agent
+ **/
+agent.0.algorithm = "patrol";
+;
+
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KnowledgeBaseImpl::evaluate: evaluating 
+/**
+ * Set VREP view area GPS mapping
+ **/
+.vrep_sw_position = [40.443077,-79.940570];
+.vrep_ne_position = [40.443387,-79.940098];
+
+/**
+ * Surface can be concrete or water 
+ **/
+.surface = 'water';
+
+/**
+ * Define an example search area. Search areas can contain multiple regions.
+**/
+search_area.1.object_type = 4;
+search_area.1.size = 1;
+search_area.1.0 = 'region.0';
+
+/**
+ * Define region.0
+**/
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 0;
+region.0.size = 4;
+region.0.0 = [40.443237, -79.940570];
+region.0.1 = [40.443387, -79.940270];
+region.0.2 = [40.443187, -79.940098];
+region.0.3 = [40.443077, -79.940398];;
+
+/**
+ * Common algorithm that may be used to initialize agent algorithms
+ **/
+.algorithm = 'null';
+
+/**
+ * Type of platform to use. Options include:
+ * vrep-quad       : A VREP quadcopter
+ * vrep-quad-laser : A VREP quadcopter
+ * vrep-boat       : A VREP boat
+ * vrep-ant        : A VREP ant-like ground robot
+ * vrep-summit     : A VREP Summit robot
+ * 
+ * Specialty options (must be compiled with more than just vrep feature)
+ * ros-p3dx        : A ROS Pioneer 3DX robot
+ **/
+.platform = 'turtlebot';
+
+sensor.coverage.origin=[40.443077,-79.940570, 0.0];
+
+/**
+ * The host information where VREP is running
+ **/
+.vrep_host = '127.0.0.1';
+
+/**
+ * Max distance (meters) to move target when VREPBase::move is invoked,
+ * if no move thread is being used (vrep_move_thread_rate = 0)
+ **/
+.vrep_max_delta = 1;
+
+/**
+ * Hertz rate to run VREPBase move thread. Set to zero to disable thread
+ **/
+.vrep_move_thread_rate = 10;
+
+/**
+ * Each thread tick, target will move at most vrep_thread_move_speed divided
+ * by vrep_move_thread_rate meters.
+ **/
+.vrep_thread_move_speed = 2;;
+
+// Setup VREP port for agent
+.vrep_port = 19906;
+
+/**
+ * Change the following to unique coordinates
+ * for each agent file
+ **/
+.initial_lat = 40.443136;
+.initial_lon = -79.940274;
+.initial_alt = 4;
+
+/**
+ * Set the algorithm for the agent
+ **/
+agent.0.algorithm = "patrol";
+;
+.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 662
+MulticastTransport::send_data: Sent packet of size 662
+MulticastTransportReadThread::run: received a message header of 662 bytes from 192.168.0.109:54368
+MulticastTransport::send_data: Send bandwidth = 66 B/s
+MulticastTransportReadThread::run: Receive bandwidth = 66 B/s
+MulticastTransportReadThread::run: calling decode filters on 662 bytes
+MulticastTransportReadThread::run: Decoding resulted in 662 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+KnowledgeBaseImpl::compile: compiling agent.0.madara_debug_level = 3
+KnowledgeBaseImpl::evaluate: evaluating agent.0.madara_debug_level = 3.
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeBaseImpl::compile: compiling agent.0.gams_debug_level = 3
+KnowledgeBaseImpl::evaluate: evaluating agent.0.gams_debug_level = 3.
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to sensor.coverage.origin
+NativeDoubleVector::resize: sensor.coverage.origin: resizing to 3
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to sensor.coverage.origin
+NativeDoubleVector::set: sensor.coverage.origin: setting element [0] to 40.443077
+NativeDoubleVector::set: sensor.coverage.origin: setting element [1] to -79.940570
+NativeDoubleVector::set: sensor.coverage.origin: setting element [2] to 0.000000
+NativeDoubleVector::destructor called on sensor.coverage.origin
+KnowledgeRecord::apply: checking if record is non-zero.
+Integer::is_true: checking for non-zero value
+KnowledgeRecord::apply: checking if record is non-zero.
+Integer::is_true: final result is 0
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MuseController::init_vars: 0 id, 1 processes
+gams::algorithms::AlgorithmFactoryRepository:add Adding patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding square_patrol factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlebot_platform factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlebot factory.
+gams::controllers::BaseController::init_platform: initializing platform turtlebot
+gams::controllers::BaseController::init_platform: deleting old platform
+gams::controllers::BaseController::init_platform: factory is creating platform turtlebot
+gams::controllers::BaseController::init_vars: initializing platform's vars
+gams::controllers::BaseController::init_platform: Updating algorithm factory's platform
+gams::controllers::BaseController::init_algorithm: initializing algorithm debug
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm debug
+gams::algorithms::AlgorithmFactoryRepository::create: creating "debug" algorithm.
+gams::algorithms::BaseAlgorithm: constructor succeeded
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: loop_period: 1.000000s, max_runtime: 300.000000s, send_period: 1.000000s
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::system_analyze: Processing agent command: patrol
+gams::controllers::BaseController::init_algorithm: initializing algorithm patrol
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm patrol
+gams::algorithms::AlgorithmFactoryRepository::create: creating "patrol" algorithm.
+gams::algorithms::BaseAlgorithm: constructor succeeded
+algorithms::patrolFactory::create: successfully created patrol algorithm
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 23 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 23 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 23 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 23 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+lticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 1264
+MulticastTransport::send_data: Sent packet of size 1264
+MulticastTransport::send_data: Send bandwidth = 192 B/s
+MulticastTransportReadThread::run: received a message header of 1264 bytes from 192.168.0.109:54368
+MulticastTransportReadThread::run: Receive bandwidth = 192 B/s
+MulticastTransportReadThread::run: calling decode filters on 1264 bytes
+MulticastTransportReadThread::run: Decoding resulted in 1264 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run f asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gamunction
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::as::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyzepply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+
+
+ asking plataform to move!!!
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: afte
