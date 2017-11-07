@@ -6,11 +6,13 @@
 
 #include "madara/knowledge/containers/Integer.h"
 
+
 #include "gams/variables/Sensor.h"
 #include "gams/platforms/BasePlatform.h"
 #include "gams/variables/AlgorithmStatus.h"
 #include "gams/variables/Self.h"
 #include "gams/algorithms/BaseAlgorithm.h"
+//#include "gams/variables/PlatformStatus.h"
 #include "gams/algorithms/AlgorithmFactory.h"
 
 namespace algorithms
@@ -20,6 +22,10 @@ namespace algorithms
   **/
   class square_patrol : public gams::algorithms::BaseAlgorithm
   {
+	protected:
+	std::vector<gams::pose::Position> wayPoints;
+	int now;
+	int status;
   public:
     /**
      * Constructor

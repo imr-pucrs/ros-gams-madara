@@ -97,7 +97,35 @@ int platforms::turtlebot_platform::sense (void)
 int
 platforms::turtlebot_platform::analyze (void)
 {
-  return gams::platforms::PLATFORM_OK;
+madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- turtlebot_platform::analyze::status: %d\n\n", status);
+  if (status == gams::platforms::UNKNOWN)
+	return gams::platforms::UNKNOWN;
+  if ((move_client_.getState().toString().compare("ACTIVE")==0) )//|| (move_client_.getState().toString().compare("PENDING")==0))
+  {
+        madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- Still trying to move!!! Please wait...%s\n\n", move_client_.getState().toString().c_str());
+	return status=gams::platforms::MOVING;
+  }
+  else   if (move_client_.getState().toString().compare("PENDING")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PENDING!!!...\n\n");
+	return status=gams::platforms::MOVEMENT_AVAILABLE;
+
+  }
+
+  else   if (move_client_.getState().toString().compare("SUCCEEDED")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ARRIVED!!!...\n\n");
+	return status=gams::platforms::OK;
+
+  }
+madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- moveclient %s...\n\n", move_client_.getState().toString().c_str());
+
+  return gams::platforms::OK;
 }
 
 
@@ -202,22 +230,27 @@ platforms::turtlebot_platform::move (
    * return that we are in the process of moving to the final pose.
    **/
   // generate message
-  madara_logger_ptr_log (gams::loggers::global_logger.get (),
-      gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
-  move_base_msgs::MoveBaseGoal goal;
-  goal.target_pose.header.frame_id = "/map";
-  goal.target_pose.header.stamp = ros::Time::now ();
-  goal.target_pose.pose.position.x = location.x ();
-  goal.target_pose.pose.position.y = location.y ();
-  goal.target_pose.pose.position.z = 0.0;
-  goal.target_pose.pose.orientation.w = 1.0;
   
-  // send the goal
-  ROS_INFO("Sending goal");
-  move_client_.sendGoal(goal);//*/
+	if (status == gams::platforms::UNKNOWN)
+		status = gams::platforms::MOVING;
+	  madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
+	  move_base_msgs::MoveBaseGoal goal;
+	  goal.target_pose.header.frame_id = "map";
+	  goal.target_pose.header.stamp = ros::Time::now ();
+	  goal.target_pose.pose.position.x = location.x ();
+	  goal.target_pose.pose.position.y = location.y ();
+	  goal.target_pose.pose.position.z = 0.0;
+	  goal.target_pose.pose.orientation.w = 1.0;
+  
+	  
+	  // send the goal
+	  ROS_INFO("Sending goal");
+	  move_client_.sendGoal(goal);//*/
 
 
-  return gams::platforms::PLATFORM_MOVING;
+	  return status = gams::platforms::PLATFORM_MOVING;
+  
 }
 
 

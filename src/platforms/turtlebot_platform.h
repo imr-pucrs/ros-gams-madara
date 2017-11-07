@@ -27,6 +27,8 @@ namespace platforms
   **/
   class turtlebot_platform : public gams::platforms::RosBase
   {
+  protected: 
+	int status = gams::platforms::UNKNOWN;
   public:
     /**
      * Constructor
@@ -175,6 +177,8 @@ namespace platforms
      * Returns the reference frame for the platform (e.g. GPS or cartesian)
      **/
     virtual const gams::pose::ReferenceFrame & get_frame (void) const;
+
+std::string getMoveBaseStatus() { return move_client_.getState().toString(); };
     
   private:
     // a threader for managing platform threads

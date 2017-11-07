@@ -13,5 +13,5 @@
 /**
  * Set the algorithm for the agent
  **/
-agent.0.algorithm = "patrol";
+agent.0.algorithm = "square_patrol";
 

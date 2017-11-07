@@ -61,6 +61,12 @@ algorithms::square_patrol::square_patrol (
 {
   status_.init_vars (*knowledge, "square_patrol", self->agent.prefix);
   status_.init_variable_values ();
+  wayPoints.push_back(gams::pose::Position(1,0,0));
+  wayPoints.push_back(gams::pose::Position(1,2,0));
+  wayPoints.push_back(gams::pose::Position(-1,2,0));
+  wayPoints.push_back(gams::pose::Position(-1,0,0));
+  now = 0;
+  status = gams::platforms::UNKNOWN;
 }
 
 algorithms::square_patrol::~square_patrol ()
@@ -70,18 +76,40 @@ algorithms::square_patrol::~square_patrol ()
 int
 algorithms::square_patrol::analyze (void)
 {
-  return 0;
+	
+
+	status = platform_->analyze();
+	madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      		 	  gams::loggers::LOG_MAJOR,"\n\n square_patrol::ANALYZE::STATUS %d\n\n", status);
+	if (status == gams::platforms::OK)
+	{
+		now = (now + 1)% wayPoints.size();
+	}
+	
+	
+  	return 0;
 }
       
 
 int
 algorithms::square_patrol::execute (void)
 {
-
-  platform_->move(gams::pose::Position(1,0,0),0.1);
-  madara_logger_ptr_log (gams::loggers::global_logger.get (),
-      gams::loggers::LOG_MAJOR,"\n\n asking plataform to move!!!\n\n");
-
+	if (wayPoints.size() >0)
+	{
+		if ((status == gams::platforms::OK)  || (status == gams::platforms::UNKNOWN) || (status == gams::platforms::MOVEMENT_AVAILABLE))
+		{
+	  		platform_->move(wayPoints[now],0.1);
+			if (status == gams::platforms::UNKNOWN)
+			{
+				status = gams::platforms::OK;
+			}
+		
+  	  		madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      		 	  gams::loggers::LOG_MAJOR,"\n######################\n ######################asking platform to move!!! now: %d\n\n", now);
+		}
+		
+	}
+  
   return 0;
 }
 
