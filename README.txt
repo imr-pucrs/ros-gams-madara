@@ -40,3 +40,12 @@ HOW TO:
     open VREP simulator
     perl sim/run.pl 
     
+
+TESTING PATROL
+--------------
+
+roscore 
+roslaunch turtlebot_gazebo turtlebot_world.launch
+roslaunch turtlebot_navigation amcl_demo.launch map_file:=/home/paravisi/turtlebotmap2.yaml
+roslaunch turtlebot_rviz_launchers view_navigation.launch 
+./action run
