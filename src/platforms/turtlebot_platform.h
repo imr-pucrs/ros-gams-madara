@@ -18,6 +18,9 @@
 #include "move_base_msgs/MoveBaseAction.h"
 #include "actionlib/client/simple_action_client.h"
 #include "geometry_msgs/PoseWithCovarianceStamped.h"
+#include <dynamic_reconfigure/DoubleParameter.h>
+#include <dynamic_reconfigure/Reconfigure.h>
+#include <dynamic_reconfigure/Config.h>
 
 
 namespace platforms
@@ -198,6 +201,8 @@ namespace platforms
       actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_client_;
 
     bool firstMoveSent;
+    gams::pose::Position lastWaypoint;
+    ros::ServiceClient updateServiceClientMoveBase;
 
   }; // end turtlebot_platform class
 

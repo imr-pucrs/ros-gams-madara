@@ -101,24 +101,30 @@ gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
 
- ------------- turtlebot_platform::analyze::status_: 21559352
+ ------------- turtlebot_platform::analyze::status_: 19269688
 
 gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+++++++++++++++++++++++++++++++++++++ Executing now 1 / 4
+
 gams::controllers::BaseController::run: after analyze (), 23 modifications to send
 gams::controllers::BaseController::run: calling plan ()
 gams::controllers::BaseController::plan: calling algorithm_->plan ()
 gams::controllers::BaseController::run: after plan (), 23 modifications to send
 gams::controllers::BaseController::run: calling execute ()
 gams::controllers::BaseController::execute: calling algorithm_->execute ()
- Executing now 1 
+ Executing now 1 / 4
 
 
 
  ------------- RECEIVED REQUEST TO MOVE!!!
 
 
+
+ ---- SUCCESS: speed changed 0.200000!!!
+
+
 ######################
- ######################asking platform to move!!! now: 1
+ ######################asking platform to move!!! now: 1 / 4
 
 gams::controllers::BaseController::run: after execute (), 23 modifications to send
 gams::controllers::BaseController::run: calling system_analyze ()
@@ -131,7 +137,7 @@ gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
 
- ------------- turtlebot_platform::analyze::status_: 21559352
+ ------------- turtlebot_platform::analyze::status_: 19269688
 
 
 
@@ -144,7 +150,7 @@ gams::controllers::BaseController::plan: calling algorithm_->plan ()
 gams::controllers::BaseController::run: after plan (), 0 modifications to send
 gams::controllers::BaseController::run: calling execute ()
 gams::controllers::BaseController::execute: calling algorithm_->execute ()
- Executing now 1 
+ Executing now 1 / 4
 
 gams::controllers::BaseController::run: after execute (), 0 modifications to send
 gams::controllers::BaseController::run: calling system_analyze ()
@@ -157,7 +163,7 @@ gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
 
- ------------- turtlebot_platform::analyze::status_: 21559352
+ ------------- turtlebot_platform::analyze::status_: 19269688
 
 
 
@@ -170,7 +176,7 @@ gams::controllers::BaseController::plan: calling algorithm_->plan ()
 gams::controllers::BaseController::run: after plan (), 0 modifications to send
 gams::controllers::BaseController::run: calling execute ()
 gams::controllers::BaseController::execute: calling algorithm_->execute ()
- Executing now 1 
+ Executing now 1 / 4
 
 gams::controllers::BaseController::run: after execute (), 0 modifications to send
 gams::controllers::BaseController::run: calling system_analyze ()
@@ -183,7 +189,7 @@ gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
 
- ------------- turtlebot_platform::analyze::status_: 21559352
+ ------------- turtlebot_platform::analyze::status_: 19269688
 
 
 
@@ -195,4 +201,2196 @@ gams::controllers::BaseController::run: calling plan ()
 gams::controllers::BaseController::plan: calling algorithm_->plan ()
 gams::controllers::BaseController::run: after plan (), 0 modifications to send
 gams::controllers::BaseController::run: calling execute ()
-gams::controllers::BaseController::execute: calling algorithm_->execu
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 1 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- PLATFORM ARRIVED!!!...
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+++++++++++++++++++++++++++++++++++++ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+
+
+ ------------- RECEIVED REQUEST TO MOVE!!!
+
+
+
+ ---- SUCCESS: speed changed 0.300000!!!
+
+
+######################
+ ######################asking platform to move!!! now: 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 2 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- PLATFORM ARRIVED!!!...
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+++++++++++++++++++++++++++++++++++++ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+
+
+ ------------- RECEIVED REQUEST TO MOVE!!!
+
+
+
+ ---- SUCCESS: speed changed 0.400000!!!
+
+
+######################
+ ######################asking platform to move!!! now: 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 3 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- PLATFORM ARRIVED!!!...
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+++++++++++++++++++++++++++++++++++++ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+
+
+ ------------- RECEIVED REQUEST TO MOVE!!!
+
+
+
+ ---- SUCCESS: speed changed 0.100000!!!
+
+
+######################
+ ######################asking platform to move!!! now: 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...ACTIVE
+
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+ Executing now 0 / 4
+
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+
+ ------------- turtlebot_platform::analyze::status_: 19269688
+
+
+
+ ------------- Still trying to move!!! Please wait...AC

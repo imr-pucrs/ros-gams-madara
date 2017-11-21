@@ -77,6 +77,8 @@ platforms::turtlebot_platform::turtlebot_platform (
   }
   firstMoveSent = false;
   move_client_.waitForServer();
+
+  updateServiceClientMoveBase = node_handle_.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/DWAPlannerROS/set_parameters");
 }
 
 
@@ -280,30 +282,35 @@ platforms::turtlebot_platform::move (
    * return that we are in the process of moving to the final pose.
    **/
   // generate message
-  firstMoveSent = true;
-	  madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
-	  move_base_msgs::MoveBaseGoal goal;
-	  goal.target_pose.header.frame_id = "map";
-	  goal.target_pose.header.stamp = ros::Time::now ();
-	  goal.target_pose.pose.position.x = location.x ();
-	  goal.target_pose.pose.position.y = location.y ();
-	  goal.target_pose.pose.position.z = 0.0;
-	  goal.target_pose.pose.orientation.x = 0.0;
-	  goal.target_pose.pose.orientation.y = 0.0;
-	  goal.target_pose.pose.orientation.z = 0.33545156975;
-	  goal.target_pose.pose.orientation.w = 0.942057452787;
+	firstMoveSent = true;
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
+	move_base_msgs::MoveBaseGoal goal;
+	goal.target_pose.header.frame_id = "map";
+	goal.target_pose.header.stamp = ros::Time::now ();
+	goal.target_pose.pose.position.x = location.x ();
+	goal.target_pose.pose.position.y = location.y ();
+	goal.target_pose.pose.position.z = 0;
+	/*double dist = math::sqrt(location.x()*location.x()+location.y()*location.y()+location.z()*location.z());
+	double cossenoTheta = OrientationVector.x()/dist;
+	
+	goal.target_pose.pose.orientation.x = quat.x();
+	goal.target_pose.pose.orientation.y = quat.y();
+	goal.target_pose.pose.orientation.z = quat.z();
+	goal.target_pose.pose.orientation.w = math::sin(Theta)*quat.w()+cossenoTheta;*/
+	goal.target_pose.pose.orientation.x = 0;
+	goal.target_pose.pose.orientation.y = 0;
+	goal.target_pose.pose.orientation.z = 0;
+	goal.target_pose.pose.orientation.w = 1;
+	
+	lastWaypoint=location;
+	
 
-  
-	  
-	  // send the goal
-	  ROS_INFO("Sending goal");
-	  move_client_.sendGoal(goal);//*/
 
-	//cleanAllStatus();
-	//status_.moving= 1;
 
-	  return gams::platforms::PLATFORM_MOVING;
+	// send the goal
+	move_client_.sendGoal(goal);
+
+	return gams::platforms::PLATFORM_MOVING;
   
 }
 
@@ -349,6 +356,20 @@ platforms::turtlebot_platform::pause_move (void)
 void
 platforms::turtlebot_platform::set_move_speed (const double& speed)
 {
+
+	dynamic_reconfigure::Reconfigure srv;
+	dynamic_reconfigure::DoubleParameter double_param;
+	double_param.name = "max_vel_x";
+	double_param.value = speed;
+	srv.request.config.doubles.push_back(double_param);
+
+	if (updateServiceClientMoveBase.call(srv))
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ---- SUCCESS: speed changed %f!!!\n\n", speed);	
+	}
+	else
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ---- ERROR: speed NOT changed!!!\n\n");
+
 }
 
 

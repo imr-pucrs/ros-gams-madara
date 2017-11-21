@@ -426,4 +426,13 @@
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovarianceStamped.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovariance.h \
  /home/lsa/gams/src/gams/utility/Position.h \
- /home/lsa/gams/src/gams/platforms/PlatformFactory.h
+ /home/lsa/gams/src/gams/platforms/PlatformFactory.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/DoubleParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Reconfigure.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureRequest.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Config.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/BoolParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/IntParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/StrParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/GroupState.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h
