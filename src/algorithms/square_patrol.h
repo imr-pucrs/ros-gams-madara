@@ -25,7 +25,7 @@ namespace algorithms
 	protected:
 	std::vector<gams::pose::Position> wayPoints;
 	int now;
-	int status;
+	gams::variables::PlatformStatus* platformStatus;
   public:
     /**
      * Constructor

@@ -75,6 +75,8 @@ platforms::turtlebot_platform::turtlebot_platform (
       " knowledge=%p, sensors=%p\n",
       knowledge, sensors);
   }
+  firstMoveSent = false;
+  move_client_.waitForServer();
 }
 
 
@@ -97,35 +99,83 @@ int platforms::turtlebot_platform::sense (void)
 int
 platforms::turtlebot_platform::analyze (void)
 {
-madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- turtlebot_platform::analyze::status: %d\n\n", status);
-  if (status == gams::platforms::UNKNOWN)
+  madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- turtlebot_platform::analyze::status_: %d\n\n", status_);
+  if (move_client_.isServerConnected() == false)
 	return gams::platforms::UNKNOWN;
+  if (!firstMoveSent)
+	return gams::platforms::MOVEMENT_AVAILABLE;
+
   if ((move_client_.getState().toString().compare("ACTIVE")==0) )//|| (move_client_.getState().toString().compare("PENDING")==0))
   {
-        madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- Still trying to move!!! Please wait...%s\n\n", move_client_.getState().toString().c_str());
-	return status=gams::platforms::MOVING;
+        madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- Still trying to move!!! Please wait...%s\n\n", move_client_.getState().toString().c_str());
+	cleanAllStatus();
+	status_.moving = 1;
+	return gams::platforms::MOVING;
   }
   else   if (move_client_.getState().toString().compare("PENDING")==0)
   {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PENDING!!!...\n\n");
-	return status=gams::platforms::MOVEMENT_AVAILABLE;
-
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PENDING!!!...\n\n");
+	cleanAllStatus();
+        status_.waiting = 1;
+	return gams::platforms::WAITING;
   }
-
   else   if (move_client_.getState().toString().compare("SUCCEEDED")==0)
   {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ARRIVED!!!...\n\n");
-	return status=gams::platforms::OK;
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ARRIVED!!!...\n\n");
+	cleanAllStatus();
+        status_.movement_available = 1;
+	return gams::platforms::MOVEMENT_AVAILABLE;
 
   }
-madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      gams::loggers::LOG_MAJOR,"\n\n ------------- moveclient %s...\n\n", move_client_.getState().toString().c_str());
+  else   if (move_client_.getState().toString().compare("ABORTED")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ABORTED!!!...\n\n");
+	cleanAllStatus();
+        status_.failed = 1;
+	return gams::platforms::FAILED;
+	
+  }
+  else   if (move_client_.getState().toString().compare("REJECTED")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM REJECTED THE GOAL!!!...\n\n");
+	cleanAllStatus();
+        status_.reduced_movement = 1;
+	return gams::platforms::REDUCED_MOVEMENT_AVAILABLE;
 
-  return gams::platforms::OK;
+  }
+  else   if (move_client_.getState().toString().compare("RECALLED")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLED THE GOAL!!!...\n\n");
+	cleanAllStatus();
+        status_.ok = 1;
+	return gams::platforms::OK;
+
+  }
+  else   if (move_client_.getState().toString().compare("PREEMPTED")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTED THE GOAL!!!...\n\n");
+	cleanAllStatus();
+        status_.ok = 1;
+	return gams::platforms::OK;
+
+  }
+  else   if (move_client_.getState().toString().compare("RECALLING")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLING !!!...\n\n");
+	cleanAllStatus();
+        status_.waiting = 1;
+	return gams::platforms::WAITING;
+  }
+  else   if (move_client_.getState().toString().compare("PREEMPTING")==0)
+  {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTING !!!...\n\n");
+	cleanAllStatus();
+        status_.waiting = 1;
+	return gams::platforms::WAITING;
+  }
+  madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- moveclient %s...\n\n", move_client_.getState().toString().c_str());
+
+  return gams::platforms::UNKNOWN;
 }
 
 
@@ -196,7 +246,7 @@ platforms::turtlebot_platform::home (void)
   /**
    * Movement functions work in a polling manner. In a real implementation,
    * we would want to check a finite state machine, external thread or
-   * platform status to determine what to return. For now, we will simply
+   * platform status_ to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
   return gams::platforms::PLATFORM_IN_PROGRESS;
@@ -210,7 +260,7 @@ platforms::turtlebot_platform::land (void)
   /**
    * Movement functions work in a polling manner. In a real implementation,
    * we would want to check a finite state machine, external thread or
-   * platform status to determine what to return. For now, we will simply
+   * platform status_ to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
   return gams::platforms::PLATFORM_IN_PROGRESS;
@@ -226,13 +276,11 @@ platforms::turtlebot_platform::move (
   /**
    * Movement functions work in a polling manner. In a real implementation,
    * we would want to check a finite state machine, external thread or
-   * platform status to determine what to return. For now, we will simply
+   * platform status_ to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
   // generate message
-  
-	if (status == gams::platforms::UNKNOWN)
-		status = gams::platforms::MOVING;
+  firstMoveSent = true;
 	  madara_logger_ptr_log (gams::loggers::global_logger.get (),
 	      gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
 	  move_base_msgs::MoveBaseGoal goal;
@@ -241,15 +289,21 @@ platforms::turtlebot_platform::move (
 	  goal.target_pose.pose.position.x = location.x ();
 	  goal.target_pose.pose.position.y = location.y ();
 	  goal.target_pose.pose.position.z = 0.0;
-	  goal.target_pose.pose.orientation.w = 1.0;
+	  goal.target_pose.pose.orientation.x = 0.0;
+	  goal.target_pose.pose.orientation.y = 0.0;
+	  goal.target_pose.pose.orientation.z = 0.33545156975;
+	  goal.target_pose.pose.orientation.w = 0.942057452787;
+
   
 	  
 	  // send the goal
 	  ROS_INFO("Sending goal");
 	  move_client_.sendGoal(goal);//*/
 
+	//cleanAllStatus();
+	//status_.moving= 1;
 
-	  return status = gams::platforms::PLATFORM_MOVING;
+	  return gams::platforms::PLATFORM_MOVING;
   
 }
 
@@ -263,7 +317,7 @@ platforms::turtlebot_platform::rotate (
   /**
    * Movement functions work in a polling manner. In a real implementation,
    * we would want to check a finite state machine, external thread or
-   * platform status to determine what to return. For now, we will simply
+   * platform status_ to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
   return gams::platforms::PLATFORM_MOVING;
@@ -278,7 +332,7 @@ platforms::turtlebot_platform::pose (const gams::pose::Pose & target,
   /**
    * Movement functions work in a polling manner. In a real implementation,
    * we would want to check a finite state machine, external thread or
-   * platform status to determine what to return. For now, we will simply
+   * platform status_ to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
   return gams::platforms::PLATFORM_MOVING;
@@ -315,4 +369,60 @@ const gams::pose::ReferenceFrame &
 platforms::turtlebot_platform::get_frame (void) const
 {
   return gps_frame;
+}
+
+
+void platforms::turtlebot_platform::cleanAllStatus()
+{
+	status_.communication_available=0;
+	status_.deadlocked=0;
+	status_.failed=0;
+	status_.gps_spoofed=0;
+	status_.movement_available=0;
+	status_.moving=0;
+	status_.rotating=0;
+	status_.ok=0;
+	status_.paused_moving=0;
+	status_.paused_rotating=0;
+	status_.reduced_sensing=0;
+	status_.reduced_movement=0;
+	status_.sensors_available=0;
+	status_.waiting=0;
+}
+
+bool platforms::turtlebot_platform::isUnknownStatus()
+{
+	int sum = (*status_.communication_available)+
+			(*status_.deadlocked)+
+			(*status_.failed)+
+			(*status_.gps_spoofed)+
+			(*status_.movement_available)+
+			(*status_.moving)+
+			(*status_.rotating)+
+			(*status_.ok)+
+			(*status_.paused_moving)+
+			(*status_.paused_rotating)+
+			(*status_.reduced_sensing)+
+			(*status_.reduced_movement)+
+			(*status_.sensors_available)+
+			(*status_.waiting);
+/*ROS_INFO(" communication_available: %d",*status_.communication_available);
+ROS_INFO(" deadlocked: %d",*status_.deadlocked);
+ROS_INFO(" failed: %d",*status_.failed);
+ROS_INFO(" gps: %d",*status_.gps_spoofed);
+ROS_INFO(" movement_available: %d",*status_.movement_available);
+ROS_INFO(" moving: %d",*status_.moving);
+ROS_INFO(" rotating: %d",*status_.rotating);
+ROS_INFO(" ok: %d",*status_.ok);
+ROS_INFO(" paused_moving: %d",*status_.paused_moving);
+ROS_INFO(" paused_rotating: %d",*status_.paused_rotating);
+ROS_INFO(" reduced_sensing: %d",*status_.reduced_sensing);
+ROS_INFO(" reduced_movement: %d",*status_.reduced_movement);
+ROS_INFO(" sensors_available: %d",*status_.sensors_available);//*/
+ROS_INFO(" waiting: %d",*status_.waiting);
+	//ROS_INFO(" UNKNOWN: %d", sum);
+	if (sum>0)
+		return false;
+	//ROS_INFO("UNKNOWN ------------------------------------------------_");
+	return true;
 }

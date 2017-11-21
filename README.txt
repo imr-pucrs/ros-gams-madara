@@ -16,7 +16,7 @@ HOW TO:
 
   EDIT YOUR PLATFORMS:
   
-    Open turtlebot_platform.cpp|h with your favorite programming environment / editor.
+    Open move_base_wrapper.cpp|h with your favorite programming environment / editor.
     Each method in your platform should be non-blocking or the call will
     block the controller. It is in your best interest to poll information from
     the environment and knowledge base, rather than blocking on an operating

@@ -27,8 +27,8 @@ namespace platforms
   **/
   class turtlebot_platform : public gams::platforms::RosBase
   {
-  protected: 
-	int status = gams::platforms::UNKNOWN;
+//  protected: 
+	//int status = gams::platforms::UNKNOWN;
   public:
     /**
      * Constructor
@@ -178,7 +178,10 @@ namespace platforms
      **/
     virtual const gams::pose::ReferenceFrame & get_frame (void) const;
 
-std::string getMoveBaseStatus() { return move_client_.getState().toString(); };
+    std::string getMoveBaseStatus() { return move_client_.getState().toString(); };
+//    int getStatus() { return status; };
+    void cleanAllStatus();
+    bool isUnknownStatus();
     
   private:
     // a threader for managing platform threads
@@ -193,6 +196,8 @@ std::string getMoveBaseStatus() { return move_client_.getState().toString(); };
 	const std::string ros_namespace_;
       ros::NodeHandle node_handle_;
       actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_client_;
+
+    bool firstMoveSent;
 
   }; // end turtlebot_platform class
 

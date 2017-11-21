@@ -61,12 +61,15 @@ algorithms::square_patrol::square_patrol (
 {
   status_.init_vars (*knowledge, "square_patrol", self->agent.prefix);
   status_.init_variable_values ();
+/*  wayPoints.push_back(gams::pose::Position(0.8,0,0));
+  wayPoints.push_back(gams::pose::Position(1,3,0));
+  wayPoints.push_back(gams::pose::Position(-2,3,0));
+  wayPoints.push_back(gams::pose::Position(-2,0,0));
+*/
   wayPoints.push_back(gams::pose::Position(1,0,0));
-  wayPoints.push_back(gams::pose::Position(1,2,0));
-  wayPoints.push_back(gams::pose::Position(-1,2,0));
   wayPoints.push_back(gams::pose::Position(-1,0,0));
   now = 0;
-  status = gams::platforms::UNKNOWN;
+  
 }
 
 algorithms::square_patrol::~square_patrol ()
@@ -76,12 +79,9 @@ algorithms::square_patrol::~square_patrol ()
 int
 algorithms::square_patrol::analyze (void)
 {
-	
-
-	status = platform_->analyze();
-	madara_logger_ptr_log (gams::loggers::global_logger.get (),
-	      		 	  gams::loggers::LOG_MAJOR,"\n\n square_patrol::ANALYZE::STATUS %d\n\n", status);
-	if (status == gams::platforms::OK)
+	//status = platform_->analyze();
+        platformStatus = platform_->get_platform_status();
+	if (*platformStatus->movement_available)
 	{
 		now = (now + 1)% wayPoints.size();
 	}
@@ -94,15 +94,13 @@ algorithms::square_patrol::analyze (void)
 int
 algorithms::square_patrol::execute (void)
 {
+	madara_logger_ptr_log (gams::loggers::global_logger.get (),
+	      		 	  gams::loggers::LOG_MAJOR," Executing now %d \n\n", now);
 	if (wayPoints.size() >0)
 	{
-		if ((status == gams::platforms::OK)  || (status == gams::platforms::UNKNOWN) || (status == gams::platforms::MOVEMENT_AVAILABLE))
+		if ((*platformStatus->ok) || (*platformStatus->movement_available) || (*platformStatus->failed))
 		{
 	  		platform_->move(wayPoints[now],0.1);
-			if (status == gams::platforms::UNKNOWN)
-			{
-				status = gams::platforms::OK;
-			}
 		
   	  		madara_logger_ptr_log (gams::loggers::global_logger.get (),
 	      		 	  gams::loggers::LOG_MAJOR,"\n######################\n ######################asking platform to move!!! now: %d\n\n", now);
@@ -120,3 +118,4 @@ algorithms::square_patrol::plan (void)
 
   return 0;
 }
+

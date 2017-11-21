@@ -2,7 +2,7 @@
 /**
  * Common algorithm that may be used to initialize agent algorithms
  **/
-.algorithm = 'null';
+.algorithm = 'square_patrol';
 
 /**
  * Type of platform to use. Options include:

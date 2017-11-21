@@ -7,7 +7,7 @@ use File::Basename;
 $dir = dirname($0);
 $controller = "$dir/../bin/custom_controller";
 $duration = 300;
-$madara_debug = 3;
+$madara_debug = 1;
 $gams_debug = 3;
 $period = 1;
 $agents = 1;
