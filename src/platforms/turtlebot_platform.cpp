@@ -4,180 +4,195 @@
 
 gams::pose::CartesianFrame  platforms::turtlebot_platform::cartesian_frame;   
 gams::pose::GPSFrame  platforms::turtlebot_platform::gps_frame;         
-        
- 
+
+
 // factory class for creating a turtlebot_platform 
 gams::platforms::BasePlatform *
 platforms::turtlebot_platformFactory::create (
-        const madara::knowledge::KnowledgeMap & args,
-        madara::knowledge::KnowledgeBase * knowledge,
-        gams::variables::Sensors * sensors,
-        gams::variables::Platforms * platforms,
-        gams::variables::Self * self)
+		const madara::knowledge::KnowledgeMap & args,
+		madara::knowledge::KnowledgeBase * knowledge,
+		gams::variables::Sensors * sensors,
+		gams::variables::Platforms * platforms,
+		gams::variables::Self * self)
 {
-  return new turtlebot_platform (knowledge, sensors, self);
+	return new turtlebot_platform (knowledge, sensors, self);
 }
-        
+
 // Constructor
 platforms::turtlebot_platform::turtlebot_platform (
-  madara::knowledge::KnowledgeBase * knowledge,
-  gams::variables::Sensors * sensors,
-  gams::variables::Self * self)
-: //gams::platforms::BasePlatform (knowledge, sensors, self),
-  gams::platforms::RosBase (knowledge, sensors, self),
-  ros_namespace_("turtlebot"), 
-  node_handle_ ("turtlebot"),
-  move_client_ (std::string ("/move_base"), true) 
+		madara::knowledge::KnowledgeBase * knowledge,
+		gams::variables::Sensors * sensors,
+		gams::variables::Self * self)
+: gams::platforms::RosBase (knowledge, sensors, self),
+  	  ros_namespace_(knowledge->get (".ros_namespace").to_string ()),
+	  node_handle_ (ros_namespace_),
+	  move_client_ (std::string ("/move_base"), true)
 {
-  // as an example of what to do here, create a coverage sensor
-  if (knowledge && sensors)
-  {
-    // set the data plane for the threader
-    //threader_.set_data_plane (*knowledge);
-  
-    // create a coverage sensor
-    gams::variables::Sensors::iterator it = sensors->find ("coverage");
-    if (it == sensors->end ()) // create coverage sensor
-    {
-      // get origin
-      gams::pose::Position origin (gams::pose::gps_frame());
-      madara::knowledge::containers::NativeDoubleArray origin_container;
-      origin_container.set_name ("sensor.coverage.origin", *knowledge, 3);
-      origin.from_container (origin_container);
+	// as an example of what to do here, create a coverage sensor
+	if (knowledge && sensors)
+	{
+		// set the data plane for the threader
+		//threader_.set_data_plane (*knowledge);
 
-      // establish sensor
-      gams::variables::Sensor* coverage_sensor =
-        new gams::variables::Sensor ("coverage", knowledge, 2.5, origin);
-      (*sensors)["coverage"] = coverage_sensor;
-    }
-    (*sensors_)["coverage"] = (*sensors)["coverage"];
-    status_.init_vars (*knowledge, get_id ());
-    
-    // create threads
-    // end create threads
-    
-    
-    /**
-    * the following should be set when movement is available in your
-    * platform. If on construction, movement should be possible, then
-    * feel free to keep this uncommented. Otherwise, set it somewhere else
-    * in analyze or somewhere else when appropriate to enable movement.
-    * If you never enable movement_available, movement based algorithms are
-    * unlikely to ever move with your platform.
-    **/
-    status_.movement_available = 1;
-  }
-  else
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (),
-      gams::loggers::LOG_ERROR,
-      "platforms::turtlebot_platform::turtlebot_platform" 
-      " knowledge=%p, sensors=%p\n",
-      knowledge, sensors);
-  }
-  firstMoveSent = false;
-  move_client_.waitForServer();
+		// create a coverage sensor
+		gams::variables::Sensors::iterator it = sensors->find ("coverage");
+		if (it == sensors->end ()) // create coverage sensor
+		{
+			// get origin
+			gams::pose::Position origin (gams::pose::gps_frame());
+			madara::knowledge::containers::NativeDoubleArray origin_container;
+			origin_container.set_name ("sensor.coverage.origin", *knowledge, 3);
+			origin.from_container (origin_container);
 
-  updateServiceClientMoveBase = node_handle_.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/DWAPlannerROS/set_parameters");
+			// establish sensor
+			gams::variables::Sensor* coverage_sensor =
+					new gams::variables::Sensor ("coverage", knowledge, 2.5, origin);
+			(*sensors)["coverage"] = coverage_sensor;
+		}
+		(*sensors_)["coverage"] = (*sensors)["coverage"];
+		status_.init_vars (*knowledge, get_id ());
+
+		// create threads
+		// end create threads
+
+
+		/**
+		 * the following should be set when movement is available in your
+		 * platform. If on construction, movement should be possible, then
+		 * feel free to keep this uncommented. Otherwise, set it somewhere else
+		 * in analyze or somewhere else when appropriate to enable movement.
+		 * If you never enable movement_available, movement based algorithms are
+		 * unlikely to ever move with your platform.
+		 **/
+		status_.movement_available = 1;
+	}
+	else
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (),
+				gams::loggers::LOG_ERROR,
+				"platforms::turtlebot_platform::turtlebot_platform"
+				" knowledge=%p, sensors=%p\n",
+				knowledge, sensors);
+	}
+	ros::init (remap, std::string("turtlebot_platform"));
+
+
+	updateServiceClientMoveBase = node_handle_.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/DWAPlannerROS/set_parameters");
+	ros::Subscriber sub = node_handle_.subscribe("/odom", 1, &platforms::turtlebot_platform::processOdom, this);
+	subScan_ = node_handle_.subscribe("/scan", 1, &platforms::turtlebot_platform::processScanOnce, this);
+
+
+	firstMoveSent = false;
+	std::cerr<<"\n waiting for move base server";
+	move_client_.waitForServer();
+	std::cerr<<"...Done\n";
+
+	min_sensor_range_ = 0.0;
+	max_sensor_range_ = 0.0;
+	moveSpeed_ = 0.0;
+
+
 }
 
 
 // Destructor
 platforms::turtlebot_platform::~turtlebot_platform ()
 {
-  //threader_.terminate ();
-  //threader_.wait ();
+	//threader_.terminate ();
+	//threader_.wait ();
 }
 
 
 // Polls the sensor environment for useful information. Required.
 int platforms::turtlebot_platform::sense (void)
 {
-  return gams::platforms::PLATFORM_OK;
+	return gams::platforms::PLATFORM_OK;
 }
 
 
 // Analyzes platform information. Required.
-int
-platforms::turtlebot_platform::analyze (void)
+int platforms::turtlebot_platform::analyze (void)
 {
-  madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- turtlebot_platform::analyze::status_: %d\n\n", status_);
-  if (move_client_.isServerConnected() == false)
+	if (move_client_.isServerConnected() == false)
+		return gams::platforms::UNKNOWN;
+	if (!firstMoveSent)
+		return gams::platforms::MOVEMENT_AVAILABLE;
+
+	if (*status_.paused_moving)
+		return gams::platforms::WAITING;
+	std::cerr<<" status_"<<*status_.paused_moving;
+
+	if ((move_client_.getState().toString().compare("ACTIVE")==0) )//|| (move_client_.getState().toString().compare("PENDING")==0))
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- Still trying to move!!! Please wait...%s\n\n", move_client_.getState().toString().c_str());
+		cleanAllStatus();
+		status_.moving = 1;
+		return gams::platforms::MOVING;
+	}
+	else   if (move_client_.getState().toString().compare("PENDING")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PENDING!!!...\n\n");
+		cleanAllStatus();
+		status_.waiting = 1;
+		return gams::platforms::WAITING;
+	}
+	else   if (move_client_.getState().toString().compare("SUCCEEDED")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ARRIVED!!!...\n\n");
+		cleanAllStatus();
+		status_.movement_available = 1;
+		return gams::platforms::MOVEMENT_AVAILABLE;
+
+	}
+	else   if (move_client_.getState().toString().compare("ABORTED")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ABORTED!!!...\n\n");
+		cleanAllStatus();
+		status_.failed = 1;
+		return gams::platforms::FAILED;
+
+	}
+	else   if (move_client_.getState().toString().compare("REJECTED")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM REJECTED THE GOAL!!!...\n\n");
+		cleanAllStatus();
+		status_.reduced_movement = 1;
+		return gams::platforms::REDUCED_MOVEMENT_AVAILABLE;
+
+	}
+	else   if (move_client_.getState().toString().compare("RECALLED")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLED THE GOAL!!!...\n\n");
+		cleanAllStatus();
+		status_.ok = 1;
+		return gams::platforms::OK;
+
+	}
+	else   if (move_client_.getState().toString().compare("PREEMPTED")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTED THE GOAL!!!...\n\n");
+		cleanAllStatus();
+		status_.ok = 1;
+		return gams::platforms::OK;
+
+	}
+	else   if (move_client_.getState().toString().compare("RECALLING")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLING !!!...\n\n");
+		cleanAllStatus();
+		status_.waiting = 1;
+		return gams::platforms::WAITING;
+	}
+	else   if (move_client_.getState().toString().compare("PREEMPTING")==0)
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTING !!!...\n\n");
+		cleanAllStatus();
+		status_.waiting = 1;
+		return gams::platforms::WAITING;
+	}
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- moveclient %s...\n\n", move_client_.getState().toString().c_str());
+
 	return gams::platforms::UNKNOWN;
-  if (!firstMoveSent)
-	return gams::platforms::MOVEMENT_AVAILABLE;
-
-  if ((move_client_.getState().toString().compare("ACTIVE")==0) )//|| (move_client_.getState().toString().compare("PENDING")==0))
-  {
-        madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- Still trying to move!!! Please wait...%s\n\n", move_client_.getState().toString().c_str());
-	cleanAllStatus();
-	status_.moving = 1;
-	return gams::platforms::MOVING;
-  }
-  else   if (move_client_.getState().toString().compare("PENDING")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PENDING!!!...\n\n");
-	cleanAllStatus();
-        status_.waiting = 1;
-	return gams::platforms::WAITING;
-  }
-  else   if (move_client_.getState().toString().compare("SUCCEEDED")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ARRIVED!!!...\n\n");
-	cleanAllStatus();
-        status_.movement_available = 1;
-	return gams::platforms::MOVEMENT_AVAILABLE;
-
-  }
-  else   if (move_client_.getState().toString().compare("ABORTED")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM ABORTED!!!...\n\n");
-	cleanAllStatus();
-        status_.failed = 1;
-	return gams::platforms::FAILED;
-	
-  }
-  else   if (move_client_.getState().toString().compare("REJECTED")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM REJECTED THE GOAL!!!...\n\n");
-	cleanAllStatus();
-        status_.reduced_movement = 1;
-	return gams::platforms::REDUCED_MOVEMENT_AVAILABLE;
-
-  }
-  else   if (move_client_.getState().toString().compare("RECALLED")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLED THE GOAL!!!...\n\n");
-	cleanAllStatus();
-        status_.ok = 1;
-	return gams::platforms::OK;
-
-  }
-  else   if (move_client_.getState().toString().compare("PREEMPTED")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTED THE GOAL!!!...\n\n");
-	cleanAllStatus();
-        status_.ok = 1;
-	return gams::platforms::OK;
-
-  }
-  else   if (move_client_.getState().toString().compare("RECALLING")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM RECALLING !!!...\n\n");
-	cleanAllStatus();
-        status_.waiting = 1;
-	return gams::platforms::WAITING;
-  }
-  else   if (move_client_.getState().toString().compare("PREEMPTING")==0)
-  {
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- PLATFORM PREEMPTING !!!...\n\n");
-	cleanAllStatus();
-        status_.waiting = 1;
-	return gams::platforms::WAITING;
-  }
-  madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- moveclient %s...\n\n", move_client_.getState().toString().c_str());
-
-  return gams::platforms::UNKNOWN;
 }
 
 
@@ -185,7 +200,7 @@ platforms::turtlebot_platform::analyze (void)
 std::string
 platforms::turtlebot_platform::get_name () const
 {
-  return "turtlebot_platform";
+	return "turtlebot_platform";
 }
 
 
@@ -193,7 +208,7 @@ platforms::turtlebot_platform::get_name () const
 std::string
 platforms::turtlebot_platform::get_id () const
 {
-  return "turtlebot_platform";
+	return "turtlebot_platform";
 }
 
 
@@ -201,17 +216,18 @@ platforms::turtlebot_platform::get_id () const
 double
 platforms::turtlebot_platform::get_accuracy (void) const
 {
-  // will depend on your localization capabilities for robotics
-  return 0.0;
+	std::string rosParameter ="/move_base/DWAPlannerROS/xy_goal_tolerance";
+	double accuracy;
+	if (node_handle_.getParam(rosParameter.c_str(), accuracy))
+		return accuracy;
+	return 0.0;
 }
 
 // Gets Location of platform, within its parent frame. Optional.
 gams::pose::Position
 platforms::turtlebot_platform::get_location () const
 {
-  gams::pose::Position result;
-  
-  return result;
+	return location_;
 }
 
 
@@ -219,9 +235,7 @@ platforms::turtlebot_platform::get_location () const
 gams::pose::Orientation
 platforms::turtlebot_platform::get_orientation () const
 {
-  gams::pose::Orientation result;
-  
-  return result;
+	return orientation_;
 }
 
 
@@ -229,29 +243,23 @@ platforms::turtlebot_platform::get_orientation () const
 double
 platforms::turtlebot_platform::get_min_sensor_range () const
 {
-  // should be in square meters
-  return 0.0;
+	// should be in square meters
+	return 0.0;
 }
 
 // Gets move speed. Optional.
 double
 platforms::turtlebot_platform::get_move_speed () const
 {
-  // should be in meters/s
-  return 0.0;
+	// should be in meters/s
+	return this->moveSpeed_;
 }
 
 // Instructs the agent to return home. Optional.
 int
 platforms::turtlebot_platform::home (void)
 {
-  /**
-   * Movement functions work in a polling manner. In a real implementation,
-   * we would want to check a finite state machine, external thread or
-   * platform status_ to determine what to return. For now, we will simply
-   * return that we are in the process of moving to the final pose.
-   **/
-  return gams::platforms::PLATFORM_IN_PROGRESS;
+	return this->move(home_, 0.1);
 }
 
 
@@ -259,29 +267,22 @@ platforms::turtlebot_platform::home (void)
 int
 platforms::turtlebot_platform::land (void)
 {
-  /**
-   * Movement functions work in a polling manner. In a real implementation,
-   * we would want to check a finite state machine, external thread or
-   * platform status_ to determine what to return. For now, we will simply
-   * return that we are in the process of moving to the final pose.
-   **/
-  return gams::platforms::PLATFORM_IN_PROGRESS;
+	/**
+	 * Movement functions work in a polling manner. In a real implementation,
+	 * we would want to check a finite state machine, external thread or
+	 * platform status_ to determine what to return. For now, we will simply
+	 * return that we are in the process of moving to the final pose.
+	 **/
+	return gams::platforms::PLATFORM_OK;
 }
 
 
 // Moves the platform to a location. Optional.
-int
-platforms::turtlebot_platform::move (
-  const gams::pose::Position & location,
-  double epsilon)
+int platforms::turtlebot_platform::move (
+		const gams::pose::Position & location,
+		double epsilon)
 {
-  /**
-   * Movement functions work in a polling manner. In a real implementation,
-   * we would want to check a finite state machine, external thread or
-   * platform status_ to determine what to return. For now, we will simply
-   * return that we are in the process of moving to the final pose.
-   **/
-  // generate message
+	// generate message
 	firstMoveSent = true;
 	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
 	move_base_msgs::MoveBaseGoal goal;
@@ -290,65 +291,85 @@ platforms::turtlebot_platform::move (
 	goal.target_pose.pose.position.x = location.x ();
 	goal.target_pose.pose.position.y = location.y ();
 	goal.target_pose.pose.position.z = 0;
-	/*double dist = math::sqrt(location.x()*location.x()+location.y()*location.y()+location.z()*location.z());
-	double cossenoTheta = OrientationVector.x()/dist;
-	
-	goal.target_pose.pose.orientation.x = quat.x();
-	goal.target_pose.pose.orientation.y = quat.y();
-	goal.target_pose.pose.orientation.z = quat.z();
-	goal.target_pose.pose.orientation.w = math::sin(Theta)*quat.w()+cossenoTheta;*/
+
+	gams::pose::Orientation orientation(location.x()-targetLocation_.x(), location.y()-targetLocation_.y(), location.z()-targetLocation_.z());
+	double dist = sqrt(orientation.rx()*orientation.rx()+orientation.ry()*orientation.ry()+orientation.rz()*orientation.rz());
+	if (dist < 0.1)
+	{
+		orientation =gams::pose::Orientation(location.x(), location.y(), location.z());
+		dist = sqrt(orientation.rx()*orientation.rx()+orientation.ry()*orientation.ry()+orientation.rz()*orientation.rz());
+	}
+	double cossTheta = orientation.rx()/dist;
+	double theta = acos(cossTheta);
+	if (orientation.ry() <0)
+		theta = (-1)*theta;
+
 	goal.target_pose.pose.orientation.x = 0;
 	goal.target_pose.pose.orientation.y = 0;
-	goal.target_pose.pose.orientation.z = 0;
-	goal.target_pose.pose.orientation.w = 1;
-	
-	lastWaypoint=location;
-	
+	goal.target_pose.pose.orientation.z = sin(theta/2.0);
+	goal.target_pose.pose.orientation.w = cos(theta/2.0);
 
-
+	targetLocation_ = location;
 
 	// send the goal
 	move_client_.sendGoal(goal);
 
 	return gams::platforms::PLATFORM_MOVING;
-  
+
 }
 
 
 // Rotates the platform to match a given angle. Optional.
-int
-platforms::turtlebot_platform::rotate (
-  const gams::pose::Orientation & target,
-  double epsilon)
+int platforms::turtlebot_platform::rotate (
+		const gams::pose::Orientation & target,
+		double epsilon)
 {
-  /**
-   * Movement functions work in a polling manner. In a real implementation,
-   * we would want to check a finite state machine, external thread or
-   * platform status_ to determine what to return. For now, we will simply
-   * return that we are in the process of moving to the final pose.
-   **/
-  return gams::platforms::PLATFORM_MOVING;
+	return gams::platforms::PLATFORM_MOVING;
 }
 
 
 // Moves the platform to a pose (location and rotation). Optional.
-int
-platforms::turtlebot_platform::pose (const gams::pose::Pose & target,
-  double loc_epsilon, double rot_epsilon)
+int platforms::turtlebot_platform::pose (const gams::pose::Pose & target,
+		double loc_epsilon, double rot_epsilon)
 {
-  /**
-   * Movement functions work in a polling manner. In a real implementation,
-   * we would want to check a finite state machine, external thread or
-   * platform status_ to determine what to return. For now, we will simply
-   * return that we are in the process of moving to the final pose.
-   **/
-  return gams::platforms::PLATFORM_MOVING;
+	firstMoveSent = true;
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
+	move_base_msgs::MoveBaseGoal goal;
+	goal.target_pose.header.frame_id = "map";
+	goal.target_pose.header.stamp = ros::Time::now ();
+	goal.target_pose.pose.position.x = target.x ();
+	goal.target_pose.pose.position.y = target.y ();
+	goal.target_pose.pose.position.z = target.z();
+
+	gams::pose::Quaternion q(target.rx(),target.ry(), target.rz());
+	goal.target_pose.pose.orientation.x = q.x();
+	goal.target_pose.pose.orientation.y = q.y();
+	goal.target_pose.pose.orientation.z = q.z();
+	goal.target_pose.pose.orientation.w = q.w();
+	targetLocation_=target;
+
+	// send the goal
+	move_client_.sendGoal(goal);
+
+	return gams::platforms::PLATFORM_MOVING;
 }
 
 // Pauses movement, keeps source and dest at current values. Optional.
-void
-platforms::turtlebot_platform::pause_move (void)
+void platforms::turtlebot_platform::pause_move (void)
 {
+	if (*status_.moving)
+	{
+		move_client_.cancelAllGoals();
+		cleanAllStatus();
+		status_.paused_moving = 1;
+
+	}
+	else if (*status_.paused_moving)
+	{
+		move(targetLocation_);
+		cleanAllStatus();
+		status_.moving = 1;
+	}
 }
 
 
@@ -356,7 +377,6 @@ platforms::turtlebot_platform::pause_move (void)
 void
 platforms::turtlebot_platform::set_move_speed (const double& speed)
 {
-
 	dynamic_reconfigure::Reconfigure srv;
 	dynamic_reconfigure::DoubleParameter double_param;
 	double_param.name = "max_vel_x";
@@ -377,19 +397,20 @@ platforms::turtlebot_platform::set_move_speed (const double& speed)
 void
 platforms::turtlebot_platform::stop_move (void)
 {
+	move_client_.cancelAllGoals();
 }
 
 // Instructs the agent to take off. Optional.
 int
 platforms::turtlebot_platform::takeoff (void)
 {
-  return gams::platforms::PLATFORM_OK;
+	return gams::platforms::PLATFORM_OK;
 }
 
 const gams::pose::ReferenceFrame &
 platforms::turtlebot_platform::get_frame (void) const
 {
-  return gps_frame;
+	return gps_frame;
 }
 
 
@@ -411,39 +432,32 @@ void platforms::turtlebot_platform::cleanAllStatus()
 	status_.waiting=0;
 }
 
-bool platforms::turtlebot_platform::isUnknownStatus()
+
+void platforms::turtlebot_platform::processOdom(const nav_msgs::Odometry::ConstPtr& odom)
 {
-	int sum = (*status_.communication_available)+
-			(*status_.deadlocked)+
-			(*status_.failed)+
-			(*status_.gps_spoofed)+
-			(*status_.movement_available)+
-			(*status_.moving)+
-			(*status_.rotating)+
-			(*status_.ok)+
-			(*status_.paused_moving)+
-			(*status_.paused_rotating)+
-			(*status_.reduced_sensing)+
-			(*status_.reduced_movement)+
-			(*status_.sensors_available)+
-			(*status_.waiting);
-/*ROS_INFO(" communication_available: %d",*status_.communication_available);
-ROS_INFO(" deadlocked: %d",*status_.deadlocked);
-ROS_INFO(" failed: %d",*status_.failed);
-ROS_INFO(" gps: %d",*status_.gps_spoofed);
-ROS_INFO(" movement_available: %d",*status_.movement_available);
-ROS_INFO(" moving: %d",*status_.moving);
-ROS_INFO(" rotating: %d",*status_.rotating);
-ROS_INFO(" ok: %d",*status_.ok);
-ROS_INFO(" paused_moving: %d",*status_.paused_moving);
-ROS_INFO(" paused_rotating: %d",*status_.paused_rotating);
-ROS_INFO(" reduced_sensing: %d",*status_.reduced_sensing);
-ROS_INFO(" reduced_movement: %d",*status_.reduced_movement);
-ROS_INFO(" sensors_available: %d",*status_.sensors_available);//*/
-ROS_INFO(" waiting: %d",*status_.waiting);
-	//ROS_INFO(" UNKNOWN: %d", sum);
-	if (sum>0)
-		return false;
-	//ROS_INFO("UNKNOWN ------------------------------------------------_");
-	return true;
+	std::cerr<<"\n##############$$$$$$$$$$$$$%%%%%%%%%%%%%%% odom: "<<odom->pose.pose.position.x;
+	location_= gams::pose::Position(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
+	orientation_= gams::pose::Orientation(gams::pose::Quaternion(odom->pose.pose.orientation.x, odom->pose.pose.orientation.y, odom->pose.pose.orientation.z, odom->pose.pose.orientation.w));
+	moveSpeed_ = sqrt(odom->twist.twist.linear.x*odom->twist.twist.linear.x + odom->twist.twist.linear.y*odom->twist.twist.linear.y+odom->twist.twist.linear.z*odom->twist.twist.linear.z);
+}
+
+
+void platforms::turtlebot_platform::set_home(gams::pose::Position home)
+{
+	this->home_ = home;
+}
+
+
+
+
+void platforms::turtlebot_platform::processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan)
+{
+	this->min_sensor_range_ = scan->range_min;
+	this->max_sensor_range_ = scan->range_max;
+	std::cerr<<"\n ############################################################################\n";
+	std::cerr<<"\n ###############################processScanOnce##############################\n";
+	std::cerr<<"\n ############################################################################\n";
+	std::cerr<<"\n ############################################################################\n";
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_ALWAYS,"\n\n ------------- SCAN --------------");
+	//subScan_.shutdown();
 }

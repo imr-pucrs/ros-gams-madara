@@ -2,6 +2,7 @@
 #ifndef   _PLATFORM_TURTLEBOT_PLATFORM_H_
 #define   _PLATFORM_TURTLEBOT_PLATFORM_H_
 
+
 #ifdef _GAMS_ROS_
 
 #include "gams/platforms/ros/RosBase.h"
@@ -21,7 +22,9 @@
 #include <dynamic_reconfigure/DoubleParameter.h>
 #include <dynamic_reconfigure/Reconfigure.h>
 #include <dynamic_reconfigure/Config.h>
-
+#include <nav_msgs/Odometry.h>
+#include <tf/tf.h>
+#include <sensor_msgs/LaserScan.h>
 
 namespace platforms
 {        
@@ -182,10 +185,15 @@ namespace platforms
     virtual const gams::pose::ReferenceFrame & get_frame (void) const;
 
     std::string getMoveBaseStatus() { return move_client_.getState().toString(); };
-//    int getStatus() { return status; };
+
     void cleanAllStatus();
-    bool isUnknownStatus();
     
+    void processOdom(const nav_msgs::Odometry::ConstPtr& odom);
+
+    void set_home(gams::pose::Position home);
+
+    void processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan);
+
   private:
     // a threader for managing platform threads
     //madara::threads::Threader threader_;    
@@ -193,6 +201,17 @@ namespace platforms
     // a default GPS frame
     static gams::pose::GPSFrame  gps_frame;
     
+    // location received by topic ODOM
+    gams::pose::Position location_;
+
+    // orientation received by topic ODOM
+    gams::pose::Orientation orientation_;
+
+
+    gams::pose::Position home_;
+
+    gams::pose::Position targetLocation_;
+
     // a default Cartesian frame
     static gams::pose::CartesianFrame  cartesian_frame;
 
@@ -201,8 +220,15 @@ namespace platforms
       actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_client_;
 
     bool firstMoveSent;
-    gams::pose::Position lastWaypoint;
     ros::ServiceClient updateServiceClientMoveBase;
+
+    double moveSpeed_;
+
+    ros::Subscriber subScan_;
+    double min_sensor_range_;
+    double max_sensor_range_;
+
+    std::map<std::string, std::string> remap;
 
   }; // end turtlebot_platform class
 

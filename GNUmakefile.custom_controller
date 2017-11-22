@@ -22,7 +22,7 @@ FILES = \
   src/algorithms/patrol.cpp \
   src/platforms/turtlebot_platform.cpp
 
-VPATH = .:src/platforms:src/algorithms:src
+VPATH = .:src/algorithms:src/platforms:src
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

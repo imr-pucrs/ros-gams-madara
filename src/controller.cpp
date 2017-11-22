@@ -410,7 +410,8 @@ int main (int argc, char ** argv)
   aliases.push_back ("turtlebot_platform");
   aliases.push_back ("turtlebot");
 
-  knowledge.set(".ros_node", "turtlebot_node");
+  knowledge.set(".ros_namespace", "myplatform");
+  knowledge.set(".ros_node", "turtlebot_platform_node");
 
   controller.add_platform_factory (aliases,
     new platforms::turtlebot_platformFactory ());
