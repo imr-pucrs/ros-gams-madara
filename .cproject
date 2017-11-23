@@ -26,6 +26,10 @@
 									<listOptionValue builtIn="false" value="/home/lsa/gams/src"/>
 									<listOptionValue builtIn="false" value="/home/lsa/madara/include"/>
 									<listOptionValue builtIn="false" value="/home/lsa/ace/ACE_wrappers/include"/>
+									<listOptionValue builtIn="false" value="/home/paravisi/ace/ACE_wrappers"/>
+									<listOptionValue builtIn="false" value="/home/paravisi/gams/src"/>
+									<listOptionValue builtIn="false" value="/home/paravisi/madara/include"/>
+									<listOptionValue builtIn="false" value="/opt/ros/kinetic/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1141323823" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>

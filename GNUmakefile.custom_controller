@@ -18,11 +18,12 @@ LIB_PREFIX      ?= lib
 
 FILES = \
   src/controller.cpp \
-  src/algorithms/square_patrol.cpp \
   src/algorithms/patrol.cpp \
-  src/platforms/turtlebot_platform.cpp
+  src/algorithms/square_patrol.cpp \
+  src/platforms/turtlebot_platform.cpp \
+  src/platforms/threads/TopicListener.cpp
 
-VPATH = .:src/algorithms:src/platforms:src
+VPATH = .:src:src/platforms:src/algorithms:src/platforms/threads
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

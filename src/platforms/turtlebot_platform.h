@@ -6,6 +6,7 @@
 #ifdef _GAMS_ROS_
 
 #include "gams/platforms/ros/RosBase.h"
+#include "threads/TopicListener.h"
 
 #include "gams/variables/Self.h"
 #include "gams/variables/Sensor.h"
@@ -13,6 +14,8 @@
 #include "gams/utility/Position.h"
 #include "gams/platforms/PlatformFactory.h"
 #include "madara/knowledge/KnowledgeBase.h"
+#include "madara/threads/Threader.h"
+#include <madara/knowledge/containers/NativeDoubleVector.h>
 
 
 #include "ros/ros.h"
@@ -188,24 +191,22 @@ namespace platforms
 
     void cleanAllStatus();
     
-    void processOdom(const nav_msgs::Odometry::ConstPtr& odom);
 
     void set_home(gams::pose::Position home);
 
-    void processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan);
 
   private:
     // a threader for managing platform threads
-    //madara::threads::Threader threader_;    
+    madara::threads::Threader threader_;
     
     // a default GPS frame
     static gams::pose::GPSFrame  gps_frame;
     
     // location received by topic ODOM
-    gams::pose::Position location_;
+    //gams::pose::Position location_;
 
     // orientation received by topic ODOM
-    gams::pose::Orientation orientation_;
+    //gams::pose::Orientation orientation_;
 
 
     gams::pose::Position home_;
@@ -216,17 +217,18 @@ namespace platforms
     static gams::pose::CartesianFrame  cartesian_frame;
 
 	const std::string ros_namespace_;
-      ros::NodeHandle node_handle_;
-      actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_client_;
+
+    ros::NodeHandle node_handle_;
+    actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_client_;
 
     bool firstMoveSent;
     ros::ServiceClient updateServiceClientMoveBase;
 
-    double moveSpeed_;
-
-    ros::Subscriber subScan_;
-    double min_sensor_range_;
-    double max_sensor_range_;
+    madara::knowledge::containers::Double moveSpeed_;
+    madara::knowledge::containers::Double min_sensor_range_;
+    madara::knowledge::containers::Double max_sensor_range_;
+    madara::knowledge::containers::NativeDoubleVector location_;
+    madara::knowledge::containers::NativeDoubleVector orientation_;
 
     std::map<std::string, std::string> remap;
 

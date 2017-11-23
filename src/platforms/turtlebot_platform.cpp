@@ -32,7 +32,7 @@ platforms::turtlebot_platform::turtlebot_platform (
 	if (knowledge && sensors)
 	{
 		// set the data plane for the threader
-		//threader_.set_data_plane (*knowledge);
+		threader_.set_data_plane (*knowledge);
 
 		// create a coverage sensor
 		gams::variables::Sensors::iterator it = sensors->find ("coverage");
@@ -52,7 +52,14 @@ platforms::turtlebot_platform::turtlebot_platform (
 		(*sensors_)["coverage"] = (*sensors)["coverage"];
 		status_.init_vars (*knowledge, get_id ());
 
+		moveSpeed_.set_name(".moveSpeed_", *knowledge);
+		min_sensor_range_.set_name(".min_sensor_range_", *knowledge);
+		max_sensor_range_.set_name(".max_sensor_range_", *knowledge);
+		location_.set_name(".location_", *knowledge);
+		orientation_.set_name(".orientation_", *knowledge);
+
 		// create threads
+		threader_.run (35.0, "TopicListener", new platforms::threads::TopicListener(node_handle_));
 		// end create threads
 
 
@@ -78,8 +85,6 @@ platforms::turtlebot_platform::turtlebot_platform (
 
 
 	updateServiceClientMoveBase = node_handle_.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/DWAPlannerROS/set_parameters");
-	ros::Subscriber sub = node_handle_.subscribe("/odom", 1, &platforms::turtlebot_platform::processOdom, this);
-	subScan_ = node_handle_.subscribe("/scan", 1, &platforms::turtlebot_platform::processScanOnce, this);
 
 
 	firstMoveSent = false;
@@ -98,8 +103,8 @@ platforms::turtlebot_platform::turtlebot_platform (
 // Destructor
 platforms::turtlebot_platform::~turtlebot_platform ()
 {
-	//threader_.terminate ();
-	//threader_.wait ();
+	threader_.terminate ();
+	threader_.wait ();
 }
 
 
@@ -120,7 +125,9 @@ int platforms::turtlebot_platform::analyze (void)
 
 	if (*status_.paused_moving)
 		return gams::platforms::WAITING;
-	std::cerr<<" status_"<<*status_.paused_moving;
+	//std::cerr<<" status_"<<*status_.paused_moving;
+	std::cerr<<"\n min_sensor_range_: "<<min_sensor_range_.to_double();
+	std::cerr<<"\n location: "<<location_.to_record();
 
 	if ((move_client_.getState().toString().compare("ACTIVE")==0) )//|| (move_client_.getState().toString().compare("PENDING")==0))
 	{
@@ -227,7 +234,8 @@ platforms::turtlebot_platform::get_accuracy (void) const
 gams::pose::Position
 platforms::turtlebot_platform::get_location () const
 {
-	return location_;
+	gams::pose::Position returnValue(location_.to_record(0).to_double(), location_.to_record(1).to_double(), location_.to_record(2).to_double());
+	return returnValue;
 }
 
 
@@ -235,7 +243,8 @@ platforms::turtlebot_platform::get_location () const
 gams::pose::Orientation
 platforms::turtlebot_platform::get_orientation () const
 {
-	return orientation_;
+	gams::pose::Orientation returnValue(orientation_.to_record(0).to_double(), orientation_.to_record(1).to_double(), orientation_.to_record(2).to_double());
+	return returnValue;
 }
 
 
@@ -252,7 +261,7 @@ double
 platforms::turtlebot_platform::get_move_speed () const
 {
 	// should be in meters/s
-	return this->moveSpeed_;
+	return this->moveSpeed_.to_double();
 }
 
 // Instructs the agent to return home. Optional.
@@ -433,13 +442,6 @@ void platforms::turtlebot_platform::cleanAllStatus()
 }
 
 
-void platforms::turtlebot_platform::processOdom(const nav_msgs::Odometry::ConstPtr& odom)
-{
-	std::cerr<<"\n##############$$$$$$$$$$$$$%%%%%%%%%%%%%%% odom: "<<odom->pose.pose.position.x;
-	location_= gams::pose::Position(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
-	orientation_= gams::pose::Orientation(gams::pose::Quaternion(odom->pose.pose.orientation.x, odom->pose.pose.orientation.y, odom->pose.pose.orientation.z, odom->pose.pose.orientation.w));
-	moveSpeed_ = sqrt(odom->twist.twist.linear.x*odom->twist.twist.linear.x + odom->twist.twist.linear.y*odom->twist.twist.linear.y+odom->twist.twist.linear.z*odom->twist.twist.linear.z);
-}
 
 
 void platforms::turtlebot_platform::set_home(gams::pose::Position home)
@@ -447,17 +449,3 @@ void platforms::turtlebot_platform::set_home(gams::pose::Position home)
 	this->home_ = home;
 }
 
-
-
-
-void platforms::turtlebot_platform::processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan)
-{
-	this->min_sensor_range_ = scan->range_min;
-	this->max_sensor_range_ = scan->range_max;
-	std::cerr<<"\n ############################################################################\n";
-	std::cerr<<"\n ###############################processScanOnce##############################\n";
-	std::cerr<<"\n ############################################################################\n";
-	std::cerr<<"\n ############################################################################\n";
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_ALWAYS,"\n\n ------------- SCAN --------------");
-	//subScan_.shutdown();
-}
