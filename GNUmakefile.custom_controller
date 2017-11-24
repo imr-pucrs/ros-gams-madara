@@ -23,7 +23,7 @@ FILES = \
   src/platforms/turtlebot_platform.cpp \
   src/platforms/threads/TopicListener.cpp
 
-VPATH = .:src:src/platforms:src/algorithms:src/platforms/threads
+VPATH = .:src/platforms/threads:src/algorithms:src:src/platforms
 
 #----------------------------------------------------------------------------
 #       Include macros and targets
