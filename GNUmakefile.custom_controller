@@ -21,9 +21,11 @@ FILES = \
   src/algorithms/patrol.cpp \
   src/algorithms/square_patrol.cpp \
   src/platforms/turtlebot_platform.cpp \
-  src/platforms/threads/TopicListener.cpp
+  src/platforms/threads/TopicListener.cpp \
+  src/platforms/threads/TopicListener3.cpp \
+  src/platforms/threads/TopicListener2.cpp
 
-VPATH = .:src/platforms/threads:src/algorithms:src:src/platforms
+VPATH = .:src/algorithms:src:src/platforms:src/platforms/threads
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

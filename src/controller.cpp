@@ -408,16 +408,15 @@ int main (int argc, char ** argv)
   // add turtlebot_platform factory
   aliases.clear ();
   aliases.push_back ("turtlebot_platform");
-  aliases.push_back ("turtlebot");
-
-  knowledge.set(".ros_namespace", "myplatform");
-  knowledge.set(".ros_node", "turtlebot_platform_node");
-
 
   controller.add_platform_factory (aliases,
     new platforms::turtlebot_platformFactory ());
   // end adding custom platform factories
   
+  knowledge.set(".ros_namespace", "myplatform");
+  knowledge.set(".ros_node", "turtlebot_platform_node");
+
+
   // read madara initialization
   if (madara_commands != "")
   {

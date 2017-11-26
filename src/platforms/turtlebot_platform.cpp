@@ -15,6 +15,8 @@ platforms::turtlebot_platformFactory::create (
 		gams::variables::Platforms * platforms,
 		gams::variables::Self * self)
 {
+    knowledge->set(".ros_namespace", "myplatform");
+    knowledge->set(".ros_node", "turtlebot_platform_node");
 	return new turtlebot_platform (knowledge, sensors, self);
 }
 
@@ -23,7 +25,7 @@ platforms::turtlebot_platform::turtlebot_platform (
 		madara::knowledge::KnowledgeBase * knowledge,
 		gams::variables::Sensors * sensors,
 		gams::variables::Self * self)
-: gams::platforms::RosBase (knowledge, sensors, self),
+:   gams::platforms::RosBase (knowledge, sensors, self),
   	  ros_namespace_(knowledge->get (".ros_namespace").to_string ()),
 	  node_handle_ (ros_namespace_),
 	  move_client_ (std::string ("/move_base"), true)
@@ -118,6 +120,8 @@ int platforms::turtlebot_platform::sense (void)
 // Analyzes platform information. Required.
 int platforms::turtlebot_platform::analyze (void)
 {
+        std::cerr<<" turtlebot platform analyze executed!\n";
+	knowledge_->print();
 	if (move_client_.isServerConnected() == false)
 		return gams::platforms::UNKNOWN;
 	if (!firstMoveSent)
@@ -293,7 +297,8 @@ int platforms::turtlebot_platform::move (
 {
 	// generate message
 	firstMoveSent = true;
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
+        std::cerr<<"received request to move! ("<<location.x()<<", "<<location.y()<<" )\n";
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!! (%f, %f)\n\n", location.x(), location.y());
 	move_base_msgs::MoveBaseGoal goal;
 	goal.target_pose.header.frame_id = "map";
 	goal.target_pose.header.stamp = ros::Time::now ();
@@ -341,8 +346,22 @@ int platforms::turtlebot_platform::rotate (
 int platforms::turtlebot_platform::pose (const gams::pose::Pose & target,
 		double loc_epsilon, double rot_epsilon)
 {
+
+	if (firstMoveSent)
+	{
+		double x = target.x()-targetLocation_.x();
+		double y = target.y()-targetLocation_.y();
+		double z = target.z()-targetLocation_.z();
+		double dist = sqrt(x*x+y*y+z*z);
+		if (dist < loc_epsilon)
+		{
+			cleanAllStatus();
+			status_.movement_available = 1;
+			return gams::platforms::PLATFORM_ARRIVED;
+		}
+	}
 	firstMoveSent = true;
-	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!!\n\n");
+	madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n\n ------------- RECEIVED REQUEST TO MOVE!!! (%f, %f)\n\n", target.x(), target.y());
 	move_base_msgs::MoveBaseGoal goal;
 	goal.target_pose.header.frame_id = "map";
 	goal.target_pose.header.stamp = ros::Time::now ();
