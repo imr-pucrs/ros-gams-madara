@@ -18,12 +18,10 @@ LIB_PREFIX      ?= lib
 
 FILES = \
   src/controller.cpp \
-  src/algorithms/patrol.cpp \
   src/algorithms/square_patrol.cpp \
+  src/algorithms/patrol.cpp \
   src/platforms/turtlebot_platform.cpp \
-  src/platforms/threads/TopicListener.cpp \
-  src/platforms/threads/TopicListener3.cpp \
-  src/platforms/threads/TopicListener2.cpp
+  src/platforms/threads/TopicListener.cpp
 
 VPATH = .:src/algorithms:src:src/platforms:src/platforms/threads
 

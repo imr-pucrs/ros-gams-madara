@@ -34,11 +34,12 @@ platforms::threads::TopicListener::init (knowledge::KnowledgeBase & knowledge)
 	// point our data plane to the knowledge base initializing the thread
 	data_ = knowledge;
 
-	moveSpeed_.set_name(".moveSpeed_", knowledge);
-	min_sensor_range_.set_name(".min_sensor_range_", knowledge);
-	max_sensor_range_.set_name(".max_sensor_range_", knowledge);
-	location_.set_name(".location_", knowledge);
-	orientation_.set_name(".orientation_", knowledge);
+	moveSpeed_.set_name(".moveSpeed", knowledge);
+	min_sensor_range_.set_name(".min_sensor_range", knowledge);
+	max_sensor_range_.set_name(".max_sensor_range", knowledge);
+	//location_.set_name(".location_", knowledge);
+	location_.set_name(".location", knowledge);
+	orientation_.set_name(".orientation", knowledge);
 }
 
 /**
@@ -57,7 +58,7 @@ platforms::threads::TopicListener::run (void)
 
 void platforms::threads::TopicListener::processOdom(const nav_msgs::Odometry::ConstPtr& odom)
 {
-	//std::cerr<<"\n##############$$$$$$$$$$$$$%%%%%%%%%%%%%%% odom: "<<odom->pose.pose.position.x;
+	//std::cerr<<"\n##############$$$$$$$$$$$$$%%%%%%%%%%%%%%% odom: "<<odom->pose.pose.position.x<<", "<<odom->pose.pose.position.y;
 	std::vector <double> locationTemp;
 
 	locationTemp.push_back(odom->pose.pose.position.x);

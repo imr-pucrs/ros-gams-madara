@@ -12,6 +12,7 @@
 #include "gams/variables/Sensor.h"
 #include "gams/variables/PlatformStatus.h"
 #include "gams/utility/Position.h"
+#include <gams/pose/GPSFrame.h>
 #include "gams/platforms/PlatformFactory.h"
 #include "madara/knowledge/KnowledgeBase.h"
 #include "madara/threads/Threader.h"
@@ -200,7 +201,7 @@ namespace platforms
     madara::threads::Threader threader_;
     
     // a default GPS frame
-    static gams::pose::GPSFrame  gps_frame;
+    //static gams::pose::GPSFrame  gps_frame;
     
     // location received by topic ODOM
     //gams::pose::Position location_;
@@ -227,7 +228,7 @@ namespace platforms
     madara::knowledge::containers::Double moveSpeed_;
     madara::knowledge::containers::Double min_sensor_range_;
     madara::knowledge::containers::Double max_sensor_range_;
-    madara::knowledge::containers::NativeDoubleVector location_;
+    //madara::knowledge::containers::NativeDoubleVector location_;
     madara::knowledge::containers::NativeDoubleVector orientation_;
 
     std::map<std::string, std::string> remap;

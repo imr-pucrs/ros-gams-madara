@@ -2,7 +2,7 @@
 /**
  * Common algorithm that may be used to initialize agent algorithms
  **/
-.algorithm = 'square_patrol';
+.algorithm = null;
 
 /**
  * Type of platform to use. Options include:
@@ -15,9 +15,9 @@
  * Specialty options (must be compiled with more than just vrep feature)
  * ros-p3dx        : A ROS Pioneer 3DX robot
  **/
-.platform = 'turtlebot';
+.platform = 'turtlebot_platform';
 
-sensor.coverage.origin=[40.443077,-79.940570, 0.0];
+sensor.coverage.origin=[0,0, 0.0];
 
 /**
  * The host information where VREP is running

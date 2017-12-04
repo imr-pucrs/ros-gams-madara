@@ -8,7 +8,7 @@
 # this file will be lost the next time it is generated.
 #
 # MPC Command:
-# /home/paravisi/ace/ACE_wrappers/bin/mwc.pl -type gnuace -features vrep=0,tests=0 workspace.mwc
+# /home/lsa/ace/ACE_wrappers/bin/mwc.pl -type gnuace -features vrep=0,tests=0 workspace.mwc
 #
 #----------------------------------------------------------------------------
 
