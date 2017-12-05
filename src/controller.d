@@ -563,16 +563,6 @@
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Twist.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Vector3.h \
  /opt/ros/kinetic/share/ros/../../include/sensor_msgs/LaserScan.h \
- /home/lsa/gams/src/gams/utility/Position.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/DoubleParameter.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Reconfigure.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureRequest.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Config.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/BoolParameter.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/IntParameter.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/StrParameter.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/GroupState.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h \
  /opt/ros/kinetic/share/ros/../../include/tf/tf.h \
  /opt/ros/kinetic/share/ros/../../include/tf/exceptions.h \
  /opt/ros/kinetic/share/ros/../../include/tf2/exceptions.h \
@@ -608,4 +598,25 @@
  /opt/ros/kinetic/share/ros/../../include/tf2/impl/convert.h \
  /opt/ros/kinetic/share/ros/../../include/tf2_msgs/FrameGraph.h \
  /opt/ros/kinetic/share/ros/../../include/tf2_msgs/FrameGraphRequest.h \
- /opt/ros/kinetic/share/ros/../../include/tf2_msgs/FrameGraphResponse.h
+ /opt/ros/kinetic/share/ros/../../include/tf2_msgs/FrameGraphResponse.h \
+ /opt/ros/kinetic/share/ros/../../include/tf/transform_listener.h \
+ /opt/ros/kinetic/share/ros/../../include/sensor_msgs/PointCloud.h \
+ /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Point32.h \
+ /opt/ros/kinetic/share/ros/../../include/sensor_msgs/ChannelFloat32.h \
+ /opt/ros/kinetic/share/ros/../../include/std_msgs/Empty.h \
+ /opt/ros/kinetic/share/ros/../../include/tf/tfMessage.h \
+ /opt/ros/kinetic/share/ros/../../include/tf/FrameGraph.h \
+ /opt/ros/kinetic/share/ros/../../include/tf/FrameGraphRequest.h \
+ /opt/ros/kinetic/share/ros/../../include/tf/FrameGraphResponse.h \
+ /opt/ros/kinetic/share/ros/../../include/tf2_ros/transform_listener.h \
+ /opt/ros/kinetic/share/ros/../../include/tf2_msgs/TFMessage.h \
+ /home/lsa/gams/src/gams/utility/Position.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/DoubleParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Reconfigure.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureRequest.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Config.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/BoolParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/IntParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/StrParameter.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/GroupState.h \
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h

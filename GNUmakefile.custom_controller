@@ -23,12 +23,12 @@ FILES = \
   src/platforms/turtlebot_platform.cpp \
   src/platforms/threads/TopicListener.cpp
 
-VPATH = .:src/algorithms:src:src/platforms:src/platforms/threads
+VPATH = .:src/platforms:src/algorithms:src:src/platforms/threads
 
 #----------------------------------------------------------------------------
 #       Include macros and targets
 #----------------------------------------------------------------------------
-LDLIBS = -lACE -lMADARA -lGAMS -lroscpp_serialization -lboost_thread -lboost_system -lrostime -lactionlib -lrosconsole -lroscpp
+LDLIBS = -lACE -lMADARA -lGAMS -lroscpp_serialization -ltf -lboost_thread -lboost_system -lrostime -lactionlib -lrosconsole -lroscpp
 
 PRJ_TYPE = rtp
 
@@ -79,7 +79,7 @@ else
       # a reasonable default
       LIBCHECK_PREFIX = /usr
     endif
-    LIBCHECK ?= $(filter-out $(foreach lib,ACE MADARA GAMS roscpp_serialization boost_thread boost_system rostime actionlib rosconsole roscpp,$(findstring $(lib),$(foreach libpath,. $(if $(ARCH),./$(ARCH)) $(GAMS_ROOT)/lib $(if $(ARCH),$(GAMS_ROOT)/lib/$(ARCH)) $(ROS_ROOT)/../../lib $(if $(ARCH),$(ROS_ROOT)/../../lib/$(ARCH)) $(VREP_ROOT) $(if $(ARCH),$(VREP_ROOT)/$(ARCH)) $(MADARA_ROOT)/lib $(if $(ARCH),$(MADARA_ROOT)/lib/$(ARCH)) $(ACE_ROOT)/lib $(if $(ARCH),$(ACE_ROOT)/lib/$(ARCH)) $(LIBCHECK_PREFIX)/lib $(LIBCHECK_PREFIX)/lib64 $(LIBCHECK_EXTRA_PATHS) $(INSLIB),$(wildcard $(libpath)/$(LIB_PREFIX)$(lib).* $(libpath)/$(lib).lib)))),ACE MADARA GAMS roscpp_serialization boost_thread boost_system rostime actionlib rosconsole roscpp)
+    LIBCHECK ?= $(filter-out $(foreach lib,ACE MADARA GAMS roscpp_serialization tf boost_thread boost_system rostime actionlib rosconsole roscpp,$(findstring $(lib),$(foreach libpath,. $(if $(ARCH),./$(ARCH)) $(GAMS_ROOT)/lib $(if $(ARCH),$(GAMS_ROOT)/lib/$(ARCH)) $(ROS_ROOT)/../../lib $(if $(ARCH),$(ROS_ROOT)/../../lib/$(ARCH)) $(VREP_ROOT) $(if $(ARCH),$(VREP_ROOT)/$(ARCH)) $(MADARA_ROOT)/lib $(if $(ARCH),$(MADARA_ROOT)/lib/$(ARCH)) $(ACE_ROOT)/lib $(if $(ARCH),$(ACE_ROOT)/lib/$(ARCH)) $(LIBCHECK_PREFIX)/lib $(LIBCHECK_PREFIX)/lib64 $(LIBCHECK_EXTRA_PATHS) $(INSLIB),$(wildcard $(libpath)/$(LIB_PREFIX)$(lib).* $(libpath)/$(lib).lib)))),ACE MADARA GAMS roscpp_serialization tf boost_thread boost_system rostime actionlib rosconsole roscpp)
     ifeq ($(LIBCHECK),)
       LIBCHECK = 1
     endif
@@ -163,7 +163,7 @@ endif
 ifneq ($(VXWORKSLINK),1)
 ifeq ($(static_libs_only), 1)
   ifeq ($(use_dep_libs), 1)
-    DEPLIBS = $(foreach lib, ACE MADARA GAMS roscpp_serialization boost_thread boost_system rostime actionlib rosconsole roscpp , $(foreach libpath, . $(GAMS_ROOT)/lib $(ROS_ROOT)/../../lib $(VREP_ROOT) $(MADARA_ROOT)/lib $(ACE_ROOT)/lib, $(wildcard $(libpath)/$(LIB_PREFIX)$(lib).$(LIBEXT))))
+    DEPLIBS = $(foreach lib, ACE MADARA GAMS roscpp_serialization tf boost_thread boost_system rostime actionlib rosconsole roscpp , $(foreach libpath, . $(GAMS_ROOT)/lib $(ROS_ROOT)/../../lib $(VREP_ROOT) $(MADARA_ROOT)/lib $(ACE_ROOT)/lib, $(wildcard $(libpath)/$(LIB_PREFIX)$(lib).$(LIBEXT))))
   endif
 endif
 

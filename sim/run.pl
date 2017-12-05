@@ -6,9 +6,9 @@ use File::Basename;
 # Create core variables for simulation
 $dir = dirname($0);
 $controller = "$dir/../bin/custom_controller";
-$duration = 300;
+$duration = 500;
 $madara_debug = 1;
-$gams_debug = 6;
+$gams_debug = 0;
 $period = 1;
 $agents = 1;
 @border = ();

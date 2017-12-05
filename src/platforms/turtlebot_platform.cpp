@@ -239,8 +239,8 @@ platforms::turtlebot_platform::get_accuracy (void) const
 	std::string rosParameter ="/move_base/DWAPlannerROS/xy_goal_tolerance";
 	double accuracy;
 	if (node_handle_.getParam(rosParameter.c_str(), accuracy))
-//		return accuracy; // should be this
- 		return accuracy+0.3; // it is a bug into move_base??
+		return accuracy; // should be this
+// 		return accuracy+0.2; // it is a bug into move_base??
 	return 0.0;
 }
 

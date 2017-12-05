@@ -14,7 +14,7 @@ platforms::threads::TopicListener::TopicListener (ros::NodeHandle node_handle)
 	subOdom_ = node_handle_.subscribe("/odom", 1, &platforms::threads::TopicListener::processOdom, this);
 	subScan_ = node_handle_.subscribe("/scan", 1, &platforms::threads::TopicListener::processScanOnce, this);
 
-
+	listener.waitForTransform("/map", "/odom", ros::Time(), ros::Duration(1.0));
 }
 
 // destructor
@@ -65,6 +65,29 @@ void platforms::threads::TopicListener::processOdom(const nav_msgs::Odometry::Co
 	locationTemp.push_back(odom->pose.pose.position.y);
 	locationTemp.push_back(odom->pose.pose.position.z);
 	location_.set(locationTemp);
+
+	tf::StampedTransform transform_in_map;
+	try {
+	  listener.lookupTransform("/map", "/odom", ros::Time(), transform_in_map);
+	  /*std::cerr<<"\n transform_in_map: ("<<transform_in_map.getOrigin().getX()<<", "<<transform_in_map.getOrigin().getY()<<", "<<transform_in_map.getOrigin().getZ()<<") "
+
+					  <<" rot: ("<<transform_in_map.getRotation().getX()<<", "
+					  <<transform_in_map.getRotation().getY()<<", "
+					  <<transform_in_map.getRotation().getZ()<<", "
+					  <<transform_in_map.getRotation().getW()<<") ";*/
+
+		tf::Vector3 loc(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
+		loc = transform_in_map * loc;
+		std::vector <double> locationTemp2;
+		locationTemp2.push_back(loc.getX());
+		locationTemp2.push_back(loc.getY());
+		locationTemp2.push_back(loc.getZ());
+		location_.set(locationTemp2);
+
+		//std::cerr<<"\n locationTemp: "<<locationTemp<<" loc: "<<loc.getX()<<", "<<loc.getY()<<", "<<loc.getZ()<<") ";
+	} catch(tf::TransformException &exception) {
+	  ROS_ERROR("%s", exception.what());
+	}
 	//location_= gams::pose::Position(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
 	//orientation_= gams::pose::Orientation(gams::pose::Quaternion(odom->pose.pose.orientation.x, odom->pose.pose.orientation.y, odom->pose.pose.orientation.z, odom->pose.pose.orientation.w));
 	//moveSpeed_ = sqrt(odom->twist.twist.linear.x*odom->twist.twist.linear.x + odom->twist.twist.linear.y*odom->twist.twist.linear.y+odom->twist.twist.linear.z*odom->twist.twist.linear.z);

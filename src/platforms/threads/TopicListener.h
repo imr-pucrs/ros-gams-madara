@@ -11,6 +11,8 @@
 #include "madara/knowledge/KnowledgeBase.h"
 #include <madara/knowledge/containers/Double.h>
 #include <madara/knowledge/containers/NativeDoubleVector.h>
+#include <tf/tf.h>
+#include <tf/transform_listener.h>
 
 namespace platforms
 {
@@ -56,6 +58,8 @@ namespace platforms
       bool scanChanged_;
 
       ros::NodeHandle node_handle_;
+
+      tf::TransformListener listener;
 
       ros::Subscriber subOdom_;
       ros::Subscriber subScan_;

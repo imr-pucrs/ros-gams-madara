@@ -12,6 +12,7 @@ project {
   libs += boost_system 
   libs += rostime
   libs += boost_thread
+  libs += tf
   libs += roscpp_serialization
   libs += GAMS
 
