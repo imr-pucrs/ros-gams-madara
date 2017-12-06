@@ -18,12 +18,13 @@ LIB_PREFIX      ?= lib
 
 FILES = \
   src/controller.cpp \
+  src/algorithms/ZigZagCoverage.cpp \
   src/algorithms/square_patrol.cpp \
-  src/algorithms/patrol.cpp \
+  src/platforms/turtleGenericFrame.cpp \
   src/platforms/turtlebot_platform.cpp \
   src/platforms/threads/TopicListener.cpp
 
-VPATH = .:src/platforms:src/algorithms:src:src/platforms/threads
+VPATH = .:src/platforms/threads:src/platforms:src:src/algorithms
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

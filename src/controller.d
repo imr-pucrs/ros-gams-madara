@@ -453,7 +453,8 @@
  /home/lsa/gams/src/gams/pose/Euler.inl \
  /home/lsa/gams/src/gams/algorithms/AlgorithmFactory.h \
  /home/lsa/gams/src/gams/platforms/PlatformFactory.h \
- src/algorithms/patrol.h src/algorithms/square_patrol.h \
+ src/algorithms/square_patrol.h src/algorithms/ZigZagCoverage.h \
+ /home/lsa/gams/src/gams/algorithms/area_coverage/BaseAreaCoverage.h \
  src/platforms/turtlebot_platform.h \
  /home/lsa/gams/src/gams/platforms/ros/RosBase.h \
  /opt/ros/kinetic/share/ros/../../include/ros/ros.h \
@@ -619,4 +620,5 @@
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/IntParameter.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/StrParameter.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/GroupState.h \
- /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h
+ /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h \
+ src/platforms/turtleGenericFrame.h

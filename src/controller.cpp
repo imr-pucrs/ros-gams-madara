@@ -8,12 +8,13 @@
 // DO NOT DELETE THIS SECTION
 
 // begin algorithm includes
-#include "algorithms/patrol.h"
 #include "algorithms/square_patrol.h"
+#include "algorithms/ZigZagCoverage.h"
 // end algorithm includes
 
 // begin platform includes
 #include "platforms/turtlebot_platform.h"
+#include "platforms/turtleGenericFrame.h"
 // end platform includes
 
 // begin thread includes
@@ -388,19 +389,19 @@ int main (int argc, char ** argv)
   
   // begin adding custom algorithm factories
 
-  // add patrol factory
-  aliases.clear ();
-  aliases.push_back ("patrol");
-
-  controller.add_algorithm_factory (aliases,
-    new algorithms::patrolFactory ());
-
   // add square_patrol factory
   aliases.clear ();
   aliases.push_back ("square_patrol");
 
   controller.add_algorithm_factory (aliases,
     new algorithms::square_patrolFactory ());
+
+  // add ZigZagCoverage factory
+  aliases.clear ();
+  aliases.push_back ("ZigZagCoverage");
+
+  controller.add_algorithm_factory (aliases,
+    new algorithms::ZigZagCoverageFactory ());
   // end adding custom algorithm factories
 
   // begin adding custom platform factories
@@ -411,6 +412,13 @@ int main (int argc, char ** argv)
 
   controller.add_platform_factory (aliases,
     new platforms::turtlebot_platformFactory ());
+
+  // add turtleGenericFrame factory
+  aliases.clear ();
+  aliases.push_back ("turtleGenericFrame");
+
+  controller.add_platform_factory (aliases,
+    new platforms::turtleGenericFrameFactory ());
   // end adding custom platform factories
   
   knowledge.set(".ros_namespace", "myplatform");
