@@ -1,0 +1,112 @@
+-1:0: algorithm.analyze ()
+-1:0:   algorithm.platform_ is set
+-1:0:   algorithm.sensors_ is set
+-1:0:   algorithm.self_ is set
+-1:0:     algorithm.status_.ok == 1
+-1:0:     algorithm.status_.paused == 0
+-1:0:     algorithm.status_.waiting == 1
+-1:0:     algorithm.status_.deadlocked == 0
+-1:0:     algorithm.status_.failed == 0
+-1:0:     algorithm.status_.unknown == 0
+-1:0: algorithm.plan ()
+-1:0:   algorithm.platform_ is set
+-1:0:   algorithm.sensors_ is set
+-1:0:   algorithm.self_ is set
+-1:0:     algorithm.status_.ok == 1
+-1:0:     algorithm.status_.paused == 0
+-1:0:     algorithm.status_.waiting == 1
+-1:0:     algorithm.status_.deadlocked == 0
+-1:0:     algorithm.status_.failed == 0
+-1:0:     algorithm.status_.unknown == 0
+-1:0: algorithm.execute ()
+-1:0:   algorithm.platform_ is set
+-1:0:   algorithm.sensors_ is set
+-1:0:   algorithm.self_ is set
+-1:0:     algorithm.status_.ok == 1
+-1:0:     algorithm.status_.paused == 0
+-1:0:     algorithm.status_.waiting == 0
+-1:0:     algorithm.status_.deadlocked == 0
+-1:0:     algorithm.status_.failed == 0
+-1:0:     algorithm.status_.unknown == 0
+-1:1: algorithm.analyze ()
+-1:1:   algorithm.platform_ is set
+-1:1:   algorithm.sensors_ is set
+-1:1:   algorithm.self_ is set
+-1:1:     algorithm.status_.ok == 1
+-1:1:     algorithm.status_.paused == 0
+-1:1:     algorithm.status_.waiting == 1
+-1:1:     algorithm.status_.deadlocked == 0
+-1:1:     algorithm.status_.failed == 0
+-1:1:     algorithm.status_.unknown == 0
+-1:1: algorithm.plan ()
+-1:1:   algorithm.platform_ is set
+-1:1:   algorithm.sensors_ is set
+-1:1:   algorithm.self_ is set
+-1:1:     algorithm.status_.ok == 1
+-1:1:     algorithm.status_.paused == 0
+-1:1:     algorithm.status_.waiting == 1
+-1:1:     algorithm.status_.deadlocked == 0
+-1:1:     algorithm.status_.failed == 0
+-1:1:     algorithm.status_.unknown == 0
+-1:1: algorithm.execute ()
+-1:1:   algorithm.platform_ is set
+-1:1:   algorithm.sensors_ is set
+-1:1:   algorithm.self_ is set
+-1:1:     algorithm.status_.ok == 1
+-1:1:     algorithm.status_.paused == 0
+-1:1:     algorithm.status_.waiting == 0
+-1:1:     algorithm.status_.deadlocked == 0
+-1:1:     algorithm.status_.failed == 0
+-1:1:     algorithm.status_.unknown == 0
+-1:2: algorithm.analyze ()
+-1:2:   algorithm.platform_ is set
+-1:2:   algorithm.sensors_ is set
+-1:2:   algorithm.self_ is set
+-1:2:     algorithm.status_.ok == 1
+-1:2:     algorithm.status_.paused == 0
+-1:2:     algorithm.status_.waiting == 1
+-1:2:     algorithm.status_.deadlocked == 0
+-1:2:     algorithm.status_.failed == 0
+-1:2:     algorithm.status_.unknown == 0
+-1:2: algorithm.plan ()
+-1:2:   algorithm.platform_ is set
+-1:2:   algorithm.sensors_ is set
+-1:2:   algorithm.self_ is set
+-1:2:     algorithm.status_.ok == 1
+-1:2:     algorithm.status_.paused == 0
+-1:2:     algorithm.status_.waiting == 1
+-1:2:     algorithm.status_.deadlocked == 0
+-1:2:     algorithm.status_.failed == 0
+-1:2:     algorithm.status_.unknown == 0
+-1:2: algorithm.execute ()
+-1:2:   algorithm.platform_ is set
+-1:2:   algorithm.sensors_ is set
+-1:2:   algorithm.self_ is set
+-1:2:     algorithm.status_.ok == 1
+-1:2:     algorithm.status_.paused == 0
+-1:2:     algorithm.status_.waiting == 0
+-1:2:     algorithm.status_.deadlocked == 0
+-1:2:     algorithm.status_.failed == 0
+-1:2:     algorithm.status_.unknown == 0
+-1:3: algorithm.analyze ()
+-1:3:   algorithm.platform_ is set
+-1:3:   algorithm.sensors_ is set
+-1:3:   algorithm.self_ is set
+-1:3:     algorithm.status_.ok == 1
+-1:3:     algorithm.status_.paused == 0
+-1:3:     algorithm.status_.waiting == 1
+-1:3:     algorithm.status_.deadlocked == 0
+-1:3:     algorithm.status_.failed == 0
+-1:3:     algorithm.status_.unknown == 0
+-1:3: algorithm.plan ()
+-1:3:   algorithm.platform_ is set
+-1:3:   algorithm.sensors_ is set
+-1:3:   algorithm.self_ is set
+-1:3:     algorithm.status_.ok == 1
+-1:3:     algorithm.status_.paused == 0
+-1:3:     algorithm.status_.waiting == 1
+-1:3:     algorithm.status_.deadlocked == 0
+-1:3:     algorithm.status_.failed == 0
+-1:3:     algorithm.status_.unknown == 0
+-1:3: algorithm.execute ()
+-1:3:   algorithm.plat

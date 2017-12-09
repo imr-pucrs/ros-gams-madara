@@ -25,8 +25,9 @@ platforms::turtleGenericFrame::turtleGenericFrame (
   madara::knowledge::KnowledgeBase * knowledge,
   gams::variables::Sensors * sensors,
   gams::variables::Self * self)
-: gams::platforms::BasePlatform (knowledge, sensors, self)
-
+: gams::platforms::RosBase (knowledge, sensors, self),
+  ros_namespace_(knowledge->get (".ros_namespace").to_string ()),
+  node_handle_ (ros_namespace_)
 {
   // as an example of what to do here, create a coverage sensor
   if (knowledge && sensors)
@@ -53,10 +54,15 @@ platforms::turtleGenericFrame::turtleGenericFrame (
     status_.init_vars (*knowledge, get_id ());
     
     // create threads
-    //threader_.run(1.0, "TopicListener", new threads::TopicListener(node_handle_));
+    threader_.run(1.0, "TopicListener2", new threads::TopicListener2(node_handle_, self_));
+    threader_.run(1.0, "TopicPublisher", topic_publisher_ = new threads::TopicPublisher(node_handle_, self_));
     // end create threads
     
+    self_->init_vars(*knowledge, get_id());
     
+
+    updateServiceClientMoveBase = node_handle_.serviceClient<dynamic_reconfigure::Reconfigure>("/move_base/DWAPlannerROS/set_parameters");
+
     /**
     * the following should be set when movement is available in your
     * platform. If on construction, movement should be possible, then
@@ -114,8 +120,11 @@ platforms::turtleGenericFrame::get_id () const
 double
 platforms::turtleGenericFrame::get_accuracy (void) const
 {
-  // will depend on your localization capabilities for robotics
-  return 0.0;
+	std::string rosParameter ="/move_base/DWAPlannerROS/xy_goal_tolerance";
+	double accuracy;
+	if (node_handle_.getParam(rosParameter.c_str(), accuracy))
+		return accuracy; // should be this
+	return 0.0;
 }
 
 // Gets Location of platform, within its parent frame. Optional.
@@ -123,7 +132,7 @@ gams::pose::Position
 platforms::turtleGenericFrame::get_location () const
 {
   gams::pose::Position result;
-  
+  result.from_container(self_->agent.location);
   return result;
 }
 
@@ -133,7 +142,7 @@ gams::pose::Orientation
 platforms::turtleGenericFrame::get_orientation () const
 {
   gams::pose::Orientation result;
-  
+  result.from_container(self_->agent.orientation);
   return result;
 }
 
@@ -150,8 +159,10 @@ platforms::turtleGenericFrame::get_min_sensor_range () const
 double
 platforms::turtleGenericFrame::get_move_speed () const
 {
-  // should be in meters/s
-  return 0.0;
+	// should be in meters/s
+	double speed;
+	node_handle_.getParam("/move_base/DWAPlannerROS/max_vel_x", speed);
+	return speed;
 }
 
 // Instructs the agent to return home. Optional.
@@ -203,7 +214,19 @@ platforms::turtleGenericFrame::move (
 	std::cerr<<"\n ------------------- gpsP: ("<<gpsP.x<<", "<<gpsP.y<<")";
 	p = gpsP.to_position(gams::utility::GPSPosition(-30.060700, -51.173249, 0));
 	std::cerr<<"\n ------------------- p2: ("<<p.x<<", "<<p.y<<")";
-  return gams::platforms::PLATFORM_MOVING;
+
+
+
+	std::vector<double> stdOrientation;
+	stdOrientation.push_back(0.0);
+	stdOrientation.push_back(0.0);
+	stdOrientation.push_back(0.0);
+	stdOrientation.push_back(1.0);
+	self_->agent.orientation.set(stdOrientation);
+	location.to_container(self_->agent.dest);
+	topic_publisher_->move();
+
+    return gams::platforms::PLATFORM_MOVING;
 }
 
 
@@ -235,6 +258,11 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
    * return that we are in the process of moving to the final pose.
    **/
 	std::cerr<<"\n ------------------- pose: ("<<target.x()<<", "<<target.y()<<") ";
+	gams::pose::Position location(target.x(),target.y(),target.z() );
+	location.to_container(self_->agent.dest);
+	gams::pose::Orientation orientation(target.rx(), target.ry(), target.rz());
+	orientation.to_container(self_->agent.orientation);
+	topic_publisher_->move();
 
   return gams::platforms::PLATFORM_MOVING;
 }
@@ -243,6 +271,7 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
 void
 platforms::turtleGenericFrame::pause_move (void)
 {
+	topic_publisher_->cancel();
 }
 
 
@@ -250,6 +279,18 @@ platforms::turtleGenericFrame::pause_move (void)
 void
 platforms::turtleGenericFrame::set_move_speed (const double& speed)
 {
+	dynamic_reconfigure::Reconfigure srv;
+	dynamic_reconfigure::DoubleParameter double_param;
+	double_param.name = "max_vel_x";
+	double_param.value = speed;
+	srv.request.config.doubles.push_back(double_param);
+
+	if (updateServiceClientMoveBase.call(srv))
+	{
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n ---- SUCCESS: speed changed %f!!!\n", speed);
+	}
+	else
+		madara_logger_ptr_log (gams::loggers::global_logger.get (), gams::loggers::LOG_MAJOR,"\n ---- ERROR: speed NOT changed!!!\n");
 }
 
 
@@ -257,6 +298,7 @@ platforms::turtleGenericFrame::set_move_speed (const double& speed)
 void
 platforms::turtleGenericFrame::stop_move (void)
 {
+	topic_publisher_->cancel();
 }
 
 // Instructs the agent to take off. Optional.

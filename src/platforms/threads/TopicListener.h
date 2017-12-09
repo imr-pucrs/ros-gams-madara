@@ -47,9 +47,9 @@ namespace platforms
 
       void processOdom(const nav_msgs::Odometry::ConstPtr& odom);
 
-
-
       void processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan);
+
+
 
     private:
       /// data plane if we want to access the knowledge base
@@ -70,6 +70,7 @@ namespace platforms
 	  madara::knowledge::containers::Double max_sensor_range_;
 	  madara::knowledge::containers::NativeDoubleVector location_;
 	  madara::knowledge::containers::NativeDoubleVector orientation_;
+
     };
   } // end namespace threads
 } // end namespace platforms

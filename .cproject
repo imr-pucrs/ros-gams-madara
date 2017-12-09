@@ -30,6 +30,10 @@
 									<listOptionValue builtIn="false" value="/home/paravisi/gams/src"/>
 									<listOptionValue builtIn="false" value="/home/paravisi/madara/include"/>
 									<listOptionValue builtIn="false" value="/opt/ros/kinetic/include"/>
+									<listOptionValue builtIn="false" value="/home/paravisi/gams/src/gams/platforms/ros"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.preprocessor.def.516047714" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_GAMS_ROS_=1"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1141323823" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
