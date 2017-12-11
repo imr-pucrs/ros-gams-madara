@@ -190,6 +190,10 @@ namespace platforms
     ros::NodeHandle node_handle_;
 
     platforms::threads::TopicPublisher* topic_publisher_;
+    platforms::threads::TopicListener2* topic_listener_;
+
+    madara::knowledge::containers::Integer goalId_;
+    madara::knowledge::containers::String frame_;
 
     ros::ServiceClient updateServiceClientMoveBase;
   }; // end turtleGenericFrame class

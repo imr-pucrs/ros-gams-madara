@@ -5,16 +5,19 @@
 namespace knowledge = madara::knowledge;
 
 // constructor
-platforms::threads::TopicListener2::TopicListener2 (ros::NodeHandle node_handle, gams::variables::Self* self)
+platforms::threads::TopicListener2::TopicListener2 (ros::NodeHandle node_handle, gams::variables::Self* self, gams::variables::PlatformStatus status)
 {
 	odomChanged_=false;
 	scanChanged_=false;
 	node_handle_=node_handle;
 	self_ = self;
+	status_ = status;
+
 
 	subOdom_ = node_handle_.subscribe("/odom", 1, &platforms::threads::TopicListener2::processOdom, this);
 	subScan_ = node_handle_.subscribe("/scan", 1, &platforms::threads::TopicListener2::processScanOnce, this);
 	subFeed_ = node_handle_.subscribe("/move_base/feedback", 1, &platforms::threads::TopicListener2::processFeedback, this);
+	subStatus_ = node_handle_.subscribe("/move_base/status", 1, &platforms::threads::TopicListener2::processStatus, this);
 
 	listener.waitForTransform("/map", "/odom", ros::Time(), ros::Duration(1.0));
 }
@@ -39,6 +42,11 @@ platforms::threads::TopicListener2::init (knowledge::KnowledgeBase & knowledge)
 	//moveSpeed_.set_name(".moveSpeed", knowledge);
 	min_sensor_range_.set_name(".min_sensor_range", knowledge);
 	max_sensor_range_.set_name(".max_sensor_range", knowledge);
+	goalId_.set_name(".goalId_", knowledge);
+	frame_.set_name(".frame", knowledge);
+	initial_lat_.set_name(".initial_lat", knowledge);
+	initial_lon_.set_name(".initial_lon", knowledge);
+	initial_alt_.set_name(".initial_alt", knowledge);
 	//location_.set_name(".location_", knowledge);
 	//location_.set_name(".location", knowledge);
 	//orientation_.set_name(".orientation", knowledge);
@@ -80,6 +88,17 @@ void platforms::threads::TopicListener2::processOdom(const nav_msgs::Odometry::C
 
 		tf::Vector3 loc(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
 		loc = transform_in_map * loc;
+		if (frame_=="gpsTocartesian")
+		{
+			//gams::pose::Position loc2(loc.x(), loc.y(), loc.z());
+			gams::pose::Position loc2(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
+			std::cerr<<"\n======================= loc cart: "<<loc2.x()<<", "<<loc2.y()<<", "<<loc2.z();
+			gams::utility::GPSPosition gpsP = gams::utility::GPSPosition::to_gps_position (loc2,
+				  			gams::utility::GPSPosition(initial_lat_.to_double(), initial_lon_.to_double(), initial_alt_.to_double()));
+			loc = tf::Vector3(gpsP.x, gpsP.y, gpsP.z);
+
+			std::cerr<<"\n======================= location gps: "<<loc.getX()<<", "<<loc.getY()<<", "<<loc.getZ();
+		}
 		std::vector <double> locationTemp2;
 		locationTemp2.push_back(loc.getX());
 		locationTemp2.push_back(loc.getY());
@@ -121,6 +140,79 @@ void platforms::threads::TopicListener2::processScanOnce(const sensor_msgs::Lase
 
 void platforms::threads::TopicListener2::processFeedback(const move_base_msgs::MoveBaseActionFeedback::ConstPtr& feed)
 {
-	std::cerr<<"\n########################################### processFeedback "<<feed->status.status;
+	std::cerr<<"\n########################################### processFeedback "<<(int)(feed->status.status)<<"! "<<feed->status.text;
+	std::cerr<<"\n ########################################### goalId: "<<feed->status.goal_id.id;
+	cleanAllStatus();
+	if (feed->status.status==0)//PENDING   	=0
+		status_.waiting=1;
+	if (feed->status.status==1)//ACTIVE		=1
+			status_.moving=1;
+	if (feed->status.status==2)//PREEMPTED 	=2
+			status_.movement_available=1;
+	if (feed->status.status==3)//SUCCEEDED 	=3
+			status_.movement_available=1;
+	if (feed->status.status==4)//ABORTED   	=4
+			status_.failed=1;
+	if (feed->status.status==5)//REJECTED	=5
+			status_.reduced_movement=1;
+	if (feed->status.status==6)//PREEMPTING	=6
+			status_.waiting=1;
+	if (feed->status.status==7)//RECALLING	=7
+			status_.waiting=1;
+	if (feed->status.status==8)//RECALLED	=8
+			status_.movement_available=1;
+	if (feed->status.status==9)//LOST		=9
+			status_.reduced_sensing=1;
+}
 
+void platforms::threads::TopicListener2::processStatus(const actionlib_msgs::GoalStatusArray::ConstPtr& statusValue)
+{
+	std::cerr<<"\n ################################ STATUS: SIZE: "<<statusValue->status_list.size();
+	for (unsigned int i = 0; i < statusValue->status_list.size(); i++)
+	{
+		std::cerr<<"\n ##############"<<i<<": goalId: "<<statusValue->status_list[i].goal_id.id<<" -> "<<statusValue->status_list[i].status<<" - "<<statusValue->status_list[i].text;
+		if (statusValue->status_list[i].goal_id.id.compare(goalId_.to_string())==0)
+		{
+			cleanAllStatus();
+			if (statusValue->status_list[i].status==0)//PENDING   	=0
+				status_.waiting=1;
+			if (statusValue->status_list[i].status==1)//ACTIVE		=1
+					status_.moving=1;
+			if (statusValue->status_list[i].status==2)//PREEMPTED 	=2
+					status_.movement_available=1;
+			if (statusValue->status_list[i].status==3)//SUCCEEDED 	=3
+					status_.movement_available=1;
+			if (statusValue->status_list[i].status==4)//ABORTED   	=4
+					status_.failed=1;
+			if (statusValue->status_list[i].status==5)//REJECTED	=5
+					status_.reduced_movement=1;
+			if (statusValue->status_list[i].status==6)//PREEMPTING	=6
+					status_.waiting=1;
+			if (statusValue->status_list[i].status==7)//RECALLING	=7
+					status_.waiting=1;
+			if (statusValue->status_list[i].status==8)//RECALLED	=8
+					status_.movement_available=1;
+			if (statusValue->status_list[i].status==9)//LOST		=9
+					status_.reduced_sensing=1;
+
+		}
+	}
+}
+
+void platforms::threads::TopicListener2::cleanAllStatus(void)
+{
+	status_.communication_available=0;
+	status_.deadlocked=0;
+	status_.failed=0;
+	status_.gps_spoofed=0;
+	status_.movement_available=0;
+	status_.moving=0;
+	status_.rotating=0;
+	status_.ok=0;
+	status_.paused_moving=0;
+	status_.paused_rotating=0;
+	status_.reduced_sensing=0;
+	status_.reduced_movement=0;
+	status_.sensors_available=0;
+	status_.waiting=0;
 }

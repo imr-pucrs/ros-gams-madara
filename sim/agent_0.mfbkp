@@ -1,0 +1,40 @@
+/**
+ * Set the algorithm for the agent
+ **/
+/*agent.0.algorithm = "ZigZagCoverage";
+agent.0.algorithm.args.locations.size=4;
+agent.0.algorithm.args.locations.0=[0, 0, 0];
+agent.0.algorithm.args.locations.1=[0, 2, 0];
+agent.0.algorithm.args.locations.2=[2, 2, 0];
+agent.0.algorithm.args.locations.3=[2, 0, 0];
+agent.0.algorithm.args.repeat=3;
+agent.0.algorithm.args.wait_time=2;
+*/
+
+/*
+agent.0.algorithm="urac";
+agent.0.algorithm.args.area="search_area.0";
+
+agent.0.algorithm="urec";
+agent.0.algorithm.args.area="region.0";
+*/
+
+/*
+agent.0.algorithm="pwrac";
+agent.0.algorithm.args.area="search_area.0";
+*/
+
+/*
+agent.0.algorithm="sac";
+agent.0.algorithm.args.area="region.0";
+*/
+
+/*agent.0.algorithm="ppac";
+agent.0.algorithm.args.area="region.0";
+*/
+/*
+agent.0.algorithm="ZigZagCoverage";
+agent.0.algorithm.args.area="region.0";
+*/
+
+/*  TESTING WITH LAT & LONG */

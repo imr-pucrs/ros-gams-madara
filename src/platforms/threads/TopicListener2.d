@@ -408,4 +408,30 @@
  /home/paravisi/gams/src/gams/groups/GroupBase.h \
  /home/paravisi/gams/src/gams/groups/GroupTypesEnum.h \
  /home/paravisi/gams/src/gams/groups/GroupBase.inl \
- /home/paravisi/gams/src/gams/groups/GroupBase.h
+ /home/paravisi/gams/src/gams/groups/GroupBase.h \
+ /home/paravisi/gams/src/gams/variables/PlatformStatus.h \
+ /home/paravisi/gams/src/gams/variables/Agent.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalStatusArray.h \
+ /home/paravisi/gams/src/gams/pose/Position.h \
+ /home/paravisi/gams/src/gams/pose/Coordinate.h \
+ /home/paravisi/gams/src/gams/CPP11_compat.h \
+ /home/paravisi/gams/src/gams/pose/Coordinate.inl \
+ /home/paravisi/gams/src/gams/pose/Coordinate.h \
+ /home/paravisi/madara/include/madara/knowledge/containers/DoubleVector.h \
+ /home/paravisi/gams/src/gams/pose/Position.inl \
+ /home/paravisi/gams/src/gams/pose/Position.h \
+ /home/paravisi/gams/src/gams/utility/GPSPosition.h \
+ /home/paravisi/gams/src/gams/utility/Position.h \
+ /home/paravisi/gams/src/gams/pose/ReferenceFrame.h \
+ /home/paravisi/gams/src/gams/pose/Pose.h \
+ /home/paravisi/gams/src/gams/pose/Orientation.h \
+ /home/paravisi/gams/src/gams/pose/AngleUnits.h \
+ /home/paravisi/gams/src/gams/pose/Orientation.h \
+ /home/paravisi/gams/src/gams/pose/Orientation.inl \
+ /home/paravisi/gams/src/gams/pose/ReferenceFrame.inl \
+ /home/paravisi/gams/src/gams/pose/ReferenceFrame.h \
+ /home/paravisi/gams/src/gams/pose/Pose.h \
+ /home/paravisi/gams/src/gams/pose/Pose.inl \
+ /home/paravisi/gams/src/gams/pose/GPSFrame.h \
+ /home/paravisi/gams/src/gams/pose/GPSFrame.inl \
+ /home/paravisi/gams/src/gams/pose/GPSFrame.h

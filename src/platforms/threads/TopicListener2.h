@@ -15,6 +15,11 @@
 #include <tf/transform_listener.h>
 #include <move_base_msgs/MoveBaseActionFeedback.h>
 #include <gams/variables/Self.h>
+#include <gams/variables/PlatformStatus.h>
+#include <actionlib_msgs/GoalStatusArray.h>
+#include <gams/pose/Position.h>
+#include <gams/utility/GPSPosition.h>
+
 
 namespace platforms
 {
@@ -29,7 +34,7 @@ namespace platforms
       /**
        * Default constructor
        **/
-      TopicListener2 (ros::NodeHandle node_handle, gams::variables::Self* self);
+      TopicListener2 (ros::NodeHandle node_handle, gams::variables::Self* self, gams::variables::PlatformStatus status);
       
       /**
        * Destructor
@@ -55,6 +60,10 @@ namespace platforms
 
       void processFeedback(const move_base_msgs::MoveBaseActionFeedback::ConstPtr& feed);
 
+      void processStatus(const actionlib_msgs::GoalStatusArray::ConstPtr& status);
+
+
+      void cleanAllStatus(void);
     private:
       /// data plane if we want to access the knowledge base
       madara::knowledge::KnowledgeBase data_;
@@ -68,11 +77,18 @@ namespace platforms
       ros::Subscriber subOdom_;
       ros::Subscriber subScan_;
       ros::Subscriber subFeed_;
+      ros::Subscriber subStatus_;
 
       gams::variables::Self* self_;
+      gams::variables::PlatformStatus status_;
 
 
       //madara::knowledge::containers::Double moveSpeed_;
+      madara::knowledge::containers::Integer goalId_;
+      madara::knowledge::containers::String frame_;
+      madara::knowledge::containers::Double initial_lat_;
+      madara::knowledge::containers::Double initial_lon_;
+      madara::knowledge::containers::Double initial_alt_;
 	  madara::knowledge::containers::Double min_sensor_range_;
 	  madara::knowledge::containers::Double max_sensor_range_;
 	  //madara::knowledge::containers::NativeDoubleVector location_;

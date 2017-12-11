@@ -1,112 +1,819 @@
--1:0: algorithm.analyze ()
--1:0:   algorithm.platform_ is set
--1:0:   algorithm.sensors_ is set
--1:0:   algorithm.self_ is set
--1:0:     algorithm.status_.ok == 1
--1:0:     algorithm.status_.paused == 0
--1:0:     algorithm.status_.waiting == 1
--1:0:     algorithm.status_.deadlocked == 0
--1:0:     algorithm.status_.failed == 0
--1:0:     algorithm.status_.unknown == 0
--1:0: algorithm.plan ()
--1:0:   algorithm.platform_ is set
--1:0:   algorithm.sensors_ is set
--1:0:   algorithm.self_ is set
--1:0:     algorithm.status_.ok == 1
--1:0:     algorithm.status_.paused == 0
--1:0:     algorithm.status_.waiting == 1
--1:0:     algorithm.status_.deadlocked == 0
--1:0:     algorithm.status_.failed == 0
--1:0:     algorithm.status_.unknown == 0
--1:0: algorithm.execute ()
--1:0:   algorithm.platform_ is set
--1:0:   algorithm.sensors_ is set
--1:0:   algorithm.self_ is set
--1:0:     algorithm.status_.ok == 1
--1:0:     algorithm.status_.paused == 0
--1:0:     algorithm.status_.waiting == 0
--1:0:     algorithm.status_.deadlocked == 0
--1:0:     algorithm.status_.failed == 0
--1:0:     algorithm.status_.unknown == 0
--1:1: algorithm.analyze ()
--1:1:   algorithm.platform_ is set
--1:1:   algorithm.sensors_ is set
--1:1:   algorithm.self_ is set
--1:1:     algorithm.status_.ok == 1
--1:1:     algorithm.status_.paused == 0
--1:1:     algorithm.status_.waiting == 1
--1:1:     algorithm.status_.deadlocked == 0
--1:1:     algorithm.status_.failed == 0
--1:1:     algorithm.status_.unknown == 0
--1:1: algorithm.plan ()
--1:1:   algorithm.platform_ is set
--1:1:   algorithm.sensors_ is set
--1:1:   algorithm.self_ is set
--1:1:     algorithm.status_.ok == 1
--1:1:     algorithm.status_.paused == 0
--1:1:     algorithm.status_.waiting == 1
--1:1:     algorithm.status_.deadlocked == 0
--1:1:     algorithm.status_.failed == 0
--1:1:     algorithm.status_.unknown == 0
--1:1: algorithm.execute ()
--1:1:   algorithm.platform_ is set
--1:1:   algorithm.sensors_ is set
--1:1:   algorithm.self_ is set
--1:1:     algorithm.status_.ok == 1
--1:1:     algorithm.status_.paused == 0
--1:1:     algorithm.status_.waiting == 0
--1:1:     algorithm.status_.deadlocked == 0
--1:1:     algorithm.status_.failed == 0
--1:1:     algorithm.status_.unknown == 0
--1:2: algorithm.analyze ()
--1:2:   algorithm.platform_ is set
--1:2:   algorithm.sensors_ is set
--1:2:   algorithm.self_ is set
--1:2:     algorithm.status_.ok == 1
--1:2:     algorithm.status_.paused == 0
--1:2:     algorithm.status_.waiting == 1
--1:2:     algorithm.status_.deadlocked == 0
--1:2:     algorithm.status_.failed == 0
--1:2:     algorithm.status_.unknown == 0
--1:2: algorithm.plan ()
--1:2:   algorithm.platform_ is set
--1:2:   algorithm.sensors_ is set
--1:2:   algorithm.self_ is set
--1:2:     algorithm.status_.ok == 1
--1:2:     algorithm.status_.paused == 0
--1:2:     algorithm.status_.waiting == 1
--1:2:     algorithm.status_.deadlocked == 0
--1:2:     algorithm.status_.failed == 0
--1:2:     algorithm.status_.unknown == 0
--1:2: algorithm.execute ()
--1:2:   algorithm.platform_ is set
--1:2:   algorithm.sensors_ is set
--1:2:   algorithm.self_ is set
--1:2:     algorithm.status_.ok == 1
--1:2:     algorithm.status_.paused == 0
--1:2:     algorithm.status_.waiting == 0
--1:2:     algorithm.status_.deadlocked == 0
--1:2:     algorithm.status_.failed == 0
--1:2:     algorithm.status_.unknown == 0
--1:3: algorithm.analyze ()
--1:3:   algorithm.platform_ is set
--1:3:   algorithm.sensors_ is set
--1:3:   algorithm.self_ is set
--1:3:     algorithm.status_.ok == 1
--1:3:     algorithm.status_.paused == 0
--1:3:     algorithm.status_.waiting == 1
--1:3:     algorithm.status_.deadlocked == 0
--1:3:     algorithm.status_.failed == 0
--1:3:     algorithm.status_.unknown == 0
--1:3: algorithm.plan ()
--1:3:   algorithm.platform_ is set
--1:3:   algorithm.sensors_ is set
--1:3:   algorithm.self_ is set
--1:3:     algorithm.status_.ok == 1
--1:3:     algorithm.status_.paused == 0
--1:3:     algorithm.status_.waiting == 1
--1:3:     algorithm.status_.deadlocked == 0
--1:3:     algorithm.status_.failed == 0
--1:3:     algorithm.status_.unknown == 0
--1:3: algorithm.execute ()
--1:3:   algorithm.plat
+gams::controllers::BaseController::init_vars: agent.0 self,  group
+GroupFactoryRepository::create reading group at prefix 
+gams::controllers::BaseController::init_vars: agent.0 self, no group
+gams::platforms::PlatformFactoryRepository:add Adding debug factory.
+gams::platforms::PlatformFactoryRepository:add Adding print factory.
+gams::platforms::PlatformFactoryRepository:add Adding printer factory.
+gams::platforms::PlatformFactoryRepository:add Adding null factory.
+gams::platforms::PlatformFactoryRepository:add Adding rosp3dx factory.
+gams::platforms::PlatformFactoryRepository:add Adding ros-p3dx factory.
+gams::algorithms::AlgorithmFactoryRepository:initialize_default_mappings Creating map of all default algorithm factories.
+gams::algorithms::AlgorithmFactoryRepository:initialize_default_mappings Flag has not been set. Initializing.
+gams::algorithms::AlgorithmFactoryRepository:add Adding barrier factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding debug factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding print factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding printer factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding exec factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding executor factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding follow factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding formation sync factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding hold factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding home factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding return factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding karl factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding message profiling factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding move factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding null factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding performance profiling factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding perimeter patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding pp factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding takeoff factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding land factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding wait factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zone coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zone defense factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding text factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding spell factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding perimeter patrol area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding ppac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding priority weighted random area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding pwrac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding snake factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding sac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding uniform random area coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding urac factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding uniform random edge coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding urec factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints coverage factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints_coverage factory.
+gams::controllers::BaseController::constructor: default constructor called.
+gams::controllers::BaseController::init_vars: 0 id, 1 prutility::bind_to_ephemeral_port: getting hostname from ACE_INET_Addr
+KnowledgeBaseImpl::setup_unique_hostport: unique bind to paravisi-pc:50000
+KnowledgeBaseImpl::attach_transport: activating transport type 5
+transport::Base::setup no permanent rules were set
+transport::Base::setup no read domains set. Adding write domain (gams_sims)
+transport::Base::setup Write domain: gams_sims. Read domains: gams_sims
+MulticastTransport::setup: default socket buff size is send=212992, rcv=212992
+MulticastTransport::setup: setting send buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=212992
+MulticastTransport::setup: setting rcv buff size to settings.queue_length (2000000)
+MulticastTransport::setup: current socket buff size is send=425984, rcv=425984
+MulticastTransport::setup: settings address[0] to 10.32.177.58:4150
+MulticastTransport::setup: Error subscribing to multicast address 10.32.177.58:4150
+MulticastTransport::setup: starting 1 threads at 0.000000 hertz
+WorkerThread::WorkerThread(read0): thread started (result = 0)
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+WorkerThread(read0)::svc: checking thread existence
+MulticastTransportReadThread::init: no permanent rules were set
+NativeDoubleVector::set_name: setting name to agent.0.location
+WorkerThread(read0)::svc: thread blasting at infinite hz
+NativeDoubleVector::set_name: setting name to agent.0.orientation
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+NativeDoubleVector::set_name: setting name to agent.0.home
+NativeDoubleVector::set_name: setting name to agent.0.source
+NativeDoubleVector::set_name: setting name to agent.0.source_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to agent.0.location
+NativeDoubleVector::set_name: setting name to agent.0.orientation
+NativeDoubleVector::set_name: setting name to agent.0.home
+NativeDoubleVector::set_name: setting name to agent.0.source
+NativeDoubleVector::set_name: setting name to agent.0.source_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest_orientation
+NativeDoubleVector::set_name: setting name to agent.0.dest
+KnowledgeBaseImpl::compile: compiling 
+/**
+ * Set VREP view area GPS mapping
+ **/
+.vrep_sw_position = [0,0];
+.vrep_ne_position = [0,0];
+
+/**
+ * Surface can be concrete or water 
+ **/
+.surface = 'water';
+
+/**
+ * Define an example search area. Search areas can contain multiple regions.
+**/
+
+/*
+search_area.0.object_type = 4;
+search_area.0.size = 4;
+search_area.0.0 = 'region.0';
+search_area.0.1 = 'region.1';
+search_area.0.2 = 'region.2';
+search_area.0.3 = 'region.3';
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [0, -4];
+region.0.1 = [0, -1];
+region.0.2 = [4, -1];
+region.0.3 = [4, -4];
+
+region.1.object_type = 1;
+region.1.type = 0; // convex
+region.1.priority = 20;
+region.1.size = 4;
+region.1.0 = [0, -1];
+region.1.1 = [0,  1];
+region.1.2 = [1,  1];
+region.1.3 = [1, -1];
+
+region.2.object_type = 1;
+region.2.type = 0;
+region.2.priority = 30;
+region.2.size = 4;
+region.2.0 = [0,  1];
+region.2.1 = [0,  3];
+region.2.2 = [4,  3];
+region.2.3 = [4,  1];
+
+
+region.3.object_type = 1;
+region.3.type = 0;
+region.3.priority = 40;
+region.3.size = 4;
+region.3.0 = [2, -1];
+region.3.1 = [2,  1];
+region.3.2 = [4,  1];
+region.3.3 = [4, -1];
+*/
+
+/*
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [-30.060700, -51.173249];
+region.0.1 = [-30.060700, -51.173528];
+region.0.2 = [-30.060800, -51.173528];
+region.0.3 = [-30.060800, -51.173249];
+*/
+
+search_area.0.object_type = 4;
+search_area.0.size = 4;
+search_area.0.0 = 'region.0';
+search_area.0.1 = 'region.1';
+search_area.0.2 = 'region.2';
+search_area.0.3 = 'region.3';
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [-50.0, -30.0];
+region.0.1 = [-50.000009, -30.0];
+region.0.2 = [-50.000009, -30.000009];
+region.0.3 = [-50.0, -30.000009];
+
+
+
+region.1.object_type = 1;
+region.1.type = 0; // convex
+region.1.priority = 20;
+region.1.size = 4;
+region.1.0 = [0, -1];
+region.1.1 = [0,  1];
+region.1.2 = [1,  1];
+region.1.3 = [1, -1];
+
+region.2.object_type = 1;
+region.2.type = 0;
+region.2.priority = 30;
+region.2.size = 4;
+region.2.0 = [0,  1];
+region.2.1 = [0,  3];
+region.2.2 = [4,  3];
+region.2.3 = [4,  1];
+
+
+region.3.object_type = 1;
+region.3.type = 0;
+region.3.priority = 40;
+region.3.size = 4;
+region.3.0 = [2, -1];
+region.3.1 = [2,  1];
+region.3.2 = [4,  1];
+region.3.3 = [4, -1];;
+
+/**
+ * Common algorithm that may be used to initialize agent algorithms
+ **/
+.algorithm = null;
+.frame = 'gpsTocartesian';
+
+/**
+ * Type of platform to use. Options include:
+ * vrep-quad       : A VREP quadcopter
+ * vrep-quad-laser : A VREP quadcopter
+ * vrep-boat       : A VREP boat
+ * vrep-ant        : A VREP ant-like ground robot
+ * vrep-summit     : A VREP Summit robot
+ * 
+ * Specialty options (must be compiled with more than just vrep feature)
+ * ros-p3dx        : A ROS Pioneer 3DX robot
+ **/
+.platform = 'turtleGenericFrame';
+
+sensor.coverage.origin=[0,0, 0.0];
+
+/**
+ * The host information where VREP is running
+ **/
+.vrep_host = '127.0.0.1';
+
+/**
+ * Max distance (meters) to move target when VREPBase::move is invoked,
+ * if no move thread is being used (vrep_move_thread_rate = 0)
+ **/
+.vrep_max_delta = 1;
+
+/**
+ * Hertz rate to run VREPBase move thread. Set to zero to disable thread
+ **/
+.vrep_move_thread_rate = 10;
+
+/**
+ * Each thread tick, target will move at most vrep_thread_move_speed divided
+ * by vrep_move_thread_rate meters.
+ **/
+.vrep_thread_move_speed = 2;;
+
+// Setup VREP port for agent
+.vrep_port = 19906;
+
+
+/**
+ * Change the following to unique coordinates
+ * for each agent file
+ **/
+
+.initial_lat = -51.173249;
+.initial_lon = -30.060700;
+.initial_lat = -50.0;
+.initial_lon = -30.0;
+.initial_alt = 0;
+
+agent.0.algorithm = "snake";
+
+agent.0.algorithm.args.area="region.0";
+;
+
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+KnowledgeBaseImpl::evaluate: evaluating 
+/**
+ * Set VREP view area GPS mapping
+ **/
+.vrep_sw_position = [0,0];
+.vrep_ne_position = [0,0];
+
+/**
+ * Surface can be concrete or water 
+ **/
+.surface = 'water';
+
+/**
+ * Define an example search area. Search areas can contain multiple regions.
+**/
+
+/*
+search_area.0.object_type = 4;
+search_area.0.size = 4;
+search_area.0.0 = 'region.0';
+search_area.0.1 = 'region.1';
+search_area.0.2 = 'region.2';
+search_area.0.3 = 'region.3';
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [0, -4];
+region.0.1 = [0, -1];
+region.0.2 = [4, -1];
+region.0.3 = [4, -4];
+
+region.1.object_type = 1;
+region.1.type = 0; // convex
+region.1.priority = 20;
+region.1.size = 4;
+region.1.0 = [0, -1];
+region.1.1 = [0,  1];
+region.1.2 = [1,  1];
+region.1.3 = [1, -1];
+
+region.2.object_type = 1;
+region.2.type = 0;
+region.2.priority = 30;
+region.2.size = 4;
+region.2.0 = [0,  1];
+region.2.1 = [0,  3];
+region.2.2 = [4,  3];
+region.2.3 = [4,  1];
+
+
+region.3.object_type = 1;
+region.3.type = 0;
+region.3.priority = 40;
+region.3.size = 4;
+region.3.0 = [2, -1];
+region.3.1 = [2,  1];
+region.3.2 = [4,  1];
+region.3.3 = [4, -1];
+*/
+
+/*
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [-30.060700, -51.173249];
+region.0.1 = [-30.060700, -51.173528];
+region.0.2 = [-30.060800, -51.173528];
+region.0.3 = [-30.060800, -51.173249];
+*/
+
+search_area.0.object_type = 4;
+search_area.0.size = 4;
+search_area.0.0 = 'region.0';
+search_area.0.1 = 'region.1';
+search_area.0.2 = 'region.2';
+search_area.0.3 = 'region.3';
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 10;
+region.0.size = 4;
+region.0.0 = [-50.0, -30.0];
+region.0.1 = [-50.000009, -30.0];
+region.0.2 = [-50.000009, -30.000009];
+region.0.3 = [-50.0, -30.000009];
+
+
+
+region.1.object_type = 1;
+region.1.type = 0; // convex
+region.1.priority = 20;
+region.1.size = 4;
+region.1.0 = [0, -1];
+region.1.1 = [0,  1];
+region.1.2 = [1,  1];
+region.1.3 = [1, -1];
+
+region.2.object_type = 1;
+region.2.type = 0;
+region.2.priority = 30;
+region.2.size = 4;
+region.2.0 = [0,  1];
+region.2.1 = [0,  3];
+region.2.2 = [4,  3];
+region.2.3 = [4,  1];
+
+
+region.3.object_type = 1;
+region.3.type = 0;
+region.3.priority = 40;
+region.3.size = 4;
+region.3.0 = [2, -1];
+region.3.1 = [2,  1];
+region.3.2 = [4,  1];
+region.3.3 = [4, -1];;
+
+/**
+ * Common algorithm that may be used to initialize agent algorithms
+ **/
+.algorithm = null;
+.frame = 'gpsTocartesian';
+
+/**
+ * Type of platform to use. Options include:
+ * vrep-quad       : A VREP quadcopter
+ * vrep-quad-laser : A VREP quadcopter
+ * vrep-boat       : A VREP boat
+ * vrep-ant        : A VREP ant-like ground robot
+ * vrep-summit     : A VREP Summit robot
+ * 
+ * Specialty options (must be compiled with more than just vrep feature)
+ * ros-p3dx        : A ROS Pioneer 3DX robot
+ **/
+.platform = 'turtleGenericFrame';
+
+sensor.coverage.origin=[0,0, 0.0];
+
+/**
+ * The host information where VREP is running
+ **/
+.vrep_host = '127.0.0.1';
+
+/**
+ * Max distance (meters) to move target when VREPBase::move is invoked,
+ * if no move thread is being used (vrep_move_thread_rate = 0)
+ **/
+.vrep_max_delta = 1;
+
+/**
+ * Hertz rate to run VREPBase move thread. Set to zero to disable thread
+ **/
+.vrep_move_thread_rate = 10;
+
+/**
+ * Each thread tick, target will move at most vrep_thread_move_speed divided
+ * by vrep_move_thread_rate meters.
+ **/
+.vrep_thread_move_speed = 2;;
+
+// Setup VREP port for agent
+.vrep_port = 19906;
+
+
+/**
+ * Change the following to unique coordinates
+ * for each agent file
+ **/
+
+.initial_lat = -51.173249;
+.initial_lon = -30.060700;
+.initial_lat = -50.0;
+.initial_lon = -30.0;
+.initial_alt = 0;
+
+agent.0.algorithm = "snake";
+
+agent.0.algorithm.args.area="region.0";
+;
+.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 1730
+MulticastTransport::send_data: Sent packet of size 1730
+MulticastTransport::send_data: Send bandwidth = 173 B/s
+KnowledgeBaseImpl::compile: compiling agent.0.madara_debug_level = 3
+KnowledgeBaseImpl::evaluate: evaluating agent.0.madara_debug_level = 3.
+KnowledgeBaseImpl::compile: compiling agent.0.gams_debug_level = 3
+KnowledgeBaseImpl::evaluate: evaluating agent.0.gams_debug_level = 3.
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to sensor.coverage.origin
+NativeDoubleVector::resize: sensor.coverage.origin: resizing to 3
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector[]: sensor.coverage.origin: retrieving element from container
+NativeDoubleVector::constructor: new object
+NativeDoubleVector::set_name: setting name to sensor.coverage.origin
+NativeDoubleVector::set: sensor.coverage.origin: setting element [0] to 0.000000
+NativeDoubleVector::set: sensor.coverage.origin: setting element [1] to 0.000000
+NativeDoubleVector::set: sensor.coverage.origin: setting element [2] to 0.000000
+NativeDoubleVector::destructor called on sensor.coverage.origin
+WorkerThread::WorkerThread(TopicListener2): thread started (result = 0)
+WorkerThread(TopicListener2)::svc: checking thread existence
+WorkerThread(TopicListener2)::svc: thread repeating at 1.000000 hz
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+WorkerThread::WorkerThread(TopicPublisher): thread started (result = 0)
+
+Knowledge in Knowledge Base:
+.frame=gpsTocartesian
+.goalId_=0
+.id=-1
+.initial_alt=0
+.initial_lat=-50.000000
+.initial_lon=-30.000000
+.max_sensor_range=10.000000
+.min_sensor_range=0.450000
+.platform=turtleGenericFrame
+.platform.agent.0.communication_available=0
+.platform.agent.0.deadlocked=0
+.platform.agent.0.failed=0
+.platform.agent.0.gps_spoofed=0
+.platform.agent.0.movement_available=0
+.platform.agent.0.moving=0
+.platform.agent.0.ok=1
+.platform.agent.0.reduced_movement=0
+.platform.agent.0.reduced_sensing=0
+.platform.agent.0.sensors_available=0
+.platform.agent.0.waiting=0
+.prefix=agent.0
+.ros_namespace=myplatform
+.ros_node=turtlebot_platform_node
+.surface=water
+.vrep_host=127.0.0.1
+.vrep_max_delta=1
+.vrep_move_thread_rate=10
+.vrep_ne_position=0, 0
+.vrep_port=19906
+.vrep_sw_position=0, 0
+.vrep_thread_move_speed=2
+agent.0.algorithm=snake
+agent.0.algorithm.args.area=region.0
+agent.0.gams_debug_level=3
+agent.0.location=-50.000006, -30.000013, 0.000000
+agent.0.madara_debug_level=3
+agent.0.orientation=0.000000, 0.000000, -0.363444, 0.931616
+region.0.0=-50.000000, -30.000000
+region.0.1=-50.000009, -30.000000
+region.0.2=-50.000009, -30.000009
+region.0.3=-50.000000, -30.000009
+region.0.object_type=1
+region.0.priority=10
+region.0.size=4
+region.0.type=0
+region.1.0=0, -1
+region.1.1=0, 1
+region.1.2=1, 1
+region.1.3=1, -1
+region.1.object_type=1
+region.1.priority=20
+region.1.size=4
+region.1.type=0
+region.2.0=0, 1
+region.2.1=0, 3
+region.2.2=4, 3
+region.2.3=4, 1
+region.2.object_type=1
+region.2.priority=30
+region.2.size=4
+region.2.type=0
+region.3.0=2, -1
+region.3.1=2, 1
+region.3.2=4, 1
+region.3.3=4, -1
+region.3.object_type=1
+region.3.priority=40
+region.3.size=4
+region.3.type=0
+search_area.0.0=region.0
+search_area.0.1=region.1
+search_area.0.2=region.2
+search_area.0.3=region.3
+search_area.0.object_type=4
+search_area.0.size=4
+sensor.coverage.origin=0.000000, 0.000000, 0.000000
+sensor.coverage.range=2.500000
+swarm.size=1
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: checking thread existence
+WorkerThread(TopicPublisher)::svc: thread repeating at 1.000000 hz
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+Integer::is_true: checking for non-zero value
+KnowledgeRecord::apply: checking if record is non-zero.
+Integer::is_true: final result is 0
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector::set: agent.0.dest: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 1462
+MulticastTransport::send_data: Sent packet of size 1462
+MulticastTransport::send_data: Send bandwidth = 319 B/s
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::to_record: agent.0.dest: retrieving record
+NativeDoubleVector::to_record: agent.0.dest: retrieving recordocesses
+gams::algorithms::AlgorithmFactoryRepository:add Adding square_patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zigzagcoverage factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlebot_platform factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlegenericframe factory.
+gams::controllers::BaseController::init_platform: initializing platform turtleGenericFrame
+gams::controllers::BaseController::init_platform: deleting old platform
+gams::controllers::BaseController::init_platform: factory is creating platform turtleGenericFrame
+gams::controllers::BaseController::init_vars: initializing platform's vars
+gams::controllers::BaseController::init_platform: Updating algorithm factory's platform
+gams::controllers::BaseController::init_algorithm: initializing algorithm debug
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm debug
+gams::algorithms::AlgorithmFactoryRepository::create: creating "debug" algorithm.
+gams::algorithms::BaseAlgorithm: constructor succeeded
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: loop_period: 1.000000s, max_runtime: 500.000000s, send_period: 1.000000s
+gams::controllers::BaseController::run: calling system_analyze ()
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::system_analyze: Processing agent command: snake
+gams::controllers::BaseController::init_algorithm: initializing algorithm snake
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm snake
+gams::algorithms::AlgorithmFactoryRepository::create: creating "snake" algorithm.
+gams::algorithms::area_coverage::SnakeAreaCoverageFactory: entered create with 1 args
+gams::algorithms::BaseAlgorithm: constructor succeeded
+gams::algorithms::area_coverage::BaseAreaCoverage: constructor succeeded
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 26 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 26 modifications to send
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::controllers::BaseController::run: after plan (), 26 modifications to send
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::utility::GPSPosition::distance_to: distance from "-50,-30,0" to "-50.000009,-30.000009,0" is 1.189667
+gams::utility::GPSPosition::distance_to: distance from "-30.060718,-51.173249,0" to "-50,-30,0" is 3011295.624683
+gams::controllers::BaseController::run: after execute (), 27 modifications to send
+gams::controllers::BaseController::run: calling system_analyze ()
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->a

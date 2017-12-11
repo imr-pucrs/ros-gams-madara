@@ -32,6 +32,7 @@ platforms::threads::TopicPublisher::init (knowledge::KnowledgeBase & knowledge)
 {
 	// point our data plane to the knowledge base initializing the thread
 	data_ = knowledge;
+	goalId_.set_name(".goalId_", knowledge);
 }
 
 /**
@@ -48,6 +49,9 @@ platforms::threads::TopicPublisher::run (void)
 		move_base_msgs::MoveBaseActionGoal msg;
 		msg.header.frame_id="map";
 		msg.header.stamp = ros::Time::now();
+		goalId_= goalId_.to_integer()+1;
+		msg.goal_id.id = goalId_.to_string();
+		msg.goal_id.stamp = ros::Time::now();
 		msg.goal.target_pose.header.frame_id = "map";
 		msg.goal.target_pose.pose.position.x = self_->agent.dest.to_record(0).to_double();
 		msg.goal.target_pose.pose.position.y = self_->agent.dest.to_record(1).to_double();
@@ -57,6 +61,7 @@ platforms::threads::TopicPublisher::run (void)
 		msg.goal.target_pose.pose.orientation.z = self_->agent.orientation.to_record(2).to_double();
 		msg.goal.target_pose.pose.orientation.w = self_->agent.orientation.to_record(3).to_double();
 		pubGoal_.publish(msg);
+
 		goalChanged_ = false;
 	}
 	if (cancelRequested_)

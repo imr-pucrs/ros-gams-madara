@@ -26,7 +26,7 @@ FILES = \
   src/platforms/threads/TopicPublisher.cpp \
   src/platforms/threads/TopicListener2.cpp
 
-VPATH = .:src/platforms:src:src/platforms/threads:src/algorithms
+VPATH = .:src/platforms:src:src/algorithms:src/platforms/threads
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

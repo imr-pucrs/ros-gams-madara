@@ -384,7 +384,8 @@ int main (int argc, char ** argv)
 
   // initialize variables and function stubs
   controller.init_vars (settings.id, num_agents);
-  
+
+
   std::vector <std::string> aliases;
   
   // begin adding custom algorithm factories
@@ -423,6 +424,7 @@ int main (int argc, char ** argv)
   
   knowledge.set(".ros_namespace", "myplatform");
   knowledge.set(".ros_node", "turtlebot_platform_node");
+
 
 
   // read madara initialization
@@ -465,6 +467,7 @@ int main (int argc, char ** argv)
     platform = knowledge.get (KNOWLEDGE_BASE_PLATFORM_KEY).to_string ();
   controller.init_platform (platform);
   controller.init_algorithm (algorithm);
+
 
   // add any accents
   for (unsigned int i = 0; i < accents.size (); ++i)
