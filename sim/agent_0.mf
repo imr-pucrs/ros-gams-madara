@@ -8,13 +8,24 @@
  * for each agent file
  **/
 
-.initial_lat = -51.173249;
-.initial_lon = -30.060700;
-.initial_lat = -50.0;
-.initial_lon = -30.0;
+.initial_lat = 0;
+.initial_lon = 0;
 .initial_alt = 0;
 
-agent.0.algorithm = "snake";
 
+
+.ros_namespace='/diff1';
+.ros_node='turtlebot_platform_node';
+
+/*
+agent.0.algorithm = "waypoints";
+agent.0.algorithm.args.locations.size=4;
+agent.0.algorithm.args.locations.0=[0, 5, 0];
+agent.0.algorithm.args.locations.1=[10, 5, 0];
+agent.0.algorithm.args.locations.2=[10, 0, 0];
+agent.0.algorithm.args.locations.3=[0, 0, 0];
+agent.0.algorithm.args.repeat=3;
+*/
+
+agent.0.algorithm = "urac";
 agent.0.algorithm.args.area="region.0";
-

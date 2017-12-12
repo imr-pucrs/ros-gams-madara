@@ -52,7 +52,7 @@ gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints coverage facto
 gams::algorithms::AlgorithmFactoryRepository:add Adding waypoints_coverage factory.
 gams::controllers::BaseController::constructor: default constructor called.
 gams::controllers::BaseController::init_vars: 0 id, 1 prutility::bind_to_ephemeral_port: getting hostname from ACE_INET_Addr
-KnowledgeBaseImpl::setup_unique_hostport: unique bind to paravisi-pc:50000
+KnowledgeBaseImpl::setup_unique_hostport: unique bind to lsa-XPS-8700:50000
 KnowledgeBaseImpl::attach_transport: activating transport type 5
 transport::Base::setup no permanent rules were set
 transport::Base::setup no read domains set. Adding write domain (gams_sims)
@@ -75,13 +75,13 @@ NativeDoubleVector::constructor: new object
 NativeDoubleVector::constructor: new object
 WorkerThread(read0)::svc: checking thread existence
 MulticastTransportReadThread::init: no permanent rules were set
-NativeDoubleVector::set_name: setting name to agent.0.location
 WorkerThread(read0)::svc: thread blasting at infinite hz
-NativeDoubleVector::set_name: setting name to agent.0.orientation
 KnowledgeRecord::apply: checking if record is non-zero.
 WorkerThread(read0)::svc: thread checking for pause
 KnowledgeRecord::apply: checking if record is non-zero.
 WorkerThread(read0)::svc: thread calling run function
+NativeDoubleVector::set_name: setting name to agent.0.location
+NativeDoubleVector::set_name: setting name to agent.0.orientation
 NativeDoubleVector::set_name: setting name to agent.0.home
 NativeDoubleVector::set_name: setting name to agent.0.source
 NativeDoubleVector::set_name: setting name to agent.0.source_orientation
@@ -173,7 +173,7 @@ region.0.1 = [-30.060700, -51.173528];
 region.0.2 = [-30.060800, -51.173528];
 region.0.3 = [-30.060800, -51.173249];
 */
-
+/*
 search_area.0.object_type = 4;
 search_area.0.size = 4;
 search_area.0.0 = 'region.0';
@@ -218,13 +218,25 @@ region.3.size = 4;
 region.3.0 = [2, -1];
 region.3.1 = [2,  1];
 region.3.2 = [4,  1];
-region.3.3 = [4, -1];;
+region.3.3 = [4, -1];
+
+*/
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 0;
+region.0.size = 4;
+region.0.0=[0, 5];
+region.0.1=[10, 5];
+region.0.2=[10, 0];
+region.0.3=[0, 0];
+;
 
 /**
  * Common algorithm that may be used to initialize agent algorithms
  **/
 .algorithm = null;
-.frame = 'gpsTocartesian';
+.frameType = 'onlyCartesian';
 
 /**
  * Type of platform to use. Options include:
@@ -272,25 +284,28 @@ sensor.coverage.origin=[0,0, 0.0];
  * for each agent file
  **/
 
-.initial_lat = -51.173249;
-.initial_lon = -30.060700;
-.initial_lat = -50.0;
-.initial_lon = -30.0;
+.initial_lat = 0;
+.initial_lon = 0;
 .initial_alt = 0;
 
-agent.0.algorithm = "snake";
 
-agent.0.algorithm.args.area="region.0";
-;
 
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
-KARL COMPILE WARNING: Binary operation has no left child. Inserting a zero
+.ros_namespace='/diff1';
+.ros_node='turtlebot_platform_node';
+
+/*
+agent.0.algorithm = "waypoints";
+agent.0.algorithm.args.locations.size=4;
+agent.0.algorithm.args.locations.0=[0, 5, 0];
+agent.0.algorithm.args.locations.1=[10, 5, 0];
+agent.0.algorithm.args.locations.2=[10, 0, 0];
+agent.0.algorithm.args.locations.3=[0, 0, 0];
+agent.0.algorithm.args.repeat=3;
+*/
+
+agent.0.algorithm = "urac";
+agent.0.algorithm.args.area="region.0";;
+
 KnowledgeBaseImpl::evaluate: evaluating 
 /**
  * Set VREP view area GPS mapping
@@ -363,7 +378,7 @@ region.0.1 = [-30.060700, -51.173528];
 region.0.2 = [-30.060800, -51.173528];
 region.0.3 = [-30.060800, -51.173249];
 */
-
+/*
 search_area.0.object_type = 4;
 search_area.0.size = 4;
 search_area.0.0 = 'region.0';
@@ -408,13 +423,25 @@ region.3.size = 4;
 region.3.0 = [2, -1];
 region.3.1 = [2,  1];
 region.3.2 = [4,  1];
-region.3.3 = [4, -1];;
+region.3.3 = [4, -1];
+
+*/
+
+region.0.object_type = 1;
+region.0.type = 0;
+region.0.priority = 0;
+region.0.size = 4;
+region.0.0=[0, 5];
+region.0.1=[10, 5];
+region.0.2=[10, 0];
+region.0.3=[0, 0];
+;
 
 /**
  * Common algorithm that may be used to initialize agent algorithms
  **/
 .algorithm = null;
-.frame = 'gpsTocartesian';
+.frameType = 'onlyCartesian';
 
 /**
  * Type of platform to use. Options include:
@@ -462,16 +489,27 @@ sensor.coverage.origin=[0,0, 0.0];
  * for each agent file
  **/
 
-.initial_lat = -51.173249;
-.initial_lon = -30.060700;
-.initial_lat = -50.0;
-.initial_lon = -30.0;
+.initial_lat = 0;
+.initial_lon = 0;
 .initial_alt = 0;
 
-agent.0.algorithm = "snake";
 
-agent.0.algorithm.args.area="region.0";
-;
+
+.ros_namespace='/diff1';
+.ros_node='turtlebot_platform_node';
+
+/*
+agent.0.algorithm = "waypoints";
+agent.0.algorithm.args.locations.size=4;
+agent.0.algorithm.args.locations.0=[0, 5, 0];
+agent.0.algorithm.args.locations.1=[10, 5, 0];
+agent.0.algorithm.args.locations.2=[10, 0, 0];
+agent.0.algorithm.args.locations.3=[0, 0, 0];
+agent.0.algorithm.args.repeat=3;
+*/
+
+agent.0.algorithm = "urac";
+agent.0.algorithm.args.area="region.0";;
 .
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
@@ -487,67 +525,64 @@ MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Caocesses
+gams::algorithms::AlgorithmFactoryRepository:add Adding square_patrol factory.
+gams::algorithms::AlgorithmFactoryRepository:add Adding zigzagcoverage factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlebot_platform factory.
+gams::platforms::PlatformFactoryRepository:add Adding turtlegenericframe factory.
+gams::controllers::BaseController::init_platform: initializing platform turtleGenericFrame
+gams::controllers::BaseController::init_platform: deleting old platform
+gams::controllers::BaseController::init_platform: factory is creating platform turtleGenericFrame
+gams::platforms::PlatformFactoryRepository::create(turtleGenericFrame,...)
+gams::controllers::BaseController::init_vars: initializing platform's vars
+gams::controllers::BaseController::init_platform: Updating algorithm factory's platform
+gams::controllers::BaseController::init_algorithm: initializing algorithm debug
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm debug
+gams::algorithms::AlgorithmFactoryRepository::create: creating "debug" algorithm.
+gams::algorithms::BaseAlgorithm: constructor succeeded
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: loop_period: 1.000000s, max_runtime: 500.000000s, send_period: 1.000000s
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::system_analyze: Processing agent command: urac
+gams::controllers::BaseController::init_algorithm: initializing algorithm urac
+gams::controllers::BaseController::init_algorithm: deleting old algorithm
+gams::controllers::BaseController::init_algorithm: factory is creating algorithm urac
+gams::algorithms::AlgorithmFactoryRepository::create: creating "urac" algorithm.
+gams::algorithms::area_coverage::UniformRandomAreaCoverageFactory: entered create with 1 args
+gams::algorithms::FormationSyncFactory: setting search_area to region.0
+gams::algorithms::BaseAlgorithm: constructor succeeded
+gams::algorithms::area_coverage::BaseAreaCoverage: constructor succeeded
+gams::pose::Region::from_container: name = region.0
+gams::pose::Region::from_container: type is arbitrary convex polygon
+gams::pose::Region::from_container: size is 4
+gams::pose::Region::from_container: Adding coordinate (0.000000 lat, 5.000000 lng)
+gams::pose::Region::from_container: Adding coordinate (10.000000 lat, 5.000000 lng)
+gams::pose::Region::from_container: Adding coordinate (10.000000 lat, 0.000000 lng)
+gams::pose::Region::from_container: Adding coordinate (0.000000 lat, 0.000000 lng)
+gams::pose::SearchArea::get_convex_hull: building a convex hull
+gams::pose::SearchArea::get_convex_hull: total region vertices is 4. Resizing list.
+gams::pose::SearchArea::get_convex_hull: sorting vertices.
+gams::pose::SearchArea::get_convex_hull: removing duplicate vertices.
+gams::pose::SearchArea::get_convex_hull: after duplicates check, positions size set to 4.
+gams::pose::SearchArea::get_convex_hull: allocating 8 vertices for potential hull.
+gams::pose::SearchArea::get_convex_hull: building lower hull.
+gams::pose::SearchArea::get_convex_hull: lower hull construction used 3 points.
+gams::pose::SearchArea::get_convex_hull: upper hull construction finished hull with 4 points.
+gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 25 modifications to send
+25 modifications ready to send:
+Integer: agent.0.algorithm.accepts = 1
+Integer: agent.0.algorithm.debug.deadlocked = 0
+Integer: agent.0.algorithm.debug.failed = 0
+Integer: agent.0.algorithm.debug.finished = 0
+Integer: agent.0.algorithm.debug.ok = 1
+Integer: agent.0.algorithm.debug.paused = 0
+Integer: agent.0.algorithm.debug.unknown = 0
+Integer: agent.0.algorithm.debug.waitlling filter chain.
 MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
@@ -556,13 +591,23 @@ MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: calling encode filters
-MulticastTransport::send_data: Sending packet of size 1730
-MulticastTransport::send_data: Sent packet of size 1730
-MulticastTransport::send_data: Send bandwidth = 173 B/s
+MulticastTransport::send_data: Sending packet of size 587
+MulticastTransport::send_data: Sent packet of size 587
+MulticastTransport::send_data: Send bandwidth = 58 B/s
+MulticastTransportReadThread::run: received a message header of 587 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 58 B/s
+MulticastTransportReadThread::run: calling decode filters on 587 bytes
+MulticastTransportReadThread::run: Decoding resulted in 587 final bytes
 KnowledgeBaseImpl::compile: compiling agent.0.madara_debug_level = 3
 KnowledgeBaseImpl::evaluate: evaluating agent.0.madara_debug_level = 3.
-KnowledgeBaseImpl::compile: compiling agent.0.gams_debug_level = 3
-KnowledgeBaseImpl::evaluate: evaluating agent.0.gams_debug_level = 3.
+MulticastTransportReadThread::run: dropping message from ourself
+KnowledgeBaseImpl::compile: compiling agent.0.gams_debug_level = 6
+KnowledgeBaseImpl::evaluate: evaluating agent.0.gams_debug_level = 6.
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
 NativeDoubleVector::constructor: new object
 NativeDoubleVector::set_name: setting name to sensor.coverage.origin
 NativeDoubleVector::resize: sensor.coverage.origin: resizing to 3
@@ -577,25 +622,16 @@ NativeDoubleVector::set: sensor.coverage.origin: setting element [2] to 0.000000
 NativeDoubleVector::destructor called on sensor.coverage.origin
 WorkerThread::WorkerThread(TopicListener2): thread started (result = 0)
 WorkerThread(TopicListener2)::svc: checking thread existence
-WorkerThread(TopicListener2)::svc: thread repeating at 1.000000 hz
-KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicListener2)::svc: thread checking for pause
-KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicListener2)::svc: thread calling run function
-NativeDoubleVector::set: agent.0.location: setting all elements
-NativeDoubleVector::set: agent.0.orientation: setting all elements
-WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
 WorkerThread::WorkerThread(TopicPublisher): thread started (result = 0)
+WorkerThread(TopicPublisher)::svc: checking thread existence
 
 Knowledge in Knowledge Base:
-.frame=gpsTocartesian
+.frameType=onlyCartesian
 .goalId_=0
 .id=-1
 .initial_alt=0
-.initial_lat=-50.000000
-.initial_lon=-30.000000
-.max_sensor_range=10.000000
-.min_sensor_range=0.450000
+.initial_lat=0
+.initial_lon=0
 .platform=turtleGenericFrame
 .platform.agent.0.communication_available=0
 .platform.agent.0.deadlocked=0
@@ -609,7 +645,7 @@ Knowledge in Knowledge Base:
 .platform.agent.0.sensors_available=0
 .platform.agent.0.waiting=0
 .prefix=agent.0
-.ros_namespace=myplatform
+.ros_namespace=/diff1
 .ros_node=turtlebot_platform_node
 .surface=water
 .vrep_host=127.0.0.1
@@ -619,74 +655,122 @@ Knowledge in Knowledge Base:
 .vrep_port=19906
 .vrep_sw_position=0, 0
 .vrep_thread_move_speed=2
-agent.0.algorithm=snake
+agent.0.algorithm=urac
 agent.0.algorithm.args.area=region.0
-agent.0.gams_debug_level=3
-agent.0.location=-50.000006, -30.000013, 0.000000
+agent.0.gams_debug_level=6
 agent.0.madara_debug_level=3
-agent.0.orientation=0.000000, 0.000000, -0.363444, 0.931616
-region.0.0=-50.000000, -30.000000
-region.0.1=-50.000009, -30.000000
-region.0.2=-50.000009, -30.000009
-region.0.3=-50.000000, -30.000009
+region.0.0=0, 5
+region.0.1=10, 5
+region.0.2=10, 0
+region.0.3=0, 0
 region.0.object_type=1
-region.0.priority=10
+region.0.priority=0
 region.0.size=4
 region.0.type=0
-region.1.0=0, -1
-region.1.1=0, 1
-region.1.2=1, 1
-region.1.3=1, -1
-region.1.object_type=1
-region.1.priority=20
-region.1.size=4
-region.1.type=0
-region.2.0=0, 1
-region.2.1=0, 3
-region.2.2=4, 3
-region.2.3=4, 1
-region.2.object_type=1
-region.2.priority=30
-region.2.size=4
-region.2.type=0
-region.3.0=2, -1
-region.3.1=2, 1
-region.3.2=4, 1
-region.3.3=4, -1
-region.3.object_type=1
-region.3.priority=40
-region.3.size=4
-region.3.type=0
-search_area.0.0=region.0
-search_area.0.1=region.1
-search_area.0.2=region.2
-search_area.0.3=region.3
-search_area.0.object_type=4
-search_area.0.size=4
 sensor.coverage.origin=0.000000, 0.000000, 0.000000
 sensor.coverage.range=2.500000
 swarm.size=1
 KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicPublisher)::svc: checking thread existence
-WorkerThread(TopicPublisher)::svc: thread repeating at 1.000000 hz
-KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicPublisher)::svc: thread checking for pause
-KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicPublisher)::svc: thread calling run function
-WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
 Integer::is_true: checking for non-zero value
 KnowledgeRecord::apply: checking if record is non-zero.
 Integer::is_true: final result is 0
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieviing = 0
+Integer: agent.0.algorithm.id = 0
+String: agent.0.algorithm.last = urac
+String: agent.0.algorithm.last.args.area = region.0
+Integer: agent.0.algorithm.urac.deadlocked = 0
+Integer: agent.0.algorithm.urac.failed = 0
+Integer: agent.0.algorithm.urac.finished = 0
+Integer: agent.0.algorithm.urac.ok = 1
+Integer: agent.0.algorithm.urac.paused = 0
+Integer: agent.0.algorithm.urac.unknown = 0
+Integer: agent.0.algorithm.urac.waiting = 0
+Integer: agent.0.gams_debug_level = 6
+Double: agent.0.loop_hz = 1.000000
+Integer: agent.0.madara_debug_level = 3
+Double: agent.0.send_hz = -1.000000
+Integer: region.0.priority = 1
+Double array: sensor.coverage.origin = 0.000000, 0.000000, 0.000000
+Double: sensor.coverage.range = 2.500000
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 25 modifications to send
+25 modifications ready to send:
+Integer: agent.0.algorithm.accepts = 1
+Integer: agent.0.algorithm.debug.deadlocked = 0
+Integer: agent.0.algorithm.debug.failed = 0
+Integer: agent.0.algorithm.debug.finished = 0
+Integer: agent.0.algorithm.debug.ok = 1
+Integer: agent.0.algorithm.debug.paused = 0
+Integer: agent.0.algorithm.debug.unknown = 0
+Integer: agent.0.algorithm.debug.waiting = 0
+Integer: agent.0.algorithm.id = 0
+String: agent.0.algorithm.last = urac
+String: agent.0.algorithm.last.args.area = region.0
+Integer: agent.0.algorithm.urac.deadlocked = 0
+Integer: agent.0.algorithm.urac.failed = 0
+Integer: agent.0.algorithm.urac.finished = 0
+Integer: agent.0.algorithm.urac.ok = 1
+Integer: agent.0.algorithm.urac.paused = 0
+Integer: agent.0.algorithm.urac.unknown = 0
+Integer: agent.0.algorithm.urac.waiting = 0
+Integer: agent.0.gams_debug_level = 6
+Double: agent.0.loop_hz = 1.000000
+Integer: agent.0.madara_debug_level = 3
+Double: agent.0.send_hz = -1.000000
+Integer: region.0.priority = 1
+Double array: sensor.coverage.origin = 0.000000, 0.000000, 0.000000
+Double: sensor.coverage.range = 2.500000
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.217449 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 25 modifications to send
+25 modifications ready to send:
+Integer: agent.0.algorithm.accepts = 1
+Integer: agent.0.algorithm.debug.deadlocked = 0
+Integer: agent.0.algorithm.debug.failed = 0
+Integer: agent.0.algorithm.debug.finished = 0
+Integer: agent.0.algorithm.debug.ok = 1
+Integer: agent.0.algorithm.debug.paused = 0
+Integer: agent.0.algorithm.debug.unknown = 0
+Integer: agent.0.algorithm.debug.waiting = 0
+Integer: agent.0.algorithm.id = 0
+String: agent.0.algorithm.last = urac
+String: agent.0.algorithm.last.args.area = region.0
+Integer: agent.0.algorithm.urac.deadlocked = 0
+Integer: agent.0.algorithm.urac.failed = 0
+Integer: agent.0.algorithm.urac.finished = 0
+Integer: agent.0.algorithm.urac.ok = 1
+Integer: agent.0.algorithm.urac.paused = 0
+Integer: agent.0.algorithm.urac.unknown = 0
+Integer: agent.0.algorithm.urac.waiting = 0
+Integer: agent.0.gams_debug_level = 6
+Double: agent.0.loop_hz = 1.000000
+Integer: agent.0.madara_debug_level = 3
+Double: agent.0.send_hz = -1.000000
+Integer: region.0.priority = 1
+Double array: sensor.coverage.origin = 0.000000, 0.000000, 0.000000
+Double: sensor.coverage.range = 2.500000
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 25 modifications to send
+gams::controllers::BaseController::run: modifieds=25 modifications ng element from container
 NativeDoubleVector[]: agent.0.location: retrieving element from container
 NativeDoubleVector[]: agent.0.location: retrieving element from container
 NativeDoubleVector[]: agent.0.location: retrieving element from container
-NativeDoubleVector::set: agent.0.dest: setting all elements
-NativeDoubleVector::set: agent.0.orientation: setting all elements
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
 KnowledgeRecord::apply: checking if record is non-zero.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
-MulticastTransport::send_data: Calling filter chain.
-MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
@@ -738,9 +822,127 @@ MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: Calling filter chain.
 MulticastTransport::send_data: Filter returned.
 MulticastTransport::send_data: calling encode filters
-MulticastTransport::send_data: Sending packet of size 1462
-MulticastTransport::send_data: Sent packet of size 1462
-MulticastTransport::send_data: Send bandwidth = 319 B/s
+MulticastTransport::send_data: Sending packet of size 1340
+MulticastTransport::send_data: Sent packet of size 1340
+MulticastTransport::send_data: Send bandwidth = 192 B/s
+MulticastTransportReadThread::run: received a message header of 1340 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 192 B/s
+MulticastTransportReadThread::run: calling decode filters on 1340 bytes
+MulticastTransportReadThread::run: Decoding resulted in 1340 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread repeating at 1.000000 hz
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThrready to send:
+Integer: agent.0.algorithm.accepts = 1
+Integer: agent.0.algorithm.debug.deadlocked = 0
+Integer: agent.0.algorithm.debug.failed = 0
+Integer: agent.0.algorithm.debug.finished = 0
+Integer: agent.0.algorithm.debug.ok = 1
+Integer: agent.0.algorithm.debug.paused = 0
+Integer: agent.0.algorithm.debug.unknown = 0
+Integer: agent.0.algorithm.debug.waiting = 0
+Integer: agent.0.algorithm.id = 0
+String: agent.0.algorithm.last = urac
+String: agent.0.algorithm.last.args.area = region.0
+Integer: agent.0.algorithm.urac.deadlocked = 0
+Integer: agent.0.algorithm.urac.failed = 0
+Integer: agent.0.algorithm.urac.finished = 0
+Integer: agent.0.algorithm.urac.ok = 1
+Integer: agent.0.algorithm.urac.paused = 0
+Integer: agent.0.algorithm.urac.unknown = 0
+Integer: agent.0.algorithm.urac.waiting = 0
+Integer: agent.0.gams_debug_level = 6
+Double: agent.0.loop_hz = 1.000000
+Integer: agent.0.madara_debug_level = 3
+Double: agent.0.send_hz = -1.000000
+Integer: region.0.priority = 1
+Double array: sensor.coverage.origin = 0.000000, 0.000000, 0.000000
+Double: sensor.coverage.range = 2.500000
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 0 modifications to send
+0 modifications ready to send:
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 0 modifications to send
+0 modifications ready to send:
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.217449 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 0 modifications to send
+0 modifications ready to send:
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 0 modifications to send
+gams::controllers::BaseController::run: modifieds=0 modifications ready to send:
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767576, 0.362741, 0.040675
+Double array: agent.0.orientation = -0.000218, -0.010836, -0.020391, 0.999733
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767576, 0.362741, 0.040675
+Double array: agent.0.orientation = -0.000218, -0.010836, -0.020391, 0.999733
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plead(TopicPublisher)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread repeating at 1.000000 hz
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
 MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
 MulticastTransportReadThread::run: finished iteration.
 KnowledgeRecord::apply: checking if record is non-zero.
@@ -755,65 +957,2152 @@ WorkerThread(TopicListener2)::svc: thread calling run function
 NativeDoubleVector::set: agent.0.location: setting all elements
 NativeDoubleVector::set: agent.0.orientation: setting all elements
 WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
-WorkerThread(TopicPublisher)::svc: thread past epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
 KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicPublisher)::svc: thread checking for pause
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 218 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 218 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
 KnowledgeRecord::apply: checking if record is non-zero.
-WorkerThread(TopicPublisher)::svc: thread calling run function
-NativeDoubleVector::to_record: agent.0.dest: retrieving record
-NativeDoubleVector::to_record: agent.0.dest: retrieving recordocesses
-gams::algorithms::AlgorithmFactoryRepository:add Adding square_patrol factory.
-gams::algorithms::AlgorithmFactoryRepository:add Adding zigzagcoverage factory.
-gams::platforms::PlatformFactoryRepository:add Adding turtlebot_platform factory.
-gams::platforms::PlatformFactoryRepository:add Adding turtlegenericframe factory.
-gams::controllers::BaseController::init_platform: initializing platform turtleGenericFrame
-gams::controllers::BaseController::init_platform: deleting old platform
-gams::controllers::BaseController::init_platform: factory is creating platform turtleGenericFrame
-gams::controllers::BaseController::init_vars: initializing platform's vars
-gams::controllers::BaseController::init_platform: Updating algorithm factory's platform
-gams::controllers::BaseController::init_algorithm: initializing algorithm debug
-gams::controllers::BaseController::init_algorithm: deleting old algorithm
-gams::controllers::BaseController::init_algorithm: factory is creating algorithm debug
-gams::algorithms::AlgorithmFactoryRepository::create: creating "debug" algorithm.
-gams::algorithms::BaseAlgorithm: constructor succeeded
-gams::controllers::BaseController::init_vars: initializing algorithm's vars
-gams::controllers::BaseController::run: loop_period: 1.000000s, max_runtime: 500.000000s, send_period: 1.000000s
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: an: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.430747 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767576, 0.362741, 0.040675
+Double array: agent.0.orientation = -0.000218, -0.010836, -0.020391, 0.999733
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767576, 0.362741, 0.040675
+Double array: agent.0.orientation = -0.000218, -0.010836, -0.020391, 0.999733
+
 gams::controllers::BaseController::run: calling system_analyze ()
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$gams::controllers::BaseController::system_analyze: checking agent and swarm commands
-gams::controllers::BaseController::system_analyze: Processing agent command: snake
-gams::controllers::BaseController::init_algorithm: initializing algorithm snake
-gams::controllers::BaseController::init_algorithm: deleting old algorithm
-gams::controllers::BaseController::init_algorithm: factory is creating algorithm snake
-gams::algorithms::AlgorithmFactoryRepository::create: creating "snake" algorithm.
-gams::algorithms::area_coverage::SnakeAreaCoverageFactory: entered create with 1 args
-gams::algorithms::BaseAlgorithm: constructor succeeded
-gams::algorithms::area_coverage::BaseAreaCoverage: constructor succeeded
-gams::controllers::BaseController::init_vars: initializing algorithm's vars
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
 gams::controllers::BaseController::run: calling monitor ()
 gams::controllers::BaseController::monitor: calling platform_->sense ()
-gams::controllers::BaseController::run: after monitor (), 26 modifications to send
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767587, 0.363019, 0.040686
+Double array: agent.0.orientation = -0.000216, -0.010837, -0.020475, 0.999732
+
 gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
  ------------- PLATFORM ARRIVED!!!...
 gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
-gams::controllers::BaseController::run: after analyze (), 26 modifications to send
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767587, 0.363019, 0.040686
+Double array: agent.0.orientation = -0.000216, -0.010837, -0.020475, 0.999732
+
 gams::controllers::BaseController::run: calling plan ()
 gams::controllers::BaseController::plan: calling algorithm_->plan ()
-gams::controllers::BaseController::run: after plan (), 26 modifications to send
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.430497 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767587, 0.363019, 0.040686
+Double array: agent.0.orientation = -0.000216, -0.010837, -0.020475, 0.999732
+
 gams::controllers::BaseController::run: calling execute ()
 gams::controllers::BaseController::execute: calling algorithm_->execute ()
-gams::utility::GPSPosition::distance_to: distance from "-50,-30,0" to "-50.000009,-30.000009,0" is 1.189667
-gams::utility::GPSPosition::distance_to: distance from "-30.060718,-51.173249,0" to "-50,-30,0" is 3011295.624683
-gams::controllers::BaseController::run: after execute (), 27 modifications to send
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767587, 0.363019, 0.040686
+Double array: agent.0.orientation = -0.000216, -0.010837, -0.020475, 0.999732
+
 gams::controllers::BaseController::run: calling system_analyze ()
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
 gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
 gams::controllers::BaseController::run: calling monitor ()
 gams::controllers::BaseController::monitor: calling platform_->sense ()
 gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767598, 0.363286, 0.040699
+Double array: agent.0.orientation = -0.000226, -0.010838, -0.020555, 0.999730
+
+gams::controllers::BaseController::run: calling analchecking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 244 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 244 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: reyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767598, 0.363286, 0.040699
+Double array: agent.0.orientation = -0.000226, -0.010838, -0.020555, 0.999730
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.430257 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767598, 0.363286, 0.040699
+Double array: agent.0.orientation = -0.000226, -0.010838, -0.020555, 0.999730
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767598, 0.363286, 0.040699
+Double array: agent.0.orientation = -0.000226, -0.010838, -0.020555, 0.999730
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767610, 0.363570, 0.040695
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.020641, 0.999728
+
 gams::controllers::BaseController::run: calling analyze ()
 gams::controllers::BaseController::analyze: calling platform_->analyze ()
 
  ------------- PLATFORM ARRIVED!!!...
-gams::controllers::BaseController::analyze: calling algorithm_->a
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767610, 0.363570, 0.040695
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.020641, 0.999728
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.430002 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767610, 0.363570, 0.040695
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.020641, 0.999728
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767610, 0.363570, 0.040695
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.020641, 0.999728
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllerstrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 270 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 270 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 295 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 295 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRec::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767622, 0.363842, 0.040677
+Double array: agent.0.orientation = -0.000224, -0.010836, -0.020723, 0.999727
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767622, 0.363842, 0.040677
+Double array: agent.0.orientation = -0.000224, -0.010836, -0.020723, 0.999727
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.429758 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767622, 0.363842, 0.040677
+Double array: agent.0.orientation = -0.000224, -0.010836, -0.020723, 0.999727
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767622, 0.363842, 0.040677
+Double array: agent.0.orientation = -0.000224, -0.010836, -0.020723, 0.999727
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767633, 0.364120, 0.040676
+Double array: agent.0.orientation = -0.000219, -0.010836, -0.020807, 0.999725
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767633, 0.364120, 0.040676
+Double array: agent.0.orientation = -0.000219, -0.010836, -0.020807, 0.999725
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.429509 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767633, 0.364120, 0.040676
+Double array: agent.0.orientation = -0.000219, -0.010836, -0.020807, 0.999725
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exceptiord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 321 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 321 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 347 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 347 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 373 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 373 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::on in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767633, 0.364120, 0.040676
+Double array: agent.0.orientation = -0.000219, -0.010836, -0.020807, 0.999725
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767645, 0.364395, 0.040687
+Double array: agent.0.orientation = -0.000225, -0.010837, -0.020890, 0.999723
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767645, 0.364395, 0.040687
+Double array: agent.0.orientation = -0.000225, -0.010837, -0.020890, 0.999723
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.429262 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767645, 0.364395, 0.040687
+Double array: agent.0.orientation = -0.000225, -0.010837, -0.020890, 0.999723
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767645, 0.364395, 0.040687
+Double array: agent.0.orientation = -0.000225, -0.010837, -0.020890, 0.999723
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767656, 0.364662, 0.040701
+Double array: agent.0.orientation = -0.000233, -0.010838, -0.020970, 0.999721
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767656, 0.364662, 0.040701
+Double array: agent.0.orientation = -0.000233, -0.010838, -0.020970, 0.999721
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.429023 (need 0.500000 accuracy)
+svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 399 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 399 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 424 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 1gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767656, 0.364662, 0.040701
+Double array: agent.0.orientation = -0.000233, -0.010838, -0.020970, 0.999721
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767656, 0.364662, 0.040701
+Double array: agent.0.orientation = -0.000233, -0.010838, -0.020970, 0.999721
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767667, 0.364933, 0.040688
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.021052, 0.999720
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767667, 0.364933, 0.040688
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.021052, 0.999720
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.428780 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767667, 0.364933, 0.040688
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.021052, 0.999720
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767667, 0.364933, 0.040688
+Double array: agent.0.orientation = -0.000230, -0.010837, -0.021052, 0.999720
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767679, 0.365213, 0.040687
+Double array: agent.0.orientation = -0.000224, -0.010837, -0.021136, 0.999718
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseControll0.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 424 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 258 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 258 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz eper::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767679, 0.365213, 0.040687
+Double array: agent.0.orientation = -0.000224, -0.010837, -0.021136, 0.999718
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.428528 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767679, 0.365213, 0.040687
+Double array: agent.0.orientation = -0.000224, -0.010837, -0.021136, 0.999718
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767679, 0.365213, 0.040687
+Double array: agent.0.orientation = -0.000224, -0.010837, -0.021136, 0.999718
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767690, 0.365479, 0.040677
+Double array: agent.0.orientation = -0.000226, -0.010836, -0.021216, 0.999716
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767690, 0.365479, 0.040677
+Double array: agent.0.orientation = -0.000226, -0.010836, -0.021216, 0.999716
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.428291 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767690, 0.365479, 0.040677
+Double array: agent.0.orientation = -0.000226, -0.010836, -0.021216, 0.999716
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767690, 0.365479, 0.040677
+Double array: agent.0.orientation = -0.000226, -0.010836, -0.021216, 0.999716
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: callinoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.g monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767702, 0.365748, 0.040690
+Double array: agent.0.orientation = -0.000235, -0.010837, -0.021297, 0.999714
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767702, 0.365748, 0.040690
+Double array: agent.0.orientation = -0.000235, -0.010837, -0.021297, 0.999714
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.428049 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767702, 0.365748, 0.040690
+Double array: agent.0.orientation = -0.000235, -0.010837, -0.021297, 0.999714
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767702, 0.365748, 0.040690
+Double array: agent.0.orientation = -0.000235, -0.010837, -0.021297, 0.999714
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767714, 0.366025, 0.040694
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.021381, 0.999713
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767714, 0.366025, 0.040694
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.021381, 0.999713
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.427800 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767714, 0.366025, 0.040694
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.021381, 0.999713
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location:
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767714, 0.366025, 0.040694
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.021381, 0.999713
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767726, 0.366287, 0.040699
+Double array: agent.0.orientation = -0.000230, -0.010838, -0.021460, 0.999711
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767726, 0.366287, 0.040699
+Double array: agent.0.orientation = -0.000230, -0.010838, -0.021460, 0.999711
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.427566 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767726, 0.366287, 0.040699
+Double array: agent.0.orientation = -0.000230, -0.010838, -0.021460, 0.999711
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767726, 0.366287, 0.040699
+Double array: agent.0.orientation = -0.000230, -0.010838, -0.021460, 0.999711
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767737, 0.366553, 0.040683
+Double array: agent.0.orientation = -0.000228, -0.010836, -0.021540, 0.999709
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767737, 0.366553, 0.040683
+Double array: agent.0.orientation = -0.000228, -0.010836, -0.021540, 0.999709
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.427328 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767737 retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThre, 0.366553, 0.040683
+Double array: agent.0.orientation = -0.000228, -0.010836, -0.021540, 0.999709
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767737, 0.366553, 0.040683
+Double array: agent.0.orientation = -0.000228, -0.010836, -0.021540, 0.999709
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767749, 0.366826, 0.040679
+Double array: agent.0.orientation = -0.000235, -0.010836, -0.021622, 0.999707
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767749, 0.366826, 0.040679
+Double array: agent.0.orientation = -0.000235, -0.010836, -0.021622, 0.999707
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.427083 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767749, 0.366826, 0.040679
+Double array: agent.0.orientation = -0.000235, -0.010836, -0.021622, 0.999707
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767749, 0.366826, 0.040679
+Double array: agent.0.orientation = -0.000235, -0.010836, -0.021622, 0.999707
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767761, 0.367084, 0.040687
+Double array: agent.0.orientation = -0.000241, -0.010836, -0.021700, 0.999706
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to ad(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread callisend:
+Double array: agent.0.location = 6.767761, 0.367084, 0.040687
+Double array: agent.0.orientation = -0.000241, -0.010836, -0.021700, 0.999706
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.426852 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767761, 0.367084, 0.040687
+Double array: agent.0.orientation = -0.000241, -0.010836, -0.021700, 0.999706
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767761, 0.367084, 0.040687
+Double array: agent.0.orientation = -0.000241, -0.010836, -0.021700, 0.999706
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767773, 0.367350, 0.040699
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021780, 0.999704
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767773, 0.367350, 0.040699
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021780, 0.999704
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.426614 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767773, 0.367350, 0.040699
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021780, 0.999704
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767773, 0.367350, 0.040699
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021780, 0.999704
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767784, 0.367613, 0.040699
+Double array: agent.0.orientation = -0.000231, -0.010837, -0.021859, 0.999702
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767784, 0.367613, 0.040699
+Double array: agent.0.orientation = -0.000231, -0.010837, -0.021859, 0.999702
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.426378 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767784, 0.367613, 0.040699
+Double array: agent.0.orientation = -0.000231, -0.010837, -0.021859, 0.999702
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767784, 0.367613, 0.040699
+Double array: agent.0.orientation = -0.000231, -0.010837, -0.021859, 0.999702
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767795, 0.367879, 0.040690
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021939, 0.999701
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767795, 0.367879, 0.040690
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021939, 0.999701
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.426139 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767795, 0.367879, 0.040690
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.021939, 0.999701
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767795, 0.367879, 0.040690
+Double ng run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPubarray: agent.0.orientation = -0.000236, -0.010837, -0.021939, 0.999701
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767806, 0.368136, 0.040676
+Double array: agent.0.orientation = -0.000244, -0.010835, -0.022017, 0.999699
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767806, 0.368136, 0.040676
+Double array: agent.0.orientation = -0.000244, -0.010835, -0.022017, 0.999699
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.425908 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767806, 0.368136, 0.040676
+Double array: agent.0.orientation = -0.000244, -0.010835, -0.022017, 0.999699
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767806, 0.368136, 0.040676
+Double array: agent.0.orientation = -0.000244, -0.010835, -0.022017, 0.999699
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767818, 0.368407, 0.040677
+Double array: agent.0.orientation = -0.000243, -0.010836, -0.022098, 0.999697
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767818, 0.368407, 0.040677
+Double array: agent.0.orientation = -0.000243, -0.010836, -0.022098, 0.999697
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.425666 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767818, 0.368407, 0.040677
+Double array: agent.0.orientation = -0.000243, -0.010836, -0.022098, 0.999697
+
+gams::controllers::BaseController::run: calling exelisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size cute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767818, 0.368407, 0.040677
+Double array: agent.0.orientation = -0.000243, -0.010836, -0.022098, 0.999697
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767830, 0.368662, 0.040694
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.022175, 0.999695
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767830, 0.368662, 0.040694
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.022175, 0.999695
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.425437 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767830, 0.368662, 0.040694
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.022175, 0.999695
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767830, 0.368662, 0.040694
+Double array: agent.0.orientation = -0.000236, -0.010837, -0.022175, 0.999695
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767842, 0.368927, 0.040700
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.022255, 0.999694
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767842, 0.368927, 0.040700
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.022255, 0.999694
+
+gams258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: wait timeout on new messages. Proceeding to next wait
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all ele::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.425200 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767842, 0.368927, 0.040700
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.022255, 0.999694
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767842, 0.368927, 0.040700
+Double array: agent.0.orientation = -0.000237, -0.010837, -0.022255, 0.999694
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767854, 0.369191, 0.040701
+Double array: agent.0.orientation = -0.000244, -0.010837, -0.022334, 0.999692
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767854, 0.369191, 0.040701
+Double array: agent.0.orientation = -0.000244, -0.010837, -0.022334, 0.999692
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.424964 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767854, 0.369191, 0.040701
+Double array: agent.0.orientation = -0.000244, -0.010837, -0.022334, 0.999692
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767854, 0.369191, 0.040701
+Double array: agent.0.orientation = -0.000244, -0.010837, -0.022334, 0.999692
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767865, 0.369444, 0.040683
+Double array: agent.0.orientation = -0.000ments
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransp248, -0.010836, -0.022411, 0.999690
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767865, 0.369444, 0.040683
+Double array: agent.0.orientation = -0.000248, -0.010836, -0.022411, 0.999690
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.424737 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767865, 0.369444, 0.040683
+Double array: agent.0.orientation = -0.000248, -0.010836, -0.022411, 0.999690
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767865, 0.369444, 0.040683
+Double array: agent.0.orientation = -0.000248, -0.010836, -0.022411, 0.999690
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controllers::BaseController::system_analyze: checking agent and swarm commands
+gams::controllers::BaseController::run: sending updates
+gams::controllers::BaseController::run: sleeping until next epoch
+gams::controllers::BaseController::run: calling monitor ()
+gams::controllers::BaseController::monitor: calling platform_->sense ()
+gams::controllers::BaseController::run: after monitor (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767876, 0.369703, 0.040676
+Double array: agent.0.orientation = -0.000243, -0.010835, -0.022489, 0.999688
+
+gams::controllers::BaseController::run: calling analyze ()
+gams::controllers::BaseController::analyze: calling platform_->analyze ()
+
+ ------------- PLATFORM ARRIVED!!!...
+gams::controllers::BaseController::analyze: calling algorithm_->analyze ()
+gams::controllers::BaseController::run: after analyze (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767876, 0.369703, 0.040676
+Double array: agent.0.orientation = -0.000243, -0.010835, -0.022489, 0.999688
+
+gams::controllers::BaseController::run: calling plan ()
+gams::controllers::BaseController::plan: calling algorithm_->plan ()
+gams::algorithms::area_coverage::BaseAreaCoverage::plan: distance between points is 10.424505 (need 0.500000 accuracy)
+gams::controllers::BaseController::run: after plan (), 2 modifications to send
+2 modifications ready to send:
+Double array: agent.0.location = 6.767876, 0.369703, 0.040676
+Double array: agent.0.orientation = -0.000243, -0.010835, -0.022489, 0.999688
+
+gams::controllers::BaseController::run: calling execute ()
+gams::controllers::BaseController::execute: calling algorithm_->execute ()
+gams::algorithms::area_coverage::BaseAreaCoverage::execute: calling platform->move("9.897309,2.537625,0")
+gams::controllers::BaseController::analyze: exception in algorithm_->execute (): No transform path found between frames.
+gams::controllers::BaseController::run: after execute (), 2 modifications to send
+gams::controllers::BaseController::run: modifieds=2 modifications ready to send:
+Double array: agent.0.location = 6.767876, 0.369703, 0.040676
+Double array: agent.0.orientation = -0.000243, -0.010835, -0.022489, 0.999688
+
+gams::controllers::BaseController::run: calling system_analyze ()
+gams::controlort::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicListener2)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicListener2)::svc: thread checking for next hertz epoch
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector::to_record: agent.0.location: retrieving record
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+NativeDoubleVector[]: agent.0.location: retrieving element from container
+KnowledgeRecord::apply: checking if record is non-zero.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: Calling filter chain.
+MulticastTransport::send_data: Filter returned.
+MulticastTransport::send_data: calling encode filters
+MulticastTransport::send_data: Sending packet of size 258
+MulticastTransport::send_data: Sent packet of size 258
+MulticastTransport::send_data: Send bandwidth = 283 B/s
+MulticastTransportReadThread::run: received a message header of 258 bytes from 10.32.177.58:42152
+MulticastTransportReadThread::run: Receive bandwidth = 283 B/s
+MulticastTransportReadThread::run: calling decode filters on 258 bytes
+MulticastTransportReadThread::run: Decoding resulted in 258 final bytes
+MulticastTransportReadThread::run: dropping message from ourself
+MulticastTransportReadThread::run: finished iteration.
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(read0)::svc: thread calling run function
+WorkerThread(TopicPublisher)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread checking for pause
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(TopicPublisher)::svc: thread calling run function
+NativeDoubleVector::set: agent.0.location: setting all elements
+NativeDoubleVector::set: agent.0.orientation: setting all elements
+WorkerThread(TopicPublisher)::svc: thread checking for next hertz epoch
+WorkerThread(TopicListener2)::svc: thread past epoch
+KnowledgeRecord::apply: checking if record is non-zero.
+WorkerThread(T

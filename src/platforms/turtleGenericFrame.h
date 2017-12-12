@@ -193,7 +193,7 @@ namespace platforms
     platforms::threads::TopicListener2* topic_listener_;
 
     madara::knowledge::containers::Integer goalId_;
-    madara::knowledge::containers::String frame_;
+    madara::knowledge::containers::String frameType_;
 
     ros::ServiceClient updateServiceClientMoveBase;
   }; // end turtleGenericFrame class

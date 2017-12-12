@@ -14,12 +14,9 @@ platforms::threads::TopicListener2::TopicListener2 (ros::NodeHandle node_handle,
 	status_ = status;
 
 
-	subOdom_ = node_handle_.subscribe("/odom", 1, &platforms::threads::TopicListener2::processOdom, this);
-	subScan_ = node_handle_.subscribe("/scan", 1, &platforms::threads::TopicListener2::processScanOnce, this);
-	subFeed_ = node_handle_.subscribe("/move_base/feedback", 1, &platforms::threads::TopicListener2::processFeedback, this);
-	subStatus_ = node_handle_.subscribe("/move_base/status", 1, &platforms::threads::TopicListener2::processStatus, this);
 
-	listener.waitForTransform("/map", "/odom", ros::Time(), ros::Duration(1.0));
+
+	//listener.waitForTransform("/map", "/odom", ros::Time(), ros::Duration(1.0));
 }
 
 // destructor
@@ -50,6 +47,11 @@ platforms::threads::TopicListener2::init (knowledge::KnowledgeBase & knowledge)
 	//location_.set_name(".location_", knowledge);
 	//location_.set_name(".location", knowledge);
 	//orientation_.set_name(".orientation", knowledge);
+
+	subOdom_ = node_handle_.subscribe(knowledge.get (".ros_namespace").to_string ()+"/odom", 1, &platforms::threads::TopicListener2::processOdom, this);
+	subScan_ = node_handle_.subscribe(knowledge.get (".ros_namespace").to_string ()+"/scan", 1, &platforms::threads::TopicListener2::processScanOnce, this);
+	subFeed_ = node_handle_.subscribe(knowledge.get (".ros_namespace").to_string ()+"/move_base/feedback", 1, &platforms::threads::TopicListener2::processFeedback, this);
+	subStatus_ = node_handle_.subscribe(knowledge.get (".ros_namespace").to_string ()+"/move_base/status", 1, &platforms::threads::TopicListener2::processStatus, this);
 }
 
 /**
@@ -78,7 +80,7 @@ void platforms::threads::TopicListener2::processOdom(const nav_msgs::Odometry::C
 
 	tf::StampedTransform transform_in_map;
 	try {
-	  listener.lookupTransform("/map", "/odom", ros::Time(), transform_in_map);
+	  /*listener.lookupTransform("/map", "/odom", ros::Time(), transform_in_map);*/
 	  /*std::cerr<<"\n transform_in_map: ("<<transform_in_map.getOrigin().getX()<<", "<<transform_in_map.getOrigin().getY()<<", "<<transform_in_map.getOrigin().getZ()<<") "
 
 					  <<" rot: ("<<transform_in_map.getRotation().getX()<<", "
@@ -86,7 +88,7 @@ void platforms::threads::TopicListener2::processOdom(const nav_msgs::Odometry::C
 					  <<transform_in_map.getRotation().getZ()<<", "
 					  <<transform_in_map.getRotation().getW()<<") ";*/
 
-		tf::Vector3 loc(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
+		/*tf::Vector3 loc(odom->pose.pose.position.x, odom->pose.pose.position.y, odom->pose.pose.position.z);
 		loc = transform_in_map * loc;
 		if (frame_=="gpsTocartesian")
 		{
@@ -102,9 +104,9 @@ void platforms::threads::TopicListener2::processOdom(const nav_msgs::Odometry::C
 		std::vector <double> locationTemp2;
 		locationTemp2.push_back(loc.getX());
 		locationTemp2.push_back(loc.getY());
-		locationTemp2.push_back(loc.getZ());
+		locationTemp2.push_back(loc.getZ());*/
 		//location_.set(locationTemp2);
-		self_->agent.location.set(locationTemp2);
+		self_->agent.location.set(locationTemp);
 		std::vector <double> orientationTemp;
 		orientationTemp.push_back(odom->pose.pose.orientation.x);
 		orientationTemp.push_back(odom->pose.pose.orientation.y);

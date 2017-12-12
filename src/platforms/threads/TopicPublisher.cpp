@@ -12,8 +12,7 @@ platforms::threads::TopicPublisher::TopicPublisher (ros::NodeHandle node_handle,
 	goalChanged_=false;
 	cancelRequested_=false;
 
-	std::string topicName = "/move_base/goal";
-	pubGoal_ = node_handle.advertise<move_base_msgs::MoveBaseActionGoal>(topicName.c_str(), 1);
+
 }
 
 // destructor
@@ -33,6 +32,9 @@ platforms::threads::TopicPublisher::init (knowledge::KnowledgeBase & knowledge)
 	// point our data plane to the knowledge base initializing the thread
 	data_ = knowledge;
 	goalId_.set_name(".goalId_", knowledge);
+
+	std::string topicName = knowledge.get (".ros_namespace").to_string ()+"/move_base/goal";
+	pubGoal_ = node_handle_.advertise<move_base_msgs::MoveBaseActionGoal>(topicName.c_str(), 1);
 }
 
 /**
@@ -47,12 +49,12 @@ platforms::threads::TopicPublisher::run (void)
 	if (goalChanged_)
 	{
 		move_base_msgs::MoveBaseActionGoal msg;
-		msg.header.frame_id="map";
+		msg.header.frame_id="world";
 		msg.header.stamp = ros::Time::now();
 		goalId_= goalId_.to_integer()+1;
 		msg.goal_id.id = goalId_.to_string();
 		msg.goal_id.stamp = ros::Time::now();
-		msg.goal.target_pose.header.frame_id = "map";
+		msg.goal.target_pose.header.frame_id = "world";
 		msg.goal.target_pose.pose.position.x = self_->agent.dest.to_record(0).to_double();
 		msg.goal.target_pose.pose.position.y = self_->agent.dest.to_record(1).to_double();
 		msg.goal.target_pose.pose.position.z = self_->agent.desired_altitude.to_double();
@@ -76,6 +78,7 @@ platforms::threads::TopicPublisher::run (void)
 
 void platforms::threads::TopicPublisher::move(void)
 {
+	std::cerr<<"\n\n======================== calling platforms::threads::TopicPublisher::move";
 	goalChanged_ = true;
 }
 

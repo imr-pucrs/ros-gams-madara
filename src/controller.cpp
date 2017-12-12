@@ -422,8 +422,6 @@ int main (int argc, char ** argv)
     new platforms::turtleGenericFrameFactory ());
   // end adding custom platform factories
   
-  knowledge.set(".ros_namespace", "myplatform");
-  knowledge.set(".ros_node", "turtlebot_platform_node");
 
 
 

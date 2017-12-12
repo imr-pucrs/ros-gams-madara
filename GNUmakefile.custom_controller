@@ -20,13 +20,13 @@ FILES = \
   src/controller.cpp \
   src/algorithms/ZigZagCoverage.cpp \
   src/algorithms/square_patrol.cpp \
-  src/platforms/turtlebot_platform.cpp \
   src/platforms/turtleGenericFrame.cpp \
+  src/platforms/turtlebot_platform.cpp \
   src/platforms/threads/TopicListener.cpp \
-  src/platforms/threads/TopicPublisher.cpp \
-  src/platforms/threads/TopicListener2.cpp
+  src/platforms/threads/TopicListener2.cpp \
+  src/platforms/threads/TopicPublisher.cpp
 
-VPATH = .:src/platforms:src:src/algorithms:src/platforms/threads
+VPATH = .:src:src/algorithms:src/platforms:src/platforms/threads
 
 #----------------------------------------------------------------------------
 #       Include macros and targets

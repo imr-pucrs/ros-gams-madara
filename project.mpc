@@ -17,7 +17,6 @@ project (custom_controller) : using_gams, using_madara, using_ace, using_vrep {
   Header_Files {
     src/
     src/algorithms
-    src/filters
     src/platforms
     src/platforms/threads
   }
@@ -25,7 +24,6 @@ project (custom_controller) : using_gams, using_madara, using_ace, using_vrep {
   Source_Files {
     src
     src/algorithms
-    src/filters
     src/platforms
     src/platforms/threads
   }
