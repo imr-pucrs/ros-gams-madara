@@ -14,8 +14,9 @@
 
 
 
-.ros_namespace='/diff1';
+.ros_namespace='';
 .ros_node='turtlebot_platform_node';
+.goal_frame_id = 'map';
 
 /*
 agent.0.algorithm = "waypoints";
@@ -27,5 +28,25 @@ agent.0.algorithm.args.locations.3=[0, 0, 0];
 agent.0.algorithm.args.repeat=3;
 */
 
+/* test with turtlebot urac */
+/*
 agent.0.algorithm = "urac";
 agent.0.algorithm.args.area="region.0";
+*/
+
+
+/* test with turtlebot in LSA */
+agent.0.algorithm = "urac";
+agent.0.algorithm.args.area="region.0";
+
+/* test with turtlebot in LSA */
+/*
+agent.0.algorithm = "waypoints";
+agent.0.algorithm.args.locations.size=4;
+agent.0.algorithm.args.locations.0=[0.3, -3];
+agent.0.algorithm.args.locations.1=[2.5, -3];
+agent.0.algorithm.args.locations.2=[2, 0.5];
+agent.0.algorithm.args.locations.3=[0.3, 0.5];
+agent.0.algorithm.args.repeat=3;
+*/
+

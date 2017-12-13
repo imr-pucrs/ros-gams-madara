@@ -497,8 +497,10 @@ int main (int argc, char ** argv)
   // wait for all threads
   threader.wait ();
   
+  std::cerr<<"\n ENDING...";
   // print all knowledge values
   knowledge.print ();
+  std::cerr<<"\n bye bye";
 
   return 0;
 }

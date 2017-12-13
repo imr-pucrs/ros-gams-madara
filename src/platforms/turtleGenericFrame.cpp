@@ -53,7 +53,6 @@ platforms::turtleGenericFrame::turtleGenericFrame (
     }
     (*sensors_)["coverage"] = (*sensors)["coverage"];
     status_.init_vars (*knowledge, self->prefix.to_string());
-    std::cerr<<"\n\n\n -------------------- prefix: "<<get_id()<<"\n";
     //self_->agent.gams_debug_level=0;
     //self_->agent.madara_debug_level=0;
     
@@ -66,10 +65,9 @@ platforms::turtleGenericFrame::turtleGenericFrame (
     goalId_ = 0;
     frameType_.set_name(".frameType", *knowledge);
 
-    std::cerr<<"\n\n @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ id: "<<self_->id.to_integer();
+
     self_->init_vars(*knowledge, self_->prefix.to_string());
-    std::cerr<<"\n\n @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ id: "<<self_->id.to_integer();
-    std::cerr<<"\n\n @@@@@@ "<<self_->agent.algorithm.to_string()<<" algorithm_id: "<<self_->agent.algorithm_id.to_integer();
+
     knowledge->print();
 
 
@@ -101,7 +99,7 @@ platforms::turtleGenericFrame::~turtleGenericFrame ()
 int platforms::turtleGenericFrame::sense (void)
 {
 
-	std::cerr<<"\n -----------------------=================== location: "<<self_->agent.location.to_record(0).to_string()<<", "<<self_->agent.location.to_record(1).to_string()<<") ";
+	std::cerr<<"\n =================== location: "<<self_->agent.location.to_record(0).to_string()<<", "<<self_->agent.location.to_record(1).to_string()<<") ";
   return gams::platforms::PLATFORM_OK;
 }
 
@@ -200,7 +198,7 @@ platforms::turtleGenericFrame::get_accuracy (void) const
 	std::string rosParameter ="/move_base/DWAPlannerROS/xy_goal_tolerance";
 	double accuracy;
 	if (node_handle_.getParam(rosParameter.c_str(), accuracy))
-		return accuracy*2.0; // should be this
+		return accuracy*2.5; // should be this
 	return 0.5;
 
 }
@@ -216,9 +214,7 @@ platforms::turtleGenericFrame::get_location () const
 	  gams::utility::GPSPosition gpsP = gams::utility::GPSPosition::to_gps_position (result,
 	  			gams::utility::GPSPosition(knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0));
 	  result = gams::pose::Position(gpsP.x, gpsP.y, gpsP.z);
-
   }
-  std::cerr<<"\n -+!+--+!+--+!+--+!+- location: ("<<result.x()<<", "<<result.y()<<", "<<result.z()<<") ";
   return result;
 }
 
@@ -291,72 +287,8 @@ platforms::turtleGenericFrame::move (
    * platform status to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
-	//knowledge_->print();
 	std::cerr<<"\n ------------------- move(move): ("<<location.latitude()<<", "<<location.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
-
-
-
-
-	if ((frameType_=="onlyCartesian") || (frameType_=="onlyGps"))
-	{
-
-		location.to_container(self_->agent.dest);
-
-		std::vector<double> stdOrientation;
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(1.0);
-		self_->agent.orientation.set(stdOrientation);
-		topic_publisher_->move();
-	}
-	else if (frameType_=="gpsTocartesian")
-	{
-		gams::utility::GPSPosition gpsP(location.latitude(), location.longitude(), location.altitude());
-		gams::utility::Position  p = gpsP.to_position(gams::utility::GPSPosition(knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0));
-		gams::utility::GPSPosition gpsP2 (knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0);
-		std::cout.precision(10);
-		std::cerr.precision(10);
-
-		std::cerr<<"\n ------------------- move: ("<<location.latitude()<<", "<<location.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
-		std::cerr<<"\n ------------------- cartesian: ("<<p.x<<", "<<p.y<<") initial: "<<knowledge_->get (".initial_lat").to_double ()<<", "<<knowledge_->get (".initial_lon").to_double ();
-		std::cerr<<"\n ------------------- dist: "<<gpsP2.distance_to(gpsP);
-		std::cerr<<"\n ------------------- gpsP2: "<<gpsP2.to_string(",", 10);
-		std::vector<double> stdPosition;
-		stdPosition.push_back(p.y);
-		stdPosition.push_back(p.x);
-		stdPosition.push_back(p.z);
-		self_->agent.dest.set(stdPosition);
-		topic_publisher_->move();
-		std::vector<double> stdOrientation;
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(0.0);
-		stdOrientation.push_back(1.0);
-		self_->agent.orientation.set(stdOrientation);
-
-	}
-
-	/*std::cerr<<"\n ------------------- move: ("<<location.latitude()<<", "<<location.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
-	gams::utility::GPSPosition gpsP(location.latitude(), location.longitude(), location.altitude());
-	gams::utility::Position  p = gpsP.to_position(gams::utility::GPSPosition(-30.060700, -51.173249, 0));
-	std::cerr<<"\n ------------------- p: ("<<p.x<<", "<<p.y<<")";
-
-
-*/
-	gams::utility::GPSPosition gpsP = gams::utility::GPSPosition::to_gps_position (gams::utility::Position(0,0,0),
-			gams::utility::GPSPosition(knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0));
-
-	std::cerr<<"\n ------------------- gpsP: ("<<gpsP.x<<", "<<gpsP.y<<")";
-	gams::utility::Position  p = gpsP.to_position(gams::utility::GPSPosition(-30.060700, -51.173249, 0));
-	gams::utility::GPSPosition gpsP2 (-51.173249, -30.060709-0.000009, 0);
-	std::cerr<<"\n dist to gpsP2: "<<gpsP2.distance_to(gpsP);
-
-	std::cerr<<"\n ------------------- p2: ("<<p.x<<", "<<p.y<<")";
-	gams::utility::GPSPosition gpsP3 (-30.06070759, -51.173249, 0);
-//*/
-/*
-
+	location.to_container(self_->agent.dest);
 
 	std::vector<double> stdOrientation;
 	stdOrientation.push_back(0.0);
@@ -364,8 +296,7 @@ platforms::turtleGenericFrame::move (
 	stdOrientation.push_back(0.0);
 	stdOrientation.push_back(1.0);
 	self_->agent.orientation.set(stdOrientation);
-	location.to_container(self_->agent.dest);
-	topic_publisher_->move();*/
+	topic_publisher_->move();
 
     return gams::platforms::PLATFORM_MOVING;
 }
@@ -398,12 +329,6 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
    * platform status to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
-	/*std::cerr<<"\n ------------------- pose: ("<<target.x()<<", "<<target.y()<<") ";
-	gams::pose::Position location(target.x(),target.y(),target.z() );
-	location.to_container(self_->agent.dest);
-	gams::pose::Orientation orientation(target.rx(), target.ry(), target.rz());
-	orientation.to_container(self_->agent.orientation);
-	topic_publisher_->move();*/
 
 	double dist =target.distance_to(
 			gams::pose::Pose(self_->agent.location.to_record(0).to_double(), self_->agent.location.to_record(1).to_double(), self_->agent.location.to_record(2).to_double())) ;
@@ -422,39 +347,12 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
 	stdOrientation.push_back(q.y());
 	stdOrientation.push_back(q.z());
 	stdOrientation.push_back(q.w());
-	if ((frameType_=="onlyCartesian") || (frameType_=="onlyGps"))
-		{
-			std::cerr<<"\n ------------------- move(pose): ("<<target.latitude()<<", "<<target.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
-			target.to_container(self_->agent.dest);
 
+	target.to_container(self_->agent.dest);
+	self_->agent.orientation.set(stdOrientation);
+	topic_publisher_->move();
 
-			self_->agent.orientation.set(stdOrientation);
-			topic_publisher_->move();
-		}
-		else if (frameType_=="gpsTocartesian")
-		{
-			gams::utility::GPSPosition gpsP(target.latitude(), target.longitude(), target.altitude());
-			gams::utility::Position  p = gpsP.to_position(gams::utility::GPSPosition(knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0));
-			gams::utility::GPSPosition gpsP2 (knowledge_->get (".initial_lat").to_double (), knowledge_->get (".initial_lon").to_double (), 0);
-			std::cout.precision(10);
-			std::cerr.precision(10);
-
-			std::cerr<<"\n ------------------- move: ("<<target.latitude()<<", "<<target.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
-			std::cerr<<"\n ------------------- cartesian: ("<<p.x<<", "<<p.y<<") initial: "<<knowledge_->get (".initial_lat").to_double ()<<", "<<knowledge_->get (".initial_lon").to_double ();
-			std::cerr<<"\n ------------------- dist: "<<gpsP2.distance_to(gpsP);
-			std::cerr<<"\n ------------------- gpsP2: "<<gpsP2.to_string(",", 10);
-			std::vector<double> stdPosition;
-			stdPosition.push_back(p.y);
-			stdPosition.push_back(p.x);
-			stdPosition.push_back(p.z);
-			self_->agent.dest.set(stdPosition);
-
-			self_->agent.orientation.set(stdOrientation);
-			topic_publisher_->move();
-		}
-
-
-  return gams::platforms::PLATFORM_MOVING;
+	return gams::platforms::PLATFORM_MOVING;
 }
 
 // Pauses movement, keeps source and dest at current values. Optional.

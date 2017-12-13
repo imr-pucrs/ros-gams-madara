@@ -67,6 +67,9 @@ namespace platforms
       ros::Publisher pubGoal_;
       ros::Publisher pubCancel_;
       madara::knowledge::containers::Integer goalId_;
+      std::string goal_frame_id_;
+      madara::knowledge::containers::String frameType_;
+
 
     };
   } // end namespace threads

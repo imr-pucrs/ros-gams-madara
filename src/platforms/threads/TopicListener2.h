@@ -54,8 +54,6 @@ namespace platforms
 
       void processOdom(const nav_msgs::Odometry::ConstPtr& odom);
 
-
-
       void processScanOnce(const sensor_msgs::LaserScan::ConstPtr& scan);
 
       void processFeedback(const move_base_msgs::MoveBaseActionFeedback::ConstPtr& feed);
@@ -83,7 +81,6 @@ namespace platforms
       gams::variables::PlatformStatus status_;
 
 
-      //madara::knowledge::containers::Double moveSpeed_;
       madara::knowledge::containers::Integer goalId_;
       madara::knowledge::containers::String frame_;
       madara::knowledge::containers::Double initial_lat_;
@@ -91,8 +88,7 @@ namespace platforms
       madara::knowledge::containers::Double initial_alt_;
 	  madara::knowledge::containers::Double min_sensor_range_;
 	  madara::knowledge::containers::Double max_sensor_range_;
-	  //madara::knowledge::containers::NativeDoubleVector location_;
-	  //madara::knowledge::containers::NativeDoubleVector orientation_;
+	  madara::knowledge::containers::String frameType_;
     };
   } // end namespace threads
 } // end namespace platforms
