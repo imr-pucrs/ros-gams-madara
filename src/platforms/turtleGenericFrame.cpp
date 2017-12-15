@@ -207,6 +207,7 @@ platforms::turtleGenericFrame::get_accuracy (void) const
 gams::pose::Position
 platforms::turtleGenericFrame::get_location () const
 {
+	std::cerr<<"\n\n ----///---platforms::turtleGenericFrame::get_location";
   gams::pose::Position result;
   result.from_container(self_->agent.location);
   if (frameType_=="gpsTocartesian")
@@ -287,7 +288,10 @@ platforms::turtleGenericFrame::move (
    * platform status to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
-	std::cerr<<"\n ------------------- move(move): ("<<location.latitude()<<", "<<location.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
+	std::cerr<<"\n ========= ";
+	std::cerr<<"\n ========= ";
+	std::cerr<<"\n ========= ";
+	std::cerr<<"\n ================== move(move): ("<<location.latitude()<<", "<<location.longitude()<<") gps_frame: ("<<this->gps_frame.origin().x()<<", "<<this->gps_frame.origin().y()<<", "<<this->gps_frame.origin().z()<<") ";
 	location.to_container(self_->agent.dest);
 
 	std::vector<double> stdOrientation;
@@ -329,10 +333,15 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
    * platform status to determine what to return. For now, we will simply
    * return that we are in the process of moving to the final pose.
    **/
+	std::cerr<<"\n --------- ";
+	std::cerr<<"\n --------- ";
+	std::cerr<<"\n --------- ";
+	std::cerr<<"\n --------- calling pose: "<<target.x()<<", "<<target.y()<<", "<<target.z()<<") ";
+	//double dist =target.distance_to(
+	//		gams::pose::Pose(self_->agent.location.to_record(0).to_double(), self_->agent.location.to_record(1).to_double(), self_->agent.location.to_record(2).to_double())) ;
 
-	double dist =target.distance_to(
-			gams::pose::Pose(self_->agent.location.to_record(0).to_double(), self_->agent.location.to_record(1).to_double(), self_->agent.location.to_record(2).to_double())) ;
 
+	/*
 	if (dist< this->get_accuracy())
 	{
 		std::cerr<<"\n PLATFORM_ARRIVED";
@@ -340,6 +349,7 @@ platforms::turtleGenericFrame::pose (const gams::pose::Pose & target,
 		std::cerr<<"\n PLATFORM_ARRIVED";
 			return gams::platforms::PLATFORM_ARRIVED;
 	}
+	//*/
 	gams::pose::Quaternion q(gams::pose::OrientationVector(target.rx(), target.ry(), target.rz() ));
 
 	std::vector<double> stdOrientation;

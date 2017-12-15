@@ -44,8 +44,11 @@ HOW TO:
 TESTING PATROL
 --------------
 
+Cada comando abaixo deve ser rodado num terminal:
+
 roscore 
 roslaunch turtlebot_gazebo turtlebot_world.launch
-roslaunch turtlebot_navigation amcl_demo.launch map_file:=/home/paravisi/turtlebotmap2.yaml
+roslaunch turtlebot_navigation amcl_demo.launch map_file:=$PROJECT_HOME/turtlebot_gams/turtlebotmap3.yaml
 roslaunch turtlebot_rviz_launchers view_navigation.launch 
 ./action run
+

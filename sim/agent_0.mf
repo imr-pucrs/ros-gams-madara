@@ -37,7 +37,7 @@ agent.0.algorithm.args.area="region.0";
 
 /* test with turtlebot in LSA */
 agent.0.algorithm = "urac";
-agent.0.algorithm.args.area="region.0";
+agent.0.algorithm.args.area="search_area.turtlebot";
 
 /* test with turtlebot in LSA */
 /*

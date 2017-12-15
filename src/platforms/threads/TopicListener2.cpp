@@ -13,7 +13,7 @@ platforms::threads::TopicListener2::TopicListener2 (ros::NodeHandle node_handle,
 	self_ = self;
 	status_ = status;
 
-	listener.waitForTransform("/map", "/base_footprint", ros::Time(), ros::Duration(1.0));
+	listener.waitForTransform("/map", "/base_footprint", ros::Time(0), ros::Duration(1.0));
 }
 
 // destructor
@@ -61,7 +61,7 @@ platforms::threads::TopicListener2::run (void)
 	std::vector <double> orientationTemp;
 	tf::StampedTransform transform_in_map;
 	try {
-			listener.lookupTransform("/map", "/base_footprint", ros::Time(), transform_in_map);
+			listener.lookupTransform("/map", "/base_footprint", ros::Time(0), transform_in_map);
 			if (frameType_=="cartesian")
 			{
 				locationTemp.push_back(transform_in_map.getOrigin().y()); // lat

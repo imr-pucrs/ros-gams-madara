@@ -55,7 +55,7 @@ platforms::threads::TopicPublisher::run (void)
 		msg.goal_id.id = goalId_.to_string();
 		msg.goal_id.stamp = ros::Time::now();
 		msg.goal.target_pose.header.frame_id = goal_frame_id_;
-		if (frameType_=="cartesian")
+		/*if (frameType_=="cartesian")
 		{
 			msg.goal.target_pose.pose.position.y = self_->agent.dest.to_record(0).to_double();
 			msg.goal.target_pose.pose.position.x = self_->agent.dest.to_record(1).to_double();
@@ -63,12 +63,12 @@ platforms::threads::TopicPublisher::run (void)
 			msg.goal.target_pose.pose.orientation.x = self_->agent.orientation.to_record(1).to_double();
 		}
 		if (frameType_=="GPS")
-		{
+		{*/
 			msg.goal.target_pose.pose.position.x = self_->agent.dest.to_record(0).to_double();
 			msg.goal.target_pose.pose.position.y = self_->agent.dest.to_record(1).to_double();
 			msg.goal.target_pose.pose.orientation.x = self_->agent.orientation.to_record(0).to_double();
 			msg.goal.target_pose.pose.orientation.y = self_->agent.orientation.to_record(1).to_double();
-		}
+		//}
 
 		msg.goal.target_pose.pose.position.z = self_->agent.desired_altitude.to_double();
 		msg.goal.target_pose.pose.orientation.z = self_->agent.orientation.to_record(2).to_double();
