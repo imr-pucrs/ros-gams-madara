@@ -64,15 +64,16 @@ platforms::threads::TopicPublisher::run (void)
 		}
 		if (frameType_=="GPS")
 		{*/
-			msg.goal.target_pose.pose.position.x = self_->agent.dest.to_record(0).to_double();
-			msg.goal.target_pose.pose.position.y = self_->agent.dest.to_record(1).to_double();
-			msg.goal.target_pose.pose.orientation.x = self_->agent.orientation.to_record(0).to_double();
-			msg.goal.target_pose.pose.orientation.y = self_->agent.orientation.to_record(1).to_double();
-		//}
 
-		msg.goal.target_pose.pose.position.z = self_->agent.desired_altitude.to_double();
-		msg.goal.target_pose.pose.orientation.z = self_->agent.orientation.to_record(2).to_double();
-		msg.goal.target_pose.pose.orientation.w = self_->agent.orientation.to_record(3).to_double();
+			msg.goal.target_pose.pose.position.x = floor(self_->agent.dest.to_record(0).to_double() * 100.0) / 100.0;
+			msg.goal.target_pose.pose.position.y = floor(self_->agent.dest.to_record(1).to_double() * 100.0) / 100.0;
+			msg.goal.target_pose.pose.orientation.x = self_->agent.dest_orientation.to_record(0).to_double();
+			msg.goal.target_pose.pose.orientation.y = self_->agent.dest_orientation.to_record(1).to_double();
+		//}
+std::cerr<<"\n ###############################3 sending msg to topic move_base/goal "<<self_->agent.dest.to_record();
+		msg.goal.target_pose.pose.position.z = floor(self_->agent.dest.to_record(2).to_double() * 100.0) / 100.0;
+		msg.goal.target_pose.pose.orientation.z = self_->agent.dest_orientation.to_record(2).to_double();
+		msg.goal.target_pose.pose.orientation.w = self_->agent.dest_orientation.to_record(3).to_double();
 		pubGoal_.publish(msg);
 
 		goalChanged_ = false;

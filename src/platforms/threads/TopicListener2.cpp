@@ -13,7 +13,7 @@ platforms::threads::TopicListener2::TopicListener2 (ros::NodeHandle node_handle,
 	self_ = self;
 	status_ = status;
 
-	listener.waitForTransform("/map", "/base_footprint", ros::Time(0), ros::Duration(1.0));
+//	listener.waitForTransform("/map", "/base_footprint", ros::Time(0), ros::Duration(1.0));
 }
 
 // destructor
@@ -57,7 +57,7 @@ platforms::threads::TopicListener2::init (knowledge::KnowledgeBase & knowledge)
 void
 platforms::threads::TopicListener2::run (void)
 {
-	std::vector <double> locationTemp;
+/*	std::vector <double> locationTemp;
 	std::vector <double> orientationTemp;
 	tf::StampedTransform transform_in_map;
 	try {
@@ -86,7 +86,7 @@ platforms::threads::TopicListener2::run (void)
 	}
 	catch(tf::TransformException &exception) {
 		  ROS_ERROR("%s", exception.what());
-	}
+	}*/
 	ros::spinOnce();
 }
 

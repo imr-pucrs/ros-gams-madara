@@ -16,7 +16,7 @@
  * Specialty options (must be compiled with more than just vrep feature)
  * ros-p3dx        : A ROS Pioneer 3DX robot
  **/
-.platform = 'turtleGenericFrame';
+.platform = 'MoveBasePlatform';
 
 sensor.coverage.origin=[0,0, 0.0];
 

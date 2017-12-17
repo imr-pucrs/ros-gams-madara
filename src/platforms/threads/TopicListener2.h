@@ -70,7 +70,7 @@ namespace platforms
 
       ros::NodeHandle node_handle_;
 
-      tf::TransformListener listener;
+      //tf::TransformListener listener;
 
       ros::Subscriber subOdom_;
       ros::Subscriber subScan_;

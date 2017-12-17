@@ -455,8 +455,8 @@
  /home/paravisi/gams/src/gams/platforms/PlatformFactory.h \
  src/algorithms/square_patrol.h src/algorithms/ZigZagCoverage.h \
  /home/paravisi/gams/src/gams/algorithms/area_coverage/BaseAreaCoverage.h \
- src/platforms/turtlebot_platform.h \
- /home/paravisi/gams/src/gams/platforms/ros/RosBase.h \
+ src/platforms/MoveBasePlatform.h src/platforms/threads/TopicPublisher.h \
+ /home/paravisi/madara/include/madara/threads/BaseThread.h \
  /opt/ros/kinetic/share/ros/../../include/ros/ros.h \
  /opt/ros/kinetic/share/ros/../../include/ros/time.h \
  /opt/ros/kinetic/share/ros/../../include/ros/platform.h \
@@ -520,46 +520,13 @@
  /opt/ros/kinetic/share/ros/../../include/ros/param.h \
  /opt/ros/kinetic/share/ros/../../include/ros/topic.h \
  /opt/ros/kinetic/share/ros/../../include/ros/node_handle.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseAction.h \
+ /opt/ros/kinetic/share/ros/../../include/nav_msgs/Odometry.h \
  /opt/ros/kinetic/share/ros/../../include/ros/message_operations.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionGoal.h \
  /opt/ros/kinetic/share/ros/../../include/std_msgs/Header.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalID.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseGoal.h \
- /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseStamped.h \
+ /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovariance.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Pose.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Point.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Quaternion.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionResult.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalStatus.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseResult.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionFeedback.h \
- /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseFeedback.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_action_client.h \
- /opt/ros/kinetic/share/ros/../../include/ros/callback_queue.h \
- /opt/ros/kinetic/share/ros/../../include/ros/callback_queue_interface.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/action_client.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/client_helpers.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/action_definition.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/managed_list.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/destruction_guard.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/enclosure_deleter.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/goal_id_generator.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/decl.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/comm_state.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/terminal_state.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalStatusArray.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/goal_manager_imp.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/client_goal_handle_imp.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/comm_state_machine_imp.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/connection_monitor.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_goal_state.h \
- /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_client_goal_state.h \
- /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovarianceStamped.h \
- /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovariance.h \
- src/platforms/threads/TopicListener.h \
- /home/paravisi/madara/include/madara/threads/BaseThread.h \
- /opt/ros/kinetic/share/ros/../../include/nav_msgs/Odometry.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/TwistWithCovariance.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Twist.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Vector3.h \
@@ -574,6 +541,7 @@
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/QuaternionStamped.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/TransformStamped.h \
  /opt/ros/kinetic/share/ros/../../include/geometry_msgs/Transform.h \
+ /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseStamped.h \
  /opt/ros/kinetic/share/ros/../../include/tf/LinearMath/Transform.h \
  /opt/ros/kinetic/share/ros/../../include/tf/LinearMath/Matrix3x3.h \
  /opt/ros/kinetic/share/ros/../../include/tf/LinearMath/Vector3.h \
@@ -606,11 +574,44 @@
  /opt/ros/kinetic/share/ros/../../include/sensor_msgs/ChannelFloat32.h \
  /opt/ros/kinetic/share/ros/../../include/std_msgs/Empty.h \
  /opt/ros/kinetic/share/ros/../../include/tf/tfMessage.h \
+ /opt/ros/kinetic/share/ros/../../include/ros/callback_queue.h \
+ /opt/ros/kinetic/share/ros/../../include/ros/callback_queue_interface.h \
  /opt/ros/kinetic/share/ros/../../include/tf/FrameGraph.h \
  /opt/ros/kinetic/share/ros/../../include/tf/FrameGraphRequest.h \
  /opt/ros/kinetic/share/ros/../../include/tf/FrameGraphResponse.h \
  /opt/ros/kinetic/share/ros/../../include/tf2_ros/transform_listener.h \
  /opt/ros/kinetic/share/ros/../../include/tf2_msgs/TFMessage.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionFeedback.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalStatus.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalID.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseFeedback.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionGoal.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseGoal.h \
+ /home/paravisi/gams/src/gams/platforms/ros/RosBase.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseAction.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseActionResult.h \
+ /opt/ros/kinetic/share/ros/../../include/move_base_msgs/MoveBaseResult.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_action_client.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/action_client.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/client_helpers.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/action_definition.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/managed_list.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/destruction_guard.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/enclosure_deleter.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/goal_id_generator.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/decl.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/comm_state.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/terminal_state.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib_msgs/GoalStatusArray.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/goal_manager_imp.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/client_goal_handle_imp.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/comm_state_machine_imp.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/connection_monitor.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_goal_state.h \
+ /opt/ros/kinetic/share/ros/../../include/actionlib/client/simple_client_goal_state.h \
+ /opt/ros/kinetic/share/ros/../../include/geometry_msgs/PoseWithCovarianceStamped.h \
+ src/platforms/threads/TopicListener2.h \
+ src/platforms/threads/TopicListener.h src/platforms/turtlebot_platform.h \
  /home/paravisi/gams/src/gams/utility/Position.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/DoubleParameter.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/Reconfigure.h \
@@ -621,6 +622,4 @@
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/StrParameter.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/GroupState.h \
  /opt/ros/kinetic/share/ros/../../include/dynamic_reconfigure/ReconfigureResponse.h \
- src/platforms/turtleGenericFrame.h \
- src/platforms/threads/TopicListener2.h \
- src/platforms/threads/TopicPublisher.h
+ src/platforms/turtleGenericFrame.h

@@ -13,6 +13,7 @@
 // end algorithm includes
 
 // begin platform includes
+#include "platforms/MoveBasePlatform.h"
 #include "platforms/turtlebot_platform.h"
 #include "platforms/turtleGenericFrame.h"
 // end platform includes
@@ -406,6 +407,13 @@ int main (int argc, char ** argv)
   // end adding custom algorithm factories
 
   // begin adding custom platform factories
+
+  // add MoveBasePlatform factory
+  aliases.clear ();
+  aliases.push_back ("MoveBasePlatform");
+
+  controller.add_platform_factory (aliases,
+    new platforms::MoveBasePlatformFactory ());
 
   // add turtlebot_platform factory
   aliases.clear ();
