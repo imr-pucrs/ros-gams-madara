@@ -1,0 +1,12 @@
+export PROJECT_HOME=$HOME/gamsProjects
+export ACE_ROOT=$HOME/ace/ACE_wrappers
+export MADARA_ROOT=$HOME/madara
+export GAMS_ROOT=$HOME/gams
+export VREP_ROOT=$HOME/vrep
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ACE_ROOT/lib:$MADARA_ROOT/lib:$GAMS_ROOT/lib:$VREP_ROOT
+export PATH=$PATH:$ACE_ROOT/bin:$MADARA_ROOT/bin:$GAMS_ROOT/bin:
+export CORES=4
+export NDK=$HOME/android_arm_tools
+export LOCAL_CROSS_PREFIX=$NDK/bin/arm-linux-androideabi-
+export SYSROOT=$NDK/sysroot
+export PATH=$PATH:$VREP_ROOT
