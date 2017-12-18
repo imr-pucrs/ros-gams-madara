@@ -21,34 +21,59 @@ HOW TO:
     block the controller. It is in your best interest to poll information from
     the environment and knowledge base, rather than blocking on an operating
     system call.
+    
+  INSTALL:
+  
+    Note: this turotiral works only on Ubuntu 16.04. To install GAMS/MADARA use the following commands on the terminal:
+    
+        export GAMS_ROOT=$HOME/gams
+        export CORES=4
+        git clone -b master --single-branch https://github.com/jredmondson/gams $GAMS_ROOT
+        
 
   COMPILE ON LINUX:
   
-    mwc.pl -type gnuace workspace.mwc
-    make vrep=1
-    
-  COMPILE ON WINDOWS:
-  
-    mwc.pl -type vc12 workspace.mwc 
-    
-    <Open Visual Studio and compile project>. Note that you should compile the
-    solution in the same settings you used for ACE, MADARA, and GAMS. For most
-    users, this is probably Release mode for x64. However, whatever you use
-    make sure that you have compiled ACE, MADARA, and GAMS in those settings.
-    
+        $GAMS_ROOT/scripts/linux/base_build.sh prereqs ace madara gams ros
+        
   RUN THE SIMULATION:
-    open VREP simulator
-    perl sim/run.pl 
+  
+        cd $HOME
+        git clone https://github.com/marceloparavisi/turtlebot_gams.git
+        cd $HOME/turtlebot_gams.git
+        source setup.sh 
     
 
 TESTING PATROL
 --------------
 
-Cada comando abaixo deve ser rodado num terminal:
+Each command below must be run in separate terminals:
+
+TERMINAL 1
+----------
 
 roscore 
-roslaunch turtlebot_gazebo turtlebot_world.launch
-roslaunch turtlebot_navigation amcl_demo.launch map_file:=$PROJECT_HOME/turtlebot_gams/turtlebotmap3.yaml
-roslaunch turtlebot_rviz_launchers view_navigation.launch 
-./action run
 
+
+TERMINAL 2
+----------
+
+roslaunch turtlebot_gazebo turtlebot_world.launch
+
+
+TERMINAL 3
+----------
+
+roslaunch turtlebot_navigation amcl_demo.launch map_file:=$PROJECT_HOME/turtlebot_gams/turtlebotmap3.yaml
+
+
+TERMINAL 4
+----------
+
+roslaunch turtlebot_rviz_launchers view_navigation.launch 
+
+
+TERMINAL 5
+----------
+
+cd $HOME/turtlebot_gams
+./action run
