@@ -40,8 +40,7 @@ HOW TO:
         cd $HOME
         git clone https://github.com/marceloparavisi/turtlebot_gams.git
         cd $HOME/turtlebot_gams.git
-        source setup.sh 
-    
+            
 
 TESTING PATROL
 --------------
@@ -76,4 +75,5 @@ TERMINAL 5
 ----------
 
 cd $HOME/turtlebot_gams
+source setup.sh
 ./action run
