@@ -30,7 +30,6 @@ HOW TO:
         export CORES=4
         git clone -b master --single-branch https://github.com/jredmondson/gams $GAMS_ROOT
         
-
   COMPILE ON LINUX:
   
         $GAMS_ROOT/scripts/linux/base_build.sh prereqs ace madara gams ros
